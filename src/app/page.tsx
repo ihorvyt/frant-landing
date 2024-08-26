@@ -13,10 +13,10 @@ export default function Home() {
         <Header/>
         <main>
             <InfinitySlider />
-            {/*<Globus/>*/}
-            {/*<TechnologyStack/>*/}
-            {/*<SiteVariations/>*/}
-            {/*<FrantSection/>*/}
+            <Globus/>
+            <TechnologyStack/>
+            <SiteVariations/>
+            <FrantSection/>
 
             <div className="text">
 
