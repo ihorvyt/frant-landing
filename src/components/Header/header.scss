@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:  2.865vw  3.385vw 0;
+
+  nav {
+    display: flex;
+    gap: 3.542vw;
+
+    a {
+      color: var(--White, #EEEAE4);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.25vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+
+
+  .lang {
+    svg {
+      height: 2.865vwA;
+      width: 2.865vw;
+      cursor: pointer;
+    }
+  }
+}

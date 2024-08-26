@@ -1,0 +1,68 @@
+@import '../../styles/values.scss';
+
+
+@keyframes infiniteScroll {
+  from {transform: translateX(0)}
+  to {transform: translateX(-100%)}
+}
+
+@keyframes infiniteScroll-2 {
+  from {transform: translateX(100%)}
+  to {transform: translateX(0%)}
+}
+
+.container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  height: 3.75vw;
+
+  border-top: 4px solid var(--Grey, #C0C0C0);
+  border-bottom: 4px solid var(--Grey, #C0C0C0);
+
+  &:hover {
+    .horizontal-scrolling-items {
+      animation-play-state: paused;
+
+      &.second {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+.horizontal-scrolling-items {
+  position: absolute;
+  display: flex;
+  font-size: 40px;
+  width: 100vw;
+  animation-name: infiniteScroll;
+  transform: translateX(0%);
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  overflow: hidden;
+
+  .item {
+    margin-left: auto;
+
+    span {
+      color: $white;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.146vw;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 153%; /* 33.66px */
+    }
+
+    svg {
+      width: 4.115vw;
+      height: 1.042vw;
+    }
+  }
+
+  &.second {
+    animation-name: infiniteScroll-2;
+  }
+}

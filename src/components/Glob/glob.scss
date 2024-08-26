@@ -1,0 +1,86 @@
+@import '../../styles/values.scss';
+
+.glob {
+  padding: 0 2.24vw 100vw 2.24vw;
+
+  .glob-bg {
+    display: flex;
+    height: 41.927vw;
+    width: 100%;
+
+    background-image: url('/images/componets/glob/globBg.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .glob-info {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.042vw;
+      padding: 0 0 3% 2.2%;
+
+      .glob-text-code {
+        display: flex;
+        flex-direction: column;
+        gap: 2.344vw;
+        width: 48.073vw;
+
+        .glob-text {
+          h1 {
+            color: $black;
+            font-size: 4.375vw;
+            font-weight: 900;
+            line-height: normal;
+          }
+
+          p {
+            color: #343434;
+            text-align: justify;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 1.719vw;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 153%; /* 50.49px */
+          }
+
+          .space-text {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+              color: #343434;
+              font-family: "Plus Jakarta Sans", sans-serif;
+              font-size: 1.719vw;
+              font-weight: 700;
+              line-height: 153%;
+            }
+          }
+        }
+
+        .glob-code {
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .glob-time {
+        .time-n-date {
+          display: flex;
+          flex-direction: column;
+          padding: 0.1vw 0;
+          gap: 0.938vw;
+
+          span {
+            color: #1E1E1E;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 2.031vw;
+            font-style: normal;
+            font-weight: 250;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}

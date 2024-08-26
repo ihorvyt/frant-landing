@@ -1,0 +1,81 @@
+@import '../../styles/values.scss';
+
+
+.site-variations {
+  padding: 0 2.24vw 100vw 2.24vw;
+
+  .site-variation-container {
+    display: flex;
+
+    .site-variation-column {
+      display: flex;
+      flex-direction: column;
+
+      .site-variation-element {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+
+        span {
+          color: $white;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 1.563vw;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 185%; /* 55.5px */
+          text-transform: uppercase;
+
+          transition: .5s;
+          white-space: nowrap;
+        }
+
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0%;
+
+          transform: translate(-100%, -50%);
+          width: 1.563vw;
+          height: 0.677vw;
+
+          transition: .5s;
+          background-image: url('/images/svg/arror-variation.svg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        &:hover {
+          span {
+            margin-left: 2.083vw;
+            color: $primary;
+          }
+
+          &::before {
+            transform: translate(0, -50%);
+          }
+        }
+      }
+
+
+
+
+      &:first-child  {
+        width: 27.5vw;
+      }
+
+      &:nth-child(2) {
+        margin-right: auto;
+      }
+
+      &:nth-child(3) {
+        width: 29.9vw;
+        margin-right: 3vw;
+      }
+    }
+  }
+}
