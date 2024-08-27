@@ -1,0 +1,129 @@
+.check {
+  display: flex;
+  padding: 1.667vw 1.25vw;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.406vw;
+  width: 24.01vw;
+
+  background: url(/images/componets/check/bill.png), #FFF;
+
+  .site-variant {
+    h3 {
+      color: #000;
+      text-align: center;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 4.479vw;
+      font-weight: 700;
+      line-height: 107.93%;
+      text-transform: uppercase;
+    }
+  }
+
+  .check-info-secondary {
+    p {
+      text-align: center;
+      color: #000;
+      font-family: "Courier New", sans-serif;
+      font-size: 1.198vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 107.93%;
+
+      b {
+        font-family: "Courier New", sans-serif;
+        color: #000;
+        font-size: 1.198vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 107.93%; /* 24.824px */
+        text-transform: uppercase;
+      }
+    }
+
+    .upper-case {
+      text-transform: uppercase;
+    }
+
+    .full-width {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 0.2vw;
+
+      span {
+        color: #000;
+        font-family: "Courier New", sans-serif;
+        font-size: 1.198vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 107.93%;
+      }
+    }
+  }
+
+  .check-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        color: #202020;
+        font-family: "Courier New", monospace;
+        font-size: 1.198vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 107.93%;
+      }
+
+      .name {
+
+      }
+
+      .value {
+      }
+    }
+  }
+
+  .line {
+    color: #202020;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 1.25vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.93%; /* 25.903px */
+  }
+
+  .total-price {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    div {
+      color: #000;
+      font-family: "Courier New", monospace;
+      font-size: 1.979vw;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 107.93%;
+    }
+  }
+
+  .bar-code-line {
+    p {
+      color: #202020;
+      text-align: center;
+      font-family: "Libre Barcode 128 Text", system-ui;
+      font-size: 2.292vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 153%; /* 67.32px */
+      text-transform: uppercase;
+    }
+  }
+}

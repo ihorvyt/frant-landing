@@ -1,0 +1,100 @@
+@import '../../styles/values.scss';
+
+
+.time-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.083vw;
+
+  .time-info-container {
+    display: flex;
+    height: 693px;
+    gap: 3.177vw;
+
+    .card {
+      padding: 1.302vw 1.06vw 1.302vw 1.406vw;
+      width: 100%;
+
+      border-radius: 0px 0px 60px 60px;
+      border-bottom: 29px solid $primary;
+      background: var(--White, #EEEAE4);
+    }
+
+    .respond-within {
+      display: flex;
+      flex-direction: column;
+
+      .top {
+        padding: 0 1vw 0 0;
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+          width: fit-content;
+
+          h4 {
+            color: $black;
+            font-family: Unbounded, sans-serif;
+            font-size: 1.223vw;
+            font-style: normal;
+            font-weight: 600;
+          }
+        }
+
+        .count {
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -0.15vw;
+            right: -1vw;
+            display: flex;
+            width: 3.424vw;
+            height: 1.719vw;
+
+            border: 1.565px solid var(--Black, #0A0A0A);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -0.45vw;
+            right: -1.3vw;
+            display: flex;
+            width: 3.424vw;
+            height: 1.719vw;
+
+            border: 1.565px solid var(--Black, #0A0A0A);
+          }
+
+          span {
+            color: black;
+            font-family: Unbounded, sans-serif;
+            font-size: 1.223vw;
+            font-style: normal;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .center {
+        margin: auto;
+
+        p {
+          color: $black;
+          font-family: Unbounded, sans-serif;
+          font-size: 5vw;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 107.93%; /* 103.613px */
+
+          span {
+            color: $black;
+            font-size: 1.563vw;
+          }
+        }
+      }
+    }
+  }
+}

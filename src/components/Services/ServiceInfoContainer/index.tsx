@@ -1,3 +1,5 @@
+import './serviceInfoContainer.scss'
+
 interface IServiceInfoContainer {
     title: string,
     description?: string
@@ -6,7 +8,7 @@ interface IServiceInfoContainer {
 
 const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
     return (<div className="service-info-container">
-        <div className="brand-ident-info">
+        <div className="service-info">
             <div className="title">
                 <h3>{title}</h3>
             </div>

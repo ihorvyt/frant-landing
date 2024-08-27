@@ -1,0 +1,50 @@
+@import "/src/styles/values";
+
+.service-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.094vw;
+
+  .service-info {
+    .title {
+      h3 {
+        font-family: Unbounded, sans-serif;
+        font-size: 6.667vw;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 107.93%; /* 138.15px */
+
+        background: linear-gradient(92deg, #FFF 60.96%, #E61717 80.51%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .descr {
+      width: 30vw;
+
+      p {
+        color: var(--Grey, #C0C0C0);
+        text-align: justify;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.563vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 185%; /* 55.5px */
+      }
+    }
+  }
+
+  .service-ident-button {
+    display: flex;
+    width: fit-content;
+    align-self: flex-end;
+    padding: 15px 41px;
+    align-items: center;
+    gap: 17px;
+
+    border-radius: 40px 0 40px 40px;
+    border: 4px solid $grey;
+  }
+}

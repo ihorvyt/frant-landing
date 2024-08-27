@@ -1,5 +1,5 @@
 import './brandIdentity.scss'
-import ServiceInfoContainer from "@/components/ServiceInfoContainer";
+import ServiceInfoContainer from "@/components/Services/ServiceInfoContainer";
 
 const Index = () => {
     return (
