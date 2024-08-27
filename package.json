@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/fiber": "^8.17.5",
     "@types/three": "^0.167.2",
+    "gh-pages": "^6.1.1",
     "html2canvas": "^1.4.1",
     "next": "14.2.6",
     "react": "^18",

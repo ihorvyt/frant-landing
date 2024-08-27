@@ -21,33 +21,33 @@ const Index = () => {
                     </div>
                 </div>
 
-                <div className="respond-within card">
+                <div className="make-an-offer card">
                     <div className="top">
                         <div className="title">
-                            <h4>Respond within</h4>
+                            <h4>Make an offer</h4>
                         </div>
 
                         <div className="count">
-                            <span>1</span>
+                            <span>2</span>
                         </div>
                     </div>
                     <div className="center">
-                        <p>48<span>hours</span></p>
+                        <p>7<span>days</span></p>
                     </div>
                 </div>
 
-                <div className="respond-within card">
+                <div className="project-realization card">
                     <div className="top">
                         <div className="title">
-                            <h4>Respond within</h4>
+                            <h4>Project realization</h4>
                         </div>
 
                         <div className="count">
-                            <span>1</span>
+                            <span>3</span>
                         </div>
                     </div>
                     <div className="center">
-                        <p>48<span>hours</span></p>
+                        <p>45<span>days</span></p>
                     </div>
                 </div>
             </div>

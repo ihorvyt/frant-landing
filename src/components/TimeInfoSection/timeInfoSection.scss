@@ -12,17 +12,11 @@
     gap: 3.177vw;
 
     .card {
+      display: flex;
+      flex-direction: column;
       padding: 1.302vw 1.06vw 1.302vw 1.406vw;
       width: 100%;
 
-      border-radius: 0px 0px 60px 60px;
-      border-bottom: 29px solid $primary;
-      background: var(--White, #EEEAE4);
-    }
-
-    .respond-within {
-      display: flex;
-      flex-direction: column;
 
       .top {
         padding: 0 1vw 0 0;
@@ -53,7 +47,7 @@
             width: 3.424vw;
             height: 1.719vw;
 
-            border: 1.565px solid var(--Black, #0A0A0A);
+            border: 0.082vw solid var(--Black, #0A0A0A);
           }
 
           &::after {
@@ -65,7 +59,7 @@
             width: 3.424vw;
             height: 1.719vw;
 
-            border: 1.565px solid var(--Black, #0A0A0A);
+            border: 0.082vw solid var(--Black, #0A0A0A);
           }
 
           span {
@@ -92,6 +86,59 @@
           span {
             color: $black;
             font-size: 1.563vw;
+          }
+        }
+      }
+    }
+
+    .respond-within {
+      border-radius: 0px 0px 60px 60px;
+      border-bottom: 29px solid $primary;
+      background: var(--White, #EEEAE4);
+    }
+
+    .make-an-offer{
+      border-radius: 0px 0px 60px 60px;
+      background: var(--White, #EEEAE4);
+    }
+
+    .project-realization{
+      border-radius: 0px 0px 60px 60px;
+      background: var(--Primary, #C3B8A3);
+
+      .top {
+        .count {
+          &::before {
+            content: "";
+            position: absolute;
+            top: -0.15vw;
+            right: -1vw;
+            display: flex;
+            width: 3.424vw;
+            height: 1.719vw;
+
+            border: 0.082vw solid var(--Black, #0A0A0A);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -0.45vw;
+            right: -1.3vw;
+            display: flex;
+            width: 3.424vw;
+            height: 1.719vw;
+
+            background-color: red;
+            border: 0.082vw solid var(--Black, #0A0A0A);
+          }
+
+          span {
+            color: black;
+            font-family: Unbounded, sans-serif;
+            font-size: 1.223vw;
+            font-style: normal;
+            font-weight: 600;
           }
         }
       }
