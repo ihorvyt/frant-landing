@@ -2,13 +2,13 @@
 
 
 @keyframes infiniteScroll {
-  from {transform: translateX(0)}
-  to {transform: translateX(-100%)}
+  from {transform: translate(0, -50%)}
+  to {transform: translate(-100%, -50%)}
 }
 
 @keyframes infiniteScroll-2 {
-  from {transform: translateX(100%)}
-  to {transform: translateX(0%)}
+  from {transform: translate(100%, -50%)}
+  to {transform: translate(0%, -50%)}
 }
 
 .container {
@@ -34,17 +34,21 @@
 
 .horizontal-scrolling-items {
   position: absolute;
+  top: 50%;
   display: flex;
+  align-items: center;
   font-size: 40px;
   width: 100vw;
   animation-name: infiniteScroll;
-  transform: translateX(0%);
+  transform: translate(0, -50%);
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   overflow: hidden;
 
   .item {
+    display: flex;
+    align-items: center;
     margin-left: auto;
 
     span {
