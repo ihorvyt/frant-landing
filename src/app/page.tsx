@@ -12,21 +12,23 @@ import Development from "../components/Services/Development";
 import BrandIdentity from "../components/Services/BrandingIdentity";
 import CheckSection from "../components/CheckSection/";
 import TimeInfoSection from "@/components/TimeInfoSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (<>
         <Header/>
         <main>
-            <TimeInfoSection/>
+            {/*<Footer/>*/}
+            {/*<TimeInfoSection/>*/}
             <CheckSection/>
-            <InfinitySlider />
-            <Globus/>
-            <TechnologyStack/>
-            <SiteVariations/>
-            <FrantSection/>
-            <Design/>
-            <Development/>
-            <BrandIdentity/>
+            {/*<InfinitySlider />*/}
+            {/*<Globus/>*/}
+            {/*<TechnologyStack/>*/}
+            {/*<SiteVariations/>*/}
+            {/*<FrantSection/>*/}
+            {/*<Design/>*/}
+            {/*<Development/>*/}
+            {/*<BrandIdentity/>*/}
         </main>
     </>);
 }

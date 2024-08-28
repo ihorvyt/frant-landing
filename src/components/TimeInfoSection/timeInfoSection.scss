@@ -41,7 +41,7 @@
           &::before {
             content: "";
             position: absolute;
-            top: -0.15vw;
+            top: -0.09vw;
             right: -1vw;
             display: flex;
             width: 3.424vw;
@@ -53,7 +53,7 @@
           &::after {
             content: "";
             position: absolute;
-            top: -0.45vw;
+            top: -0.35vw;
             right: -1.3vw;
             display: flex;
             width: 3.424vw;
@@ -109,31 +109,17 @@
       .top {
         .count {
           &::before {
-            content: "";
-            position: absolute;
-            top: -0.15vw;
-            right: -1vw;
-            display: flex;
-            width: 3.424vw;
-            height: 1.719vw;
-
-            border: 0.082vw solid var(--Black, #0A0A0A);
+            border: 0.082vw solid $white;
           }
 
           &::after {
-            content: "";
-            position: absolute;
-            top: -0.45vw;
-            right: -1.3vw;
-            display: flex;
-            width: 3.424vw;
-            height: 1.719vw;
-
-            background-color: red;
-            border: 0.082vw solid var(--Black, #0A0A0A);
+            background-color: $white;
+            border: 0.082vw solid $white;
           }
 
           span {
+            position: relative;
+            z-index: 1;
             color: black;
             font-family: Unbounded, sans-serif;
             font-size: 1.223vw;
