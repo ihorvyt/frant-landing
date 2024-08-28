@@ -1,63 +1,24 @@
 @import "/src/styles/values";
 
 .development-section {
-  padding: 0 5.729vw;
-
   .development-container {
     display: flex;
     justify-content: flex-end;
 
-    .development-info-container {
+    .service-info-container {
       display: flex;
       flex-direction: column;
       gap: 1.094vw;
 
-      .development-info {
-        display: flex;
-        flex-direction: column;
-        gap: 2.083vw;
-
+      .service-info {
         .title {
           h3 {
-            font-family: Unbounded, sans-serif;
-            font-size: 6.667vw;
-            font-style: normal;
-            font-weight: 800;
-            line-height: 107.93%; /* 138.15px */
-
             background: linear-gradient(267deg, #FFF 67.89%, #00DAE6 110.12%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
-
         }
-
-        .descr {
-          width: 30vw;
-
-          p {
-            color: var(--Grey, #C0C0C0);
-            text-align: justify;
-            font-family: "Plus Jakarta Sans", sans-serif;
-            font-size: 1.563vw;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 185%; /* 55.5px */
-          }
-        }
-      }
-
-      .development-button {
-        display: flex;
-        width: fit-content;
-        align-self: flex-end;
-        padding: 15px 41px;
-        align-items: center;
-        gap: 17px;
-
-        border-radius: 40px 0 40px 40px;
-        border: 4px solid $grey;
       }
     }
   }

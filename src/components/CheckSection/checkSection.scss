@@ -1,0 +1,21 @@
+@import "/src/styles/values";
+
+.check-section {
+  gap: 5.052vw;
+  padding: 15.052vw 0 15.052vw 0;
+
+  .check-section-price {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5.052vw;
+
+    h2 {
+      color: $white;
+      font-family: Unbounded, sans-serif;
+      font-size: 82px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 6.302vw;
+    }
+  }
+}

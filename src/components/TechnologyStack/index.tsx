@@ -40,7 +40,6 @@ const Index = () => {
         "Sql"
     ]
 
-    const [active, setActive] = React.useState<string | null>(null);
     const chunkSize = 11;
 
     const chunkedTechnologies = [];
@@ -60,13 +59,9 @@ const Index = () => {
                             {techChunk.map(technologie => (
                                 <div
                                     key={technologie}
-                                    className={`technology-circle 
-                                    ${active === technologie ? 'active' : ''}
-                                `}
-                                    onMouseOver={() => setActive(technologie)}
-                                    onMouseLeave={() => setActive(null)}
+                                    className={`technology-circle`}
                                 >
-                                    <span>{active === technologie ? technologie : ''}</span>
+                                    <span>{technologie}</span>
                                 </div>
                             ))}
                         </div>

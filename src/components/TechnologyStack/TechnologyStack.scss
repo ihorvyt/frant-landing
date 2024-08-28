@@ -3,6 +3,7 @@
 .stack-technologies {
   display: flex;
   flex-direction: column;
+  padding: 0 3.542vw 13.75vw 3.542vw;
   gap: 2.083vw;
 
   .stack-technologies-title {
@@ -34,7 +35,7 @@
       display: flex;
       gap: 8px;
 
-      height: 9vw;
+      height: 8.24vw;
 
       .technology-circle {
         width: 9.09vw;
@@ -51,6 +52,7 @@
         border-radius: 900px;
         background: var(--White, #EEEAE4);
         white-space: nowrap;
+
 
         &:hover {
           width: 23vw;

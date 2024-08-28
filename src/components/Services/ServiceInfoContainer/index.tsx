@@ -10,7 +10,7 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
     return (<div className="service-info-container">
         <div className="service-info">
             <div className="title">
-                <h3>{title}</h3>
+                <h3 dangerouslySetInnerHTML={{__html: title || ''}}/>
             </div>
             <div className="description">
                 <p dangerouslySetInnerHTML={{__html: description || ''}}/>

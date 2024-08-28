@@ -13,21 +13,22 @@ import BrandIdentity from "../components/Services/BrandingIdentity";
 import CheckSection from "../components/CheckSection/";
 import TimeInfoSection from "@/components/TimeInfoSection";
 import Footer from "@/components/Footer";
+import Services from "@/components/Services";
+import Glob3D from "../components/Glob/Glob3D/";
 
 export default function Home() {
     return (<>
         <Header/>
         <main>
+            {/*<Glob3D/>*/}
             <Globus/>
             <FrantSection/>
             <SiteVariations/>
             <TechnologyStack/>
-            <Design/>
-            <Development/>
-            <BrandIdentity/>
-            <TimeInfoSection/>
+            <Services/>
             <InfinitySlider />
             <CheckSection/>
+            <TimeInfoSection/>
         </main>
         <Footer/>
     </>);

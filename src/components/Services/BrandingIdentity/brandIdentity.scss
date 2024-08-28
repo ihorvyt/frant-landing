@@ -1,9 +1,24 @@
 @import "/src/styles/values";
 
 .brand-ident-section {
-  padding: 0 5.729vw;
-
   .brand-ident-container {
     display: flex;
+
+    .service-info-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.094vw;
+
+      .service-info {
+        .title {
+          h3 {
+            background: linear-gradient(92deg, #FFF 60.96%, #E61717 80.51%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+    }
   }
 }
