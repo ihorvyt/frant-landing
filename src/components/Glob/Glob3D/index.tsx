@@ -1,86 +1,83 @@
-// STLModel.js
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
+import './glob3d.scss'
 
 const STLModel = () => {
     const mountRef = useRef(null);
-    const modelRef = useRef(null);
 
     useEffect(() => {
         // Sizes
         const sizes = {
             width: window.innerWidth,
             height: window.innerHeight
-        }
-
+        };
 
         // Initialize the scene, camera, and renderer
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        mountRef.current.appendChild(renderer.domElement);
+        renderer.setSize(sizes.width, sizes.height);
 
         // Add lighting
-        const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0xBCED09);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        const directionalLight = new THREE.DirectionalLight(0xBCED09, 1);
         directionalLight.position.set(5, 5, 5).normalize();
         scene.add(directionalLight);
 
-        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
-
-        const spotLight = new THREE.SpotLight(0xffffff);
-        spotLight.position.set(10, 10, 10);
-        spotLight.angle = Math.PI / 6;
-        spotLight.penumbra = 0.1;
-        spotLight.decay = 2;
-        spotLight.distance = 200;
-        scene.add(spotLight);
-
-        const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
-        scene.add(hemisphereLight);
-
-        let effect = new AsciiEffect(renderer, ' .:-+*=%@#', { invert: true, resolution: .205 });
+        // Initialize ASCII effect
+        const effect = new AsciiEffect(renderer, ' =*#%@%#*+-@', { invert: true, resolution: 0.205 });
         effect.setSize(sizes.width, sizes.height);
-        effect.domElement.style.color = 'white';
-        effect.domElement.style.backgroundColor = 'white';
+        effect.domElement.style.backgroundColor = 'black';
+
+        mountRef.current.appendChild(effect.domElement);
 
         // Load STL model
         const loader = new STLLoader();
         loader.load('/frant-landing/models/test2.stl', (geometry) => {
-            const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
+            const material = new THREE.MeshStandardMaterial();
+            material.flatShading = true;
+            material.side = THREE.DoubleSide;
+
+            const myMesh = new THREE.Mesh(geometry, material);
+
+            geometry.computeVertexNormals();
+            myMesh.geometry.center();
+
+            myMesh.rotation.x = -90 * Math.PI / 180;
+
+            myMesh.geometry.computeBoundingBox();
+            const bbox = myMesh.geometry.boundingBox;
+
+            myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
+
+            camera.position.x = bbox.max.x * 4;
+            camera.position.y = bbox.max.y;
+            camera.position.z = bbox.max.z * 3;
+
+            scene.add(myMesh);
 
             // Adjust camera position
-            camera.position.z = 5;
+            camera.position.z = 2;
         });
 
         // Add OrbitControls
-        const controls = new OrbitControls(camera, renderer.domElement);
+        const controls = new OrbitControls(camera, effect.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.25;
         controls.enableZoom = true;
-
 
         // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
 
-            if (modelRef.current) {
-                modelRef.current.rotation.y += 0.01; // Rotate model around Y-axis
-            }
-
             controls.update(); // Required for damping
-            renderer.render(scene, camera);
+            effect.render(scene, camera); // Render the scene with ASCII effect
         };
         animate();
 
@@ -89,6 +86,7 @@ const STLModel = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+            effect.setSize(window.innerWidth, window.innerHeight);
         };
 
         window.addEventListener('resize', handleResize);
@@ -96,7 +94,7 @@ const STLModel = () => {
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
-            mountRef.current.removeChild(renderer.domElement);
+            mountRef.current.removeChild(effect.domElement);
         };
     }, []);
 
