@@ -55,7 +55,7 @@ const Index = () => {
                             </div>
                         </div>
                         <div className="glob-code">
-                            <img src="/images/componets/glob/barCode.svg" alt=""/>
+                            <img src="/frant-landing/images/componets/glob/barCode.svg" alt=""/>
                         </div>
                     </div>
                     <div className="glob-time">

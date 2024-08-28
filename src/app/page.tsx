@@ -18,17 +18,17 @@ export default function Home() {
     return (<>
         <Header/>
         <main>
-            {/*<Footer/>*/}
-            {/*<TimeInfoSection/>*/}
+            <Globus/>
+            <FrantSection/>
+            <SiteVariations/>
+            <TechnologyStack/>
+            <Design/>
+            <Development/>
+            <BrandIdentity/>
+            <TimeInfoSection/>
+            <InfinitySlider />
             <CheckSection/>
-            {/*<InfinitySlider />*/}
-            {/*<Globus/>*/}
-            {/*<TechnologyStack/>*/}
-            {/*<SiteVariations/>*/}
-            {/*<FrantSection/>*/}
-            {/*<Design/>*/}
-            {/*<Development/>*/}
-            {/*<BrandIdentity/>*/}
         </main>
+        <Footer/>
     </>);
 }
