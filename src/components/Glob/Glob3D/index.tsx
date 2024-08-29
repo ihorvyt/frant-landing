@@ -1,12 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+// @ts-ignore
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+// @ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({modelName}) => {
+const STLModel = ({modelName}: {modelName: String}) => {
     const mountRef = useRef(null);
 
     useEffect(() => {
@@ -35,10 +37,12 @@ const STLModel = ({modelName}) => {
         effect.setSize(sizes.width, sizes.height);
         effect.domElement.style.backgroundColor = 'black';
 
+        // @ts-ignore
         mountRef.current.appendChild(effect.domElement);
 
         // Load STL model
         const loader = new STLLoader();
+        // @ts-ignore
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             const material = new THREE.MeshStandardMaterial();
             material.flatShading = true;
@@ -94,6 +98,7 @@ const STLModel = ({modelName}) => {
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
+            // @ts-ignore
             mountRef.current.removeChild(effect.domElement);
         };
     }, []);
