@@ -43,7 +43,7 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         };
 
         // Camera
-        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.01, 2000);
 
         // Renderer
         const renderer = new THREE.WebGLRenderer();
@@ -80,6 +80,9 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             myMesh.geometry.computeBoundingBox();
             const bbox = myMesh.geometry.boundingBox;
 
+            console.log(myMesh);
+            console.log(camera);
+
             // @ts-ignore
             myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
 
@@ -90,6 +93,9 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             // @ts-ignore
             camera.position.z = bbox.max.z * 3;
 
+            // Перевертаємо модель по осі X
+            myMesh.rotation.x = 2; // 180 градусів
+
             scene.add(myMesh);
         });
 
@@ -97,11 +103,14 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         const controls = new OrbitControls(camera, effect.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.25;
-        controls.enableZoom = true;
+        controls.enableZoom = false;
 
         // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
+
+            // // Custom rotation logic
+            scene.rotation.y += 0.01;
 
             controls.update(); // Required for damping
             effect.render(scene, camera); // Render the scene with ASCII effect
