@@ -14,8 +14,8 @@ const STLModel = ({modelName}: {modelName: String}) => {
     useEffect(() => {
         // Sizes
         const sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight
+            width: window.innerWidth / 2.8,
+            height: window.innerHeight / 2.8
         };
 
         // Initialize the scene, camera, and renderer
@@ -24,13 +24,16 @@ const STLModel = ({modelName}: {modelName: String}) => {
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(sizes.width, sizes.height);
 
-        // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xBCED09);
-        scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xBCED09, 1);
-        directionalLight.position.set(5, 5, 5).normalize();
-        scene.add(directionalLight);
+        //Lights
+        const pointLight1 = new THREE.PointLight(0xffffff, 1);
+        pointLight1.position.set(5, -5, 5);
+        scene.add(pointLight1);
+
+        const pointLight2 = new THREE.PointLight(0xffffff, .5);
+        pointLight2.position.set(5, 5, 5);
+        scene.add(pointLight2);
+
 
         // Initialize ASCII effect
         const effect = new AsciiEffect(renderer, ' =*#%@%#*+-@', { invert: true, resolution: 0.205 });
@@ -67,7 +70,7 @@ const STLModel = ({modelName}: {modelName: String}) => {
             scene.add(myMesh);
 
             // Adjust camera position
-            camera.position.z = 2;
+            camera.position.z = 0.1;
         });
 
         // Add OrbitControls
@@ -89,8 +92,8 @@ const STLModel = ({modelName}: {modelName: String}) => {
         const handleResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            effect.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(window.innerWidth / 2.8, window.innerHeight / 2.8);
+            effect.setSize(window.innerWidth / 2.8, window.innerHeight / 2.8);
         };
 
         window.addEventListener('resize', handleResize);
