@@ -24,7 +24,7 @@ export default function Home() {
             <FrantSection/>
             <SiteVariations/>
             <TechnologyStack/>
-            {/*<Services/>*/}
+            <Services/>
             <InfinitySlider />
             <CheckSection/>
             <TimeInfoSection/>
