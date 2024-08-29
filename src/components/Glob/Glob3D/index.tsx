@@ -60,11 +60,13 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         effect.domElement.style.color = ASCIIColor;
         effect.domElement.style.backgroundColor = backgroundColor;
 
+        // @ts-ignore
         mountRef.current.appendChild(effect.domElement);
 
         // Load STL model
         const loader = new STLLoader();
 
+        // @ts-ignore
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             myMesh.material = material;
             myMesh.geometry = geometry;
@@ -78,10 +80,14 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             myMesh.geometry.computeBoundingBox();
             const bbox = myMesh.geometry.boundingBox;
 
+            // @ts-ignore
             myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
 
+            // @ts-ignore
             camera.position.x = bbox.max.x * 4;
+            // @ts-ignore
             camera.position.y = bbox.max.y;
+            // @ts-ignore
             camera.position.z = bbox.max.z * 3;
 
             scene.add(myMesh);
@@ -114,6 +120,7 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
+            // @ts-ignore
             mountRef.current.removeChild(effect.domElement);
         };
     }, []);
