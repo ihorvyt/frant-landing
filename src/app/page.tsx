@@ -18,18 +18,18 @@ import Glob3D from "../components/Glob/Glob3D/";
 
 export default function Home() {
     return (<>
-        <Header/>
+        {/*<Header/>*/}
         <main>
             <Glob3D modelName='globe'/>
-            <Globus/>
-            <FrantSection/>
-            <SiteVariations/>
-            <TechnologyStack/>
-            <Services/>
-            <InfinitySlider />
-            <CheckSection/>
-            <TimeInfoSection/>
+            {/*<Globus/>*/}
+            {/*<FrantSection/>*/}
+            {/*<SiteVariations/>*/}
+            {/*<TechnologyStack/>*/}
+            {/*<Services/>*/}
+            {/*<InfinitySlider />*/}
+            {/*<CheckSection/>*/}
+            {/*<TimeInfoSection/>*/}
         </main>
-        <Footer/>
+        {/*<Footer/>*/}
     </>);
 }

@@ -8,55 +8,72 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({modelName}: {modelName: String}) => {
+const STLModel = ({ modelName }: { modelName: String }) => {
     const mountRef = useRef(null);
 
     useEffect(() => {
-        // Sizes
-        const sizes = {
-            width: window.innerWidth / 2.8,
-            height: window.innerHeight / 2.8
-        };
+        //LightMode
+        let lightMode = true;
 
-        // Initialize the scene, camera, and renderer
+        // Creates empty mesh container
+        const myMesh = new THREE.Mesh();
+
+        // Scene
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(sizes.width, sizes.height);
+        scene.background = new THREE.Color(0, 0, 0);
 
-
-        //Lights
+        // Lights
         const pointLight1 = new THREE.PointLight(0xffffff, 1);
-        pointLight1.position.set(5, -5, 5);
+        pointLight1.position.set(1, 1, 4);
         scene.add(pointLight1);
 
         const pointLight2 = new THREE.PointLight(0xffffff, .5);
-        pointLight2.position.set(5, 5, 5);
+        pointLight2.position.set(-1, 1, -4);
         scene.add(pointLight2);
 
+        // Material
+        const material = new THREE.MeshStandardMaterial();
+        material.flatShading = true;
+        material.side = THREE.DoubleSide;
+
+        // Sizes
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+
+        // Camera
+        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000);
+
+        // Renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(sizes.width, sizes.height);
+
+        let characters = ' .:-=+*#%@';
+        const effectSize = { amount: 0.205 };
+        let backgroundColor = 'black';
+        let ASCIIColor = 'white';
 
         // Initialize ASCII effect
-        const effect = new AsciiEffect(renderer, ' =*#%@%#*+-@', { invert: true, resolution: 0.205 });
+        let effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', { invert: true, resolution: effectSize.amount });
         effect.setSize(sizes.width, sizes.height);
-        effect.domElement.style.backgroundColor = 'black';
+        effect.domElement.style.color = ASCIIColor;
+        effect.domElement.style.backgroundColor = backgroundColor;
 
-        // @ts-ignore
         mountRef.current.appendChild(effect.domElement);
 
         // Load STL model
         const loader = new STLLoader();
-        // @ts-ignore
-        loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
-            const material = new THREE.MeshStandardMaterial();
-            material.flatShading = true;
-            material.side = THREE.DoubleSide;
 
-            const myMesh = new THREE.Mesh(geometry, material);
+        loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
+            myMesh.material = material;
+            myMesh.geometry = geometry;
+
+            const tempGeometry = new THREE.Mesh(geometry, material);
+            myMesh.position.copy(tempGeometry.position);
 
             geometry.computeVertexNormals();
             myMesh.geometry.center();
-
-            myMesh.rotation.x = -90 * Math.PI / 180;
 
             myMesh.geometry.computeBoundingBox();
             const bbox = myMesh.geometry.boundingBox;
@@ -68,9 +85,6 @@ const STLModel = ({modelName}: {modelName: String}) => {
             camera.position.z = bbox.max.z * 3;
 
             scene.add(myMesh);
-
-            // Adjust camera position
-            camera.position.z = 0.1;
         });
 
         // Add OrbitControls
@@ -88,12 +102,11 @@ const STLModel = ({modelName}: {modelName: String}) => {
         };
         animate();
 
-        // Handle window resizing
         const handleResize = () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth / 2.8, window.innerHeight / 2.8);
-            effect.setSize(window.innerWidth / 2.8, window.innerHeight / 2.8);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            effect.setSize(window.innerWidth, window.innerHeight);
         };
 
         window.addEventListener('resize', handleResize);
@@ -101,12 +114,12 @@ const STLModel = ({modelName}: {modelName: String}) => {
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
-            // @ts-ignore
             mountRef.current.removeChild(effect.domElement);
         };
     }, []);
 
     return <div ref={mountRef} />;
 };
+
 
 export default STLModel;
