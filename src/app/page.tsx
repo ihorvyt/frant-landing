@@ -20,12 +20,11 @@ export default function Home() {
     return (<>
         {/*<Header/>*/}
         <main>
-            <Glob3D modelName='globe'/>
             <Globus/>
             <FrantSection/>
             <SiteVariations/>
             <TechnologyStack/>
-            <Services/>
+            {/*<Services/>*/}
             <InfinitySlider />
             <CheckSection/>
             <TimeInfoSection/>

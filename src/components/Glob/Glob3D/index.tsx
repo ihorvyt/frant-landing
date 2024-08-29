@@ -20,16 +20,30 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         // Scene
         const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0, 0, 0);
 
-        // Lights
-        const pointLight1 = new THREE.PointLight(0xffffff, 1);
-        pointLight1.position.set(1, 1, 4);
-        scene.add(pointLight1);
+        // Add lighting
+        const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+        scene.add(ambientLight);
 
-        const pointLight2 = new THREE.PointLight(0xffffff, .5);
-        pointLight2.position.set(-1, 1, -4);
-        scene.add(pointLight2);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight);
 
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        const spotLight = new THREE.SpotLight(0xffffff);
+        spotLight.position.set(10, 10, 10);
+        spotLight.angle = Math.PI / 6;
+        spotLight.penumbra = 0.1;
+        spotLight.decay = 2;
+        spotLight.distance = 200;
+        scene.add(spotLight);
+
+        const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+        scene.add(hemisphereLight);
         // Material
         const material = new THREE.MeshStandardMaterial();
         material.flatShading = true;
@@ -37,12 +51,12 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         // Sizes
         const sizes = {
-            width: window.innerWidth / 3,
-            height: window.innerHeight / 3
+            width: window.innerWidth / 2.8,
+            height: window.innerHeight / 1.4
         };
 
         // Camera
-        const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.01, 2000);
+        const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 0.01, 2000);
 
         // Renderer
         const renderer = new THREE.WebGLRenderer();
@@ -50,11 +64,11 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         let characters = ' .:-=+*#%@';
         const effectSize = { amount: 0.205 };
-        let backgroundColor = 'red';
-        let ASCIIColor = 'red';
+        let backgroundColor = 'transparent';
+        let ASCIIColor = 'white';
 
         // Initialize ASCII effect
-        let effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', { invert: true, resolution: effectSize.amount });
+        let effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', { invert: true, resolution: effectSize.amount });
         effect.setSize(sizes.width, sizes.height);
         effect.domElement.style.color = ASCIIColor;
         effect.domElement.style.backgroundColor = backgroundColor;
@@ -79,9 +93,6 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             myMesh.geometry.computeBoundingBox();
             const bbox = myMesh.geometry.boundingBox;
 
-            console.log(myMesh);
-            console.log(camera);
-
             // @ts-ignore
             myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
 
@@ -95,6 +106,10 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             // Перевертаємо модель по осі X
             myMesh.rotation.x = 2; // 180 градусів
 
+            myMesh.position.set(0, 0, 0)
+
+            console.log(myMesh)
+
             scene.add(myMesh);
         });
 
@@ -102,7 +117,7 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         const controls = new OrbitControls(camera, effect.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.25;
-        controls.enableZoom = true;
+        controls.enableZoom = false;
 
         // Animation loop
         const animate = () => {

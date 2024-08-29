@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './glob.scss'
+import Glob3D from "@/components/Glob/Glob3D";
 
 
 const getCurrentDateTime = (): { time: string; date: string } => {
@@ -68,6 +69,9 @@ const Index = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="glob3d-container">
+                    <Glob3D modelName='globe'/>
                 </div>
             </div>
         </div>

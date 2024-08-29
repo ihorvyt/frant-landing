@@ -4,6 +4,7 @@
   padding: 0 2.24vw 2.083vw 2.24vw;
 
   .glob-bg {
+    position: relative;
     display: flex;
     height: 41.927vw;
     width: 100%;
@@ -28,6 +29,7 @@
         .glob-text {
           h1 {
             color: $black;
+            font-family: "Unbounded", sans-serif;
             font-size: 4.375vw;
             font-weight: 900;
             line-height: normal;
@@ -81,6 +83,18 @@
           }
         }
       }
+    }
+
+    .glob3d-container {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      right: 2%;
+
+      transform: translate(0, -50%);
+
+      overflow: hidden;
     }
   }
 }

@@ -13,7 +13,7 @@ const Index = () => {
             <Development/>
             <Glob3D modelName='cursor'/>
             <BrandIdentity/>
-            <Glob3D modelName='aye'/>
+            <Glob3D modelName='eye'/>
         </section>
     );
 };
