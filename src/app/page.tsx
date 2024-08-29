@@ -21,14 +21,14 @@ export default function Home() {
         {/*<Header/>*/}
         <main>
             <Glob3D modelName='globe'/>
-            {/*<Globus/>*/}
-            {/*<FrantSection/>*/}
-            {/*<SiteVariations/>*/}
-            {/*<TechnologyStack/>*/}
-            {/*<Services/>*/}
-            {/*<InfinitySlider />*/}
-            {/*<CheckSection/>*/}
-            {/*<TimeInfoSection/>*/}
+            <Globus/>
+            <FrantSection/>
+            <SiteVariations/>
+            <TechnologyStack/>
+            <Services/>
+            <InfinitySlider />
+            <CheckSection/>
+            <TimeInfoSection/>
         </main>
         {/*<Footer/>*/}
     </>);
