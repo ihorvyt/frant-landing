@@ -20,7 +20,6 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         // Scene
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0, 0, 0);
 
         // Lights
         const pointLight1 = new THREE.PointLight(0xffffff, 1);
@@ -38,8 +37,8 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         // Sizes
         const sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight
+            width: window.innerWidth / 3,
+            height: window.innerHeight / 3
         };
 
         // Camera
@@ -51,8 +50,8 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         let characters = ' .:-=+*#%@';
         const effectSize = { amount: 0.205 };
-        let backgroundColor = 'black';
-        let ASCIIColor = 'white';
+        let backgroundColor = 'red';
+        let ASCIIColor = 'red';
 
         // Initialize ASCII effect
         let effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', { invert: true, resolution: effectSize.amount });
@@ -103,7 +102,7 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         const controls = new OrbitControls(camera, effect.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.25;
-        controls.enableZoom = false;
+        controls.enableZoom = true;
 
         // Animation loop
         const animate = () => {
