@@ -20,7 +20,7 @@ export default function Home() {
     return (<>
         <Header/>
         <main>
-            <Glob3D/>
+            <Glob3D modelName='globe'/>
             <Globus/>
             <FrantSection/>
             <SiteVariations/>

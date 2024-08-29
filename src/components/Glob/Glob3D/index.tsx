@@ -6,7 +6,7 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = () => {
+const STLModel = ({modelName}) => {
     const mountRef = useRef(null);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ const STLModel = () => {
 
         // Load STL model
         const loader = new STLLoader();
-        loader.load('/frant-landing/models/test2.stl', (geometry) => {
+        loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             const material = new THREE.MeshStandardMaterial();
             material.flatShading = true;
             material.side = THREE.DoubleSide;
