@@ -9,11 +9,11 @@ const Index = () => {
     return (
         <section className="services">
             <Design/>
-            <Glob3D modelName='head'/>
+            {/*<Glob3D modelName='head'/>*/}
             <Development/>
-            <Glob3D modelName='cursor'/>
+            {/*<Glob3D modelName='cursor'/>*/}
             <BrandIdentity/>
-            <Glob3D modelName='eye'/>
+            {/*<Glob3D modelName='eye'/>*/}
         </section>
     );
 };

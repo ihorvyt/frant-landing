@@ -1,0 +1,280 @@
+@import "/src/styles/values";
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: $white;
+
+ .footer-form {
+   width: 71.458vw;
+
+  .footer-form-title {
+    h6 {
+      color: $black;
+      font-family: Unbounded, sans-serif;
+      font-size: 3.333vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 107.93%; /* 69.075px */
+
+      margin-bottom: 1.354vw;
+    }
+
+    p {
+      color: $black;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.667vw;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 107.93%; /* 34.538px */
+
+      margin-bottom: 3.125vw;
+    }
+  }
+
+   form {
+     display: flex;
+     flex-direction: column;
+
+     gap: 50px;
+
+    .inputs-text-area-container {
+      display: flex;
+      gap: 1.823vw;
+
+      .inputs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.771vw;
+
+        .company-first-name {
+          display: flex;
+          gap: 1.566vw;
+        }
+
+        .email {
+          width: 80%;
+        }
+
+        .mobile {
+          width: calc(50% - 1.566vw);
+        }
+      }
+
+      .text-area-container {
+        display: flex;
+        flex-direction: column;
+        min-width: 27.188vw;
+        align-items: flex-start;
+        gap: 0.685vw;
+
+        span {
+          color: #1F1F1F;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 1.174vw;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 107.93%; /* 24.334px */
+        }
+
+        textarea {
+          padding: 1.094vw 0.833vw;
+          width: 100%;
+          height: 100%;
+
+          border: none;
+          outline: none;
+          resize: none;
+          background: #D1CBBE;
+        }
+      }
+    }
+
+     .input-checkbox-sent {
+       width: 100%;
+       display: flex;
+       justify-content: space-between;
+
+       .checkboxes {
+         display: flex;
+         gap: 2.135vw;
+
+         label {
+           display: flex;
+           height: 3.177vw;
+           align-items: center;
+           gap: 10px;
+           width: fit-content;
+           padding-right: 0.833vw;
+           cursor: pointer;
+
+           transition: .3s;
+
+           .icon {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100%;
+             width: 3.177vw;
+             background: $primary;
+             transition: .3s;
+
+             svg {
+               width: 1.667vw;
+               height: 1.667vw;
+             }
+           }
+
+           span {
+             transition: .3s;
+
+             color: $black;
+             font-family: "Plus Jakarta Sans", sans-serif;
+             font-size: 1.25vw;
+             font-style: normal;
+             font-weight: 600;
+             line-height: 107.93%; /* 25.903px */
+           }
+
+           &.active {
+             background: $black;
+
+             .icon {
+               background: $black;
+             }
+
+             span {
+               color: $white;
+             }
+           }
+         }
+       }
+
+       .sent {
+         display: flex;
+         padding: 0 1.25vw 0 1.25vw;
+         justify-content: center;
+         align-items: center;
+         gap: 0.938vw;
+
+         background: #1A1A1A;
+
+
+         span {
+           color: $white;
+           font-family: "Plus Jakarta Sans", sans-serif;
+           font-size: 1.25vw;
+           font-style: normal;
+           font-weight: 800;
+           line-height: 107.93%; /* 25.903px */
+         }
+
+         svg {
+           height: 1.667vw;
+           width: 1.667vw;
+         }
+       }
+     }
+   }
+ }
+
+  .credential {
+    position: absolute;
+    bottom: 0;
+    padding: 2.396vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .links {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.365vw;
+
+      svg {
+        height: 2.604vw;
+        width: 2.604vw;
+      }
+
+      span {
+        margin-left: 0.625vw;
+
+        color: $black;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.042vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 185%; /* 37px */
+        text-transform: lowercase;
+      }
+    }
+
+    .all-rights {
+      span {
+        color: #383838;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.99vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 185%; /* 35.15px */
+      }
+    }
+  }
+}
+
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.685vw;
+
+  .name {
+    color: #1F1F1F;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.174vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 107.93%; /* 24.334px */
+  }
+
+  .mandatory {
+    color: #6D6D6D;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.174vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 107.93%; /* 24.334px */
+  }
+
+  .input-field {
+    display: flex;
+    padding: 0.489vw;
+    justify-content: center;
+    align-items: flex-end;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    background: #D1CBBE;
+
+    input {
+      width: 100%;
+
+      border: none;
+      outline: none;
+      background: none;
+
+
+      color: $black;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.458vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 107.93%; /* 30.22px */
+    }
+  }
+}

@@ -31,6 +31,14 @@ const Index = () => {
         return () => clearInterval(intervalId);
     }, []);
 
+    const [name, setName] = useState('globe');
+
+    useEffect(() => {
+        setTimeout(() => {
+            setName('eye')
+        }, 3000)
+    }, []);
+
 
     return (
         <div className="glob">
@@ -71,7 +79,7 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="glob3d-container">
-                    <Glob3D modelName='globe'/>
+                    <Glob3D modelName={name}/>
                 </div>
             </div>
         </div>

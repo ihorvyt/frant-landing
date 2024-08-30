@@ -49,10 +49,12 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         material.flatShading = true;
         material.side = THREE.DoubleSide;
 
+        const sizeWidth = 2.5
+
         // Sizes
         const sizes = {
-            width: window.innerWidth / 2.8,
-            height: window.innerHeight / 1.4
+            width: window.innerWidth / sizeWidth,
+            height: window.innerWidth / sizeWidth
         };
 
         // Camera
@@ -146,7 +148,7 @@ const STLModel = ({ modelName }: { modelName: String }) => {
             // @ts-ignore
             mountRef.current.removeChild(effect.domElement);
         };
-    }, []);
+    }, [modelName]);
 
     return <div ref={mountRef} />;
 };

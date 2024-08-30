@@ -18,7 +18,7 @@ import Glob3D from "../components/Glob/Glob3D/";
 
 export default function Home() {
     return (<>
-        {/*<Header/>*/}
+        <Header/>
         <main>
             <Globus/>
             <FrantSection/>
@@ -29,6 +29,6 @@ export default function Home() {
             <CheckSection/>
             <TimeInfoSection/>
         </main>
-        {/*<Footer/>*/}
+        <Footer/>
     </>);
 }
