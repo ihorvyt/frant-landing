@@ -20,16 +20,7 @@
 
   border-top: 4px solid var(--Grey, #C0C0C0);
   border-bottom: 4px solid var(--Grey, #C0C0C0);
-
-  &:hover {
-    .horizontal-scrolling-items {
-      animation-play-state: paused;
-
-      &.second {
-        animation-play-state: paused;
-      }
-    }
-  }
+  background-color: $black;
 }
 
 .horizontal-scrolling-items {

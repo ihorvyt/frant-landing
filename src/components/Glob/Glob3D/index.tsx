@@ -1,28 +1,22 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-// @ts-ignore
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
-// @ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean }) => {
+const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean }) => {
     const mountRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        // Light Mode
-        const lightMode = true;
-
-        // Create a mesh container
-        let myMesh: THREE.Mesh | null = null;
+        let animationFrameId: number;
 
         // Scene
         const scene = new THREE.Scene();
 
         // Lighting
-        const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+        const ambientLight = new THREE.AmbientLight(0x404040);
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -57,7 +51,7 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
         renderer.setSize(sizes.width, sizes.height);
 
         // Initialize ASCII effect
-        const effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', {
+        const effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_abcdefghijklmnopqrstuvwxyz{|}~\n', {
             invert: true,
             resolution: 0.15
         });
@@ -71,7 +65,7 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
 
         // Load STL model
         const loader = new STLLoader();
-        // @ts-ignore
+        let myMesh: THREE.Mesh | null = null;
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             myMesh = new THREE.Mesh(geometry, material);
 
@@ -96,14 +90,14 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
 
         // Animation loop
         const animate = () => {
-            requestAnimationFrame(animate);
-
             if (rotate) {
                 scene.rotation.y += 0.01;
             }
 
             controls.update();
             effect.render(scene, camera);
+
+            animationFrameId = requestAnimationFrame(animate);
         };
 
         animate();
@@ -120,23 +114,23 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
-            console.log('clean up!!!!')
+            cancelAnimationFrame(animationFrameId);
 
             if (myMesh) {
                 myMesh.geometry.dispose();
-                // @ts-ignore
-                myMesh.material.dispose();
+                (myMesh.material as THREE.Material).dispose();
                 scene.remove(myMesh);
                 myMesh = null;
             }
 
-            hemisphereLight.dispose()
-            directionalLight.dispose()
-            ambientLight.dispose()
-            spotLight.dispose()
-            material.dispose()
             controls.dispose();
             renderer.dispose();
+
+            ambientLight.dispose();
+            directionalLight.dispose();
+            spotLight.dispose();
+            hemisphereLight.dispose();
+            material.dispose();
 
             if (mountRef.current) {
                 mountRef.current.removeChild(effect.domElement);
