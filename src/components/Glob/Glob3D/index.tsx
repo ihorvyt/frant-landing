@@ -71,6 +71,7 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
 
         // Load STL model
         const loader = new STLLoader();
+        // @ts-ignore
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             myMesh = new THREE.Mesh(geometry, material);
 
@@ -123,6 +124,7 @@ const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean })
 
             if (myMesh) {
                 myMesh.geometry.dispose();
+                // @ts-ignore
                 myMesh.material.dispose();
                 scene.remove(myMesh);
                 myMesh = null;
