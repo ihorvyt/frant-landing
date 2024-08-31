@@ -1,14 +1,13 @@
 @import '../../styles/values.scss';
 
-
 @keyframes infiniteScroll {
-  from {transform: translate(0, -50%)}
-  to {transform: translate(-100%, -50%)}
+  from {transform: translate(-100%, -50%);}
+  to {transform: translate(0%, -50%);}
 }
 
 @keyframes infiniteScroll-2 {
-  from {transform: translate(100%, -50%)}
-  to {transform: translate(0%, -50%)}
+  from {transform: translate(0%, -50%);}
+  to {transform: translate(100%, -50%);}
 }
 
 .container {
@@ -31,7 +30,7 @@
   font-size: 40px;
   width: 100vw;
   animation-name: infiniteScroll;
-  transform: translate(0, -50%);
+  transform: translate(-50%, -50%);
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;

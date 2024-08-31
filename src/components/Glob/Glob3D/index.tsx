@@ -8,7 +8,7 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean }) => {
+const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotate: boolean, size: number, color: string }) => {
     const mountRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -77,11 +77,13 @@ const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean })
 
             const bbox = myMesh.geometry.boundingBox;
             if (bbox) {
-                myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
+                myMesh.position.y = (bbox.max.z - bbox.min.z) / 18;
                 camera.position.set(bbox.max.x * 4, bbox.max.y, bbox.max.z * 3);
             }
 
             myMesh.rotation.x = -Math.PI / 2;
+
+            myMesh.scale.set(size, size ,size)
             scene.add(myMesh);
         });
 
@@ -94,7 +96,7 @@ const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean })
         // Animation loop
         const animate = () => {
             if (rotate) {
-                scene.rotation.y += 0.01;
+                scene.rotation.y += 0.004;
             }
 
             controls.update();
@@ -141,7 +143,7 @@ const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean })
         };
     }, [modelName, rotate]);
 
-    return <div ref={mountRef} className="main-model" />;
+    return <div ref={mountRef} className={`main-model ${color}`} />;
 };
 
 export default STLModel;

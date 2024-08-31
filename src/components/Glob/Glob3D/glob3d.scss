@@ -1,10 +1,49 @@
+@import "src/styles/values";
+
 .main-model {
-  table {
-    tbody {
-      tr {
-        td {
-          color: green;
-          //color: black;
+  &.black {
+    table {
+      tbody {
+        tr {
+          td {
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  &.green {
+    table {
+      tbody {
+        tr {
+          td {
+            color: #BCED09;
+          }
+        }
+      }
+    }
+  }
+
+  &.blue {
+    table {
+      tbody {
+        tr {
+          td {
+            color: #01BAEF;
+          }
+        }
+      }
+    }
+  }
+
+  &.red {
+    table {
+      tbody {
+        tr {
+          td {
+            color: #FF0000;
+          }
         }
       }
     }

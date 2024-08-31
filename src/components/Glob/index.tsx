@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './glob.scss'
 import Glob3D from "@/components/Glob/Glob3D";
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 
 const getCurrentDateTime = (): { time: string; date: string } => {
@@ -21,27 +22,17 @@ const getCurrentDateTime = (): { time: string; date: string } => {
 
 const Index = () => {
     const [currentDateTime, setCurrentDateTime] = useState(getCurrentDateTime());
+    const [showGlobal, setSowGlobal] = React.useState(false);
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentDateTime(getCurrentDateTime());
-        }, 60000); // Update every 60 seconds
-
-        // Clean up the interval on component unmount
-        return () => clearInterval(intervalId);
-    }, []);
-
-    const [name, setName] = useState('globe');
-
-    useEffect(() => {
-        setTimeout(() => {
-            setName('eye')
-        }, 3000)
-    }, []);
+    const [refBranding, isBrandingVisible] = useIntersectionObserver({
+        root: null, // using viewport
+        rootMargin: '0px',
+        threshold: 0.3 // Element should be visible at 50%
+    });
 
 
     return (
-        <div className="glob">
+        <div className="glob" ref={refBranding}>
             <div className="glob-bg">
                 <div className="glob-info">
                     <div className="glob-text-code">
@@ -79,7 +70,12 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="glob3d-container">
-                    <Glob3D modelName={name} rotate={false}/>
+                    {isBrandingVisible && <Glob3D
+                        modelName='globe'
+                        rotate={true}
+                        size={1.4}
+                        color='black'
+                    />}
                 </div>
             </div>
         </div>
