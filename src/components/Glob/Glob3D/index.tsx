@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+// @ts-ignore
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+// @ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
@@ -66,6 +68,7 @@ const STLModel = ({ modelName, rotate }: { modelName: string, rotate: boolean })
         // Load STL model
         const loader = new STLLoader();
         let myMesh: THREE.Mesh | null = null;
+        // @ts-ignore
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
             myMesh = new THREE.Mesh(geometry, material);
 
