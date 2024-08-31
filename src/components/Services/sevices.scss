@@ -1,7 +1,30 @@
-.services {
+.services-models {
   display: flex;
-  flex-direction: column;
 
-  padding: 0 1.542vw 15.625vw 1.542vw;
-  gap: 13.49vw;
+  padding: 0 1.542vw 0vw 1.542vw;
+
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 37.083vw;
+
+    padding-top: 13vw;
+  }
+
+  .model-container {
+    position: relative;
+
+    .model {
+      padding-top: 10%;
+      position: sticky;
+      top: 2%;
+
+      &.active {
+        //display: flex;
+        visibility: initial;
+      }
+    }
+  }
+
+  background-color: black;
 }

@@ -79,7 +79,7 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="glob3d-container">
-                    <Glob3D modelName={name}/>
+                    <Glob3D modelName={name} rotate={false}/>
                 </div>
             </div>
         </div>

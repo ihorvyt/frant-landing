@@ -16,12 +16,14 @@ import Footer from "@/components/Footer";
 import Services from "@/components/Services";
 import Glob3D from "../components/Glob/Glob3D/";
 
+import './page.scss'
+
 export default function Home() {
     return (<>
-        <Header/>
+        {/*<Header/>*/}
         <main>
             <Globus/>
-            <FrantSection/>
+            {/*<FrantSection/>*/}
             <SiteVariations/>
             <TechnologyStack/>
             <Services/>

@@ -8,31 +8,26 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({ modelName }: { modelName: String }) => {
-    const mountRef = useRef(null);
+const STLModel = ({ modelName, rotate }: { modelName: String, rotate: boolean }) => {
+    const mountRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        //LightMode
-        let lightMode = true;
+        // Light Mode
+        const lightMode = true;
 
-        // Creates empty mesh container
-        const myMesh = new THREE.Mesh();
+        // Create a mesh container
+        let myMesh: THREE.Mesh | null = null;
 
         // Scene
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0, 0, 0);
 
-        // Add lighting
+        // Lighting
         const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
         directionalLight.position.set(5, 5, 5).normalize();
         scene.add(directionalLight);
-
-        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
 
         const spotLight = new THREE.SpotLight(0xffffff);
         spotLight.position.set(10, 10, 10);
@@ -44,74 +39,51 @@ const STLModel = ({ modelName }: { modelName: String }) => {
 
         const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
         scene.add(hemisphereLight);
-        // Material
-        const material = new THREE.MeshStandardMaterial();
-        material.flatShading = true;
-        material.side = THREE.DoubleSide;
 
-        const sizeWidth = 2.5
+        // Material
+        const material = new THREE.MeshStandardMaterial({ flatShading: true, side: THREE.DoubleSide });
 
         // Sizes
         const sizes = {
-            width: window.innerWidth / sizeWidth,
-            height: window.innerWidth / sizeWidth
+            width: window.innerWidth / 2.5,
+            height: window.innerWidth / 2.5
         };
 
         // Camera
-        const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 0.01, 2000);
+        const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.01, 2000);
 
         // Renderer
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(sizes.width, sizes.height);
 
-        let characters = ' .:-=+*#%@';
-        const effectSize = { amount: 0.205 };
-        let backgroundColor = 'transparent';
-        let ASCIIColor = 'white';
-
         // Initialize ASCII effect
-        let effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', { invert: true, resolution: effectSize.amount });
+        const effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\n', {
+            invert: true,
+            resolution: 0.15
+        });
         effect.setSize(sizes.width, sizes.height);
-        effect.domElement.style.color = ASCIIColor;
-        effect.domElement.style.backgroundColor = backgroundColor;
+        effect.domElement.style.color = 'white';
+        effect.domElement.style.backgroundColor = 'transparent';
 
-        // @ts-ignore
-        mountRef.current.appendChild(effect.domElement);
+        if (mountRef.current) {
+            mountRef.current.appendChild(effect.domElement);
+        }
 
         // Load STL model
         const loader = new STLLoader();
-
-        // @ts-ignore
         loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
-            myMesh.material = material;
-            myMesh.geometry = geometry;
-
-            const tempGeometry = new THREE.Mesh(geometry, material);
-            myMesh.position.copy(tempGeometry.position);
+            myMesh = new THREE.Mesh(geometry, material);
 
             geometry.computeVertexNormals();
             myMesh.geometry.center();
 
-            myMesh.geometry.computeBoundingBox();
             const bbox = myMesh.geometry.boundingBox;
+            if (bbox) {
+                myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
+                camera.position.set(bbox.max.x * 4, bbox.max.y, bbox.max.z * 3);
+            }
 
-            // @ts-ignore
-            myMesh.position.y = (bbox.max.z - bbox.min.z) / 5;
-
-            // @ts-ignore
-            camera.position.x = bbox.max.x * 4;
-            // @ts-ignore
-            camera.position.y = bbox.max.y;
-            // @ts-ignore
-            camera.position.z = bbox.max.z * 3;
-
-            // Перевертаємо модель по осі X
-            myMesh.rotation.x = 2; // 180 градусів
-
-            myMesh.position.set(0, 0, 0)
-
-            console.log(myMesh)
-
+            myMesh.rotation.x = -Math.PI / 2;
             scene.add(myMesh);
         });
 
@@ -125,12 +97,14 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         const animate = () => {
             requestAnimationFrame(animate);
 
-            // // Custom rotation logic
-            scene.rotation.y += 0.01;
+            if (rotate) {
+                scene.rotation.y += 0.01;
+            }
 
-            controls.update(); // Required for damping
-            effect.render(scene, camera); // Render the scene with ASCII effect
+            controls.update();
+            effect.render(scene, camera);
         };
+
         animate();
 
         const handleResize = () => {
@@ -145,13 +119,30 @@ const STLModel = ({ modelName }: { modelName: String }) => {
         // Clean up
         return () => {
             window.removeEventListener('resize', handleResize);
-            // @ts-ignore
-            mountRef.current.removeChild(effect.domElement);
+            console.log('clean up!!!!')
+
+            if (myMesh) {
+                myMesh.geometry.dispose();
+                myMesh.material.dispose();
+                scene.remove(myMesh);
+                myMesh = null;
+            }
+
+            hemisphereLight.dispose()
+            directionalLight.dispose()
+            ambientLight.dispose()
+            spotLight.dispose()
+            material.dispose()
+            controls.dispose();
+            renderer.dispose();
+
+            if (mountRef.current) {
+                mountRef.current.removeChild(effect.domElement);
+            }
         };
-    }, [modelName]);
+    }, [modelName, rotate]);
 
-    return <div ref={mountRef} />;
+    return <div ref={mountRef} className="main-model" />;
 };
-
 
 export default STLModel;
