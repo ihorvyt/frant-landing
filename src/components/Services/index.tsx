@@ -10,18 +10,17 @@ import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 
 const Index = () => {
-    const [ref, isDevelopmentVisible] = useIntersectionObserver({
+    const [refDevelopment, isDevelopmentVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
         rootMargin: '22px',
         threshold: 0.5 // Елемент повинен бути видимим на 50%
     });
 
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
-        root: null, // використовувати viewport
+        root: null, // using viewport
         rootMargin: '20px',
-        threshold: 0.2 // Елемент повинен бути видимим на 50%
+        threshold: 0.5 // Element should be visible at 50%
     });
-
 
     const [showModel, setShowModel] = useState('head');
 
@@ -53,8 +52,8 @@ const Index = () => {
         <section className="services-models">
             <div className="services-container">
                 <Design/>
-                <Development ref={ref}/>
-                <BrandIdentity  ref={refBranding}/>
+                <Development ref={typeof refDevelopment === 'boolean' ? undefined : refDevelopment}/>
+                <BrandIdentity  ref={typeof refBranding === 'boolean' ? undefined : refBranding}/>
             </div>
             <div className="model-container">
                 <div className={`model`}><Glob3D modelName={showModel}  rotate={true} /></div>
