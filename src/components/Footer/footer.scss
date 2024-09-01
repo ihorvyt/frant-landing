@@ -4,7 +4,6 @@ footer {
   position: fixed;
   bottom: 0;
   z-index: 4;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,6 +92,14 @@ footer {
           outline: none;
           resize: none;
           background: #D1CBBE;
+
+
+          color: $black;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 1.042vw;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 185%;
         }
       }
     }
@@ -188,7 +195,7 @@ footer {
   .credential {
     position: absolute;
     bottom: 0;
-    padding: 2.396vw;
+    padding: 2.083vw;
 
     display: flex;
     justify-content: space-between;
@@ -198,23 +205,21 @@ footer {
     .links {
       display: flex;
       align-items: flex-end;
-      gap: 0.365vw;
+      gap: 20px;
 
-      svg {
-        height: 2.604vw;
-        width: 2.604vw;
-      }
-
-      span {
-        margin-left: 0.625vw;
-
+      a {
         color: $black;
         font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 1.042vw;
         font-style: normal;
         font-weight: 700;
-        line-height: 185%; /* 37px */
-        text-transform: lowercase;
+        line-height: 185%;
+      }
+
+      .soc {
+        display: flex;
+        flex-direction: column;
+        gap: 0.521vw;
       }
     }
 

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {RefObject} from 'react';
 
 import './header.scss'
 
-const Index = () => {
+const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
+
+
     return (
-        <header className="header">
+        <header className={`header ${hide ? 'header--hide' : ''}`}>
             <div className="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 80" fill="none">
                     <path

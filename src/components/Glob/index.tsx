@@ -46,7 +46,7 @@ const Index = () => {
 
 
     return (
-        <div className="glob" ref={typeof refBranding === 'boolean' ? undefined : refBranding}>
+        <div className="glob" ref={refBranding}>
             <div className="glob-bg">
                 <div className="glob-info">
                     <div className="glob-text-code">

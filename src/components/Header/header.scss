@@ -7,9 +7,14 @@
   top: 0;
   z-index: 99;
 
-  padding:  2.865vw 2.083vw 0;
+  padding:  2.083vw 2.083vw 0;
 
   mix-blend-mode: difference;
+  transition: .3s;
+
+  &--hide {
+    transform: translateY(-100%);
+  }
 
   .logo {
     svg {

@@ -15,13 +15,11 @@ const Index = () => {
         rootMargin: '0px',
         threshold: 0.1 // Елемент повинен бути видимим на 50%
     });
-
     const [refDevelopment, isDevelopmentVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
         rootMargin: '0px',
         threshold: 0.6 // Елемент повинен бути видимим на 50%
     });
-
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
         rootMargin: '0px',
@@ -67,9 +65,9 @@ const Index = () => {
     return (
         <section className="services-models">
             <div className="services-container">
-                <Design ref={typeof refDesign === 'boolean' ? undefined : refDesign}/>
-                <Development ref={typeof refDevelopment === 'boolean' ? undefined : refDevelopment}/>
-                <BrandIdentity ref={typeof refBranding === 'boolean' ? undefined : refBranding}/>
+                <Design ref={refDesign}/>
+                <Development ref={refDevelopment}/>
+                <BrandIdentity ref={refBranding}/>
             </div>
             <div className="model-container">
                 {showModel.modelName !== '' && showModel.modelName !== 'none' && <div className={`model`}>

@@ -22,10 +22,6 @@ const Index = () => {
                     <a href="">frant.digital@gmail.com</a>
                 </div>
             </section>
-
-            <button className="lets-chat">
-                <span>Let’s Chat</span>
-            </button>
         </>
     );
 };

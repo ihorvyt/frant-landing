@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import TechnologyStack from "@/components/TechnologyStack";
 import Header from "@/components/Header/";
@@ -18,22 +18,55 @@ import Glob3D from "../components/Glob/Glob3D/";
 
 import './page.scss'
 import BanerSection from "../components/BannerSection";
+import LetsTalk from "@/components/LetsTalk";
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
+    const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
+        root: null, // використовувати viewport
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    const [refSpacer, isSpacerVisible] = useIntersectionObserver({
+        root: null, // використовувати viewport
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(false);
+
+
+    useEffect(() => {
+        setLetsTalkHide(!isLetsTalkHide)
+    }, [isSpacerVisible]);
+
+    useEffect(() => {
+        setLetsTalkHide(!isLetsTalkHide)
+    }, [isFrantSectionVisible]);
+
     return (<>
-        <Header/>
+        <Header
+            hide={isFrantSectionVisible}
+        />
         <main>
             <BanerSection/>
             <Globus/>
-            <FrantSection/>
+            <FrantSection
+                ref={refFrantSection}
+            />
             <SiteVariations/>
             <TechnologyStack/>
-            <Services/>
-            <InfinitySlider />
+            <Services />
+            <InfinitySlider/>
             <CheckSection/>
             <TimeInfoSection/>
         </main>
-        <div className="spacer"></div>
+        <div className="spacer" ref={refSpacer}></div>
         <Footer/>
+
+        <LetsTalk
+            hide={isLetsTalkHide}
+        />
     </>);
 }

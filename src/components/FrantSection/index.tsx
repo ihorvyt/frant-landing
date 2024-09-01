@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import './frantSection.scss';
 
-const Index = () => {
+const Index = forwardRef<HTMLDivElement>((props, ref) => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const sectionRef = useRef<HTMLDivElement>(null);
     const spanRef = useRef<HTMLDivElement>(null);
@@ -51,11 +51,11 @@ const Index = () => {
 
     return (
         <section className="frant-section" ref={sectionRef}>
-            <div className="frant-section-bg">
+            <div ref={ref} className="frant-section-bg">
                 <span ref={spanRef}>FRANT</span>
             </div>
         </section>
     );
-};
+});
 
 export default Index;
