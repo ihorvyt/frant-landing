@@ -73,7 +73,7 @@ const Index = () => {
                 <BrandIdentity ref={typeof refBranding === 'boolean' ? undefined : refBranding}/>
             </div>
             <div className="model-container">
-                {showModel?.modelName !== 'none' && <div className={`model`}>
+                {showModel.modelName !== '' && showModel.modelName !== 'none' && <div className={`model`}>
                     <Glob3D
                         modelName={showModel.modelName}
                         rotate={true}

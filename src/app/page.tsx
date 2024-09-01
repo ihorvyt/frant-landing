@@ -17,11 +17,13 @@ import Services from "@/components/Services";
 import Glob3D from "../components/Glob/Glob3D/";
 
 import './page.scss'
+import BanerSection from "../components/BannerSection";
 
 export default function Home() {
     return (<>
         <Header/>
         <main>
+            <BanerSection/>
             <Globus/>
             <FrantSection/>
             <SiteVariations/>
@@ -31,6 +33,6 @@ export default function Home() {
             <CheckSection/>
             <TimeInfoSection/>
         </main>
-        <Footer/>
+        {/*<Footer/>*/}
     </>);
 }

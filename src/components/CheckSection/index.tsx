@@ -24,7 +24,7 @@ const Index: React.FC = () => {
                 {
                     checks.map(check =>
                         <SwiperSlide key={check}>
-                            <Check/>
+                            <Check />
                         </SwiperSlide>
                     )
                 }
