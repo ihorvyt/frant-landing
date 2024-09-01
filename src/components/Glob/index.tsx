@@ -41,7 +41,7 @@ const Index = () => {
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
         rootMargin: '0px',
-        threshold: 0.3 // Element should be visible at 50%
+        threshold: 0.1 // Element should be visible at 50%
     });
 
 

@@ -59,7 +59,7 @@ const Index = () => {
 
         !isDesigbVisible && !isBrandingVisible && !isDevelopmentVisible && setShowModel({
             modelName: '',
-            size: 1.3,
+            size: 1.2,
             color: 'red'
         })
     }, [isDevelopmentVisible, isBrandingVisible, isDesigbVisible]);
