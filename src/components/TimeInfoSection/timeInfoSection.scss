@@ -18,6 +18,7 @@
       flex-direction: column;
       padding: 1.302vw 1.06vw 1.302vw 1.406vw;
       width: 100%;
+      border-radius: 0px 0px 3.125vw 3.125vw;
 
 
       .top {
@@ -94,19 +95,22 @@
     }
 
     .respond-within {
-      border-radius: 0px 0px 60px 60px;
-      border-bottom: 29px solid $primary;
-      background: var(--White, #EEEAE4);
+      border-radius: 0px 0px 3.125vw 3.125vw;
+      background: $white;
+      transition: .3s;
+      border-bottom: 0vw solid $white;
+
+      &:hover {
+        border-bottom: 1.51vw solid $primary;
+      }
     }
 
     .make-an-offer{
-      border-radius: 0px 0px 60px 60px;
-      background: var(--White, #EEEAE4);
+      background: $white;
     }
 
     .project-realization{
-      border-radius: 0px 0px 60px 60px;
-      background: var(--Primary, #C3B8A3);
+      background: $primary;
 
       .top {
         .count {
