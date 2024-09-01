@@ -1,6 +1,9 @@
+@import "src/styles/values";
+
 .services-models {
   display: flex;
 
+  background: $black;
   padding: 0 1.542vw 0vw 1.542vw;
 
   .services-container {
@@ -26,6 +29,4 @@
       }
     }
   }
-
-  background-color: black;
 }
