@@ -40,7 +40,7 @@ const Index = () => {
 
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
-        rootMargin: '0px',
+        rootMargin: '180px',
         threshold: 0.1 // Element should be visible at 50%
     });
 
@@ -82,7 +82,7 @@ const Index = () => {
                     {isBrandingVisible && <Glob3D
                         modelName='globe'
                         rotate={true}
-                        size={1.4}
+                        size={1.32}
                         color='black'
                     />}
                 </div>
