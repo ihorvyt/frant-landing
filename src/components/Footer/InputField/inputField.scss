@@ -1,0 +1,65 @@
+@import "/src/styles/values";
+
+
+
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.685vw;
+
+  .name {
+    color: #1F1F1F;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.174vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 107.93%; /* 24.334px */
+  }
+
+  .mandatory {
+    color: #6D6D6D;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.174vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 107.93%; /* 24.334px */
+  }
+
+  .input-field {
+    display: flex;
+    padding: 0.489vw;
+    justify-content: center;
+    align-items: flex-end;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    background: #D1CBBE;
+
+    transition: .3s;
+
+    input {
+      width: 100%;
+
+      border: none;
+      outline: none;
+      background: none;
+
+
+      color: $black;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.458vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 107.93%; /* 30.22px */
+    }
+
+    &.active {
+      background: #1A1A1A;
+
+      input {
+        color: $white;
+      }
+    }
+  }
+}

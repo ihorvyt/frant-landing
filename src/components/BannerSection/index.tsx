@@ -4,7 +4,7 @@ import './baner.scss'
 const Index = () => {
     return (
         <>
-            <section className="banner-section">
+            <section id='banner' className="banner-section">
                 <div className="video">
                     <video autoPlay loop muted>
                         <source src="/frant-landing/video/Timeline.mp4" type="video/mp4"/>

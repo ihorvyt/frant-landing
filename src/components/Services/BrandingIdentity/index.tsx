@@ -4,7 +4,7 @@ import {forwardRef} from "react";
 
 const Index = forwardRef<HTMLDivElement>((props, ref) => {
     return (
-        <section ref={ref} className="brand-ident-section">
+        <section id='branding' ref={ref} className="brand-ident-section">
             <div className="brand-ident-container">
                 <ServiceInfoContainer title="Branding <br/> & <br/> Identity" description="No Generic Templates Allowed."/>
             </div>

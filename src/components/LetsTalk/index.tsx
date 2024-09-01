@@ -1,13 +1,13 @@
-import React, {RefObject} from "react";
+import React from "react";
 import './letsTalk.scss'
+import {Link} from "react-scroll";
 
-const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
+const Index = ({hide}: {hide: boolean}) => {
 
-    console.log(hide)
     return (
-        <button className={`lets-chat ${hide && 'lets-chat--hide'}`}>
+        <Link to='spacer' smooth={true} className={`lets-chat ${hide && 'lets-chat--hide'}`}>
             <span>Let’s Chat</span>
-        </button>
+        </Link>
     );
 };
 

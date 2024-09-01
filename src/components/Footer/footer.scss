@@ -100,6 +100,14 @@ footer {
           font-style: normal;
           font-weight: 700;
           line-height: 185%;
+
+          transition: .3s;
+
+          &.active {
+            background: $black;
+
+            color: $white;
+          }
         }
       }
     }
@@ -108,61 +116,6 @@ footer {
        width: 100%;
        display: flex;
        justify-content: space-between;
-
-       .checkboxes {
-         display: flex;
-         gap: 2.135vw;
-
-         label {
-           display: flex;
-           height: 3.177vw;
-           align-items: center;
-           gap: 10px;
-           width: fit-content;
-           padding-right: 0.833vw;
-           cursor: pointer;
-
-           transition: .3s;
-
-           .icon {
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             height: 100%;
-             width: 3.177vw;
-             background: $primary;
-             transition: .3s;
-
-             svg {
-               width: 1.667vw;
-               height: 1.667vw;
-             }
-           }
-
-           span {
-             transition: .3s;
-
-             color: $black;
-             font-family: "Plus Jakarta Sans", sans-serif;
-             font-size: 1.25vw;
-             font-style: normal;
-             font-weight: 600;
-             line-height: 107.93%; /* 25.903px */
-           }
-
-           &.active {
-             background: $black;
-
-             .icon {
-               background: $black;
-             }
-
-             span {
-               color: $white;
-             }
-           }
-         }
-       }
 
        .sent {
          display: flex;
@@ -186,6 +139,24 @@ footer {
          svg {
            height: 1.667vw;
            width: 1.667vw;
+         }
+
+         transition: .3s;
+
+         &.active {
+           background-color: $white;
+
+           border: 1px solid $black;
+
+           span {
+             color: $black;
+           }
+
+           svg {
+             path {
+               fill: $black;
+             }
+           }
          }
        }
      }
@@ -232,58 +203,6 @@ footer {
         font-weight: 500;
         line-height: 185%; /* 35.15px */
       }
-    }
-  }
-}
-
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.685vw;
-
-  .name {
-    color: #1F1F1F;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1.174vw;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 107.93%; /* 24.334px */
-  }
-
-  .mandatory {
-    color: #6D6D6D;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 1.174vw;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 107.93%; /* 24.334px */
-  }
-
-  .input-field {
-    display: flex;
-    padding: 0.489vw;
-    justify-content: center;
-    align-items: flex-end;
-    flex-shrink: 0;
-    align-self: stretch;
-
-    background: #D1CBBE;
-
-    input {
-      width: 100%;
-
-      border: none;
-      outline: none;
-      background: none;
-
-
-      color: $black;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 1.458vw;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 107.93%; /* 30.22px */
     }
   }
 }

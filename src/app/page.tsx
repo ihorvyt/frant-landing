@@ -3,21 +3,17 @@ import React, {useEffect, useState} from "react";
 
 import TechnologyStack from "@/components/TechnologyStack";
 import Header from "@/components/Header/";
-import Globus from "../components/Glob";
+import Glob from "../components/Glob";
 import FrantSection from "@/components/FrantSection";
 import SiteVariations from "@/components/SiteVariations";
 import InfinitySlider from "@/components/InfinitySlider";
-import Design from "../components/Services/Design";
-import Development from "../components/Services/Development";
-import BrandIdentity from "../components/Services/BrandingIdentity";
 import CheckSection from "../components/CheckSection/";
 import TimeInfoSection from "@/components/TimeInfoSection";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
-import Glob3D from "../components/Glob/Glob3D/";
 
 import './page.scss'
-import BanerSection from "../components/BannerSection";
+import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
@@ -30,11 +26,11 @@ export default function Home() {
 
     const [refSpacer, isSpacerVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: '100px',
+        threshold: 0.001
     });
 
-    const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(false);
+    const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
 
 
     useEffect(() => {
@@ -50,8 +46,8 @@ export default function Home() {
             hide={isFrantSectionVisible}
         />
         <main>
-            <BanerSection/>
-            <Globus/>
+            <BannerSection/>
+            <Glob/>
             <FrantSection
                 ref={refFrantSection}
             />
@@ -62,7 +58,7 @@ export default function Home() {
             <CheckSection/>
             <TimeInfoSection/>
         </main>
-        <div className="spacer" ref={refSpacer}></div>
+        <div id='spacer' className="spacer" ref={refSpacer}></div>
         <Footer/>
 
         <LetsTalk

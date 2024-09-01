@@ -8,6 +8,11 @@ import React, {useEffect, useState} from "react";
 import Glob3D from "@/components/Glob/Glob3D";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
+interface IModel {
+    modelName: string,
+    size: number,
+    color: string
+}
 
 const Index = () => {
     const [refDesign, isDesigbVisible] = useIntersectionObserver({
@@ -25,13 +30,6 @@ const Index = () => {
         rootMargin: '0px',
         threshold: 0.2 // Element should be visible at 50%
     });
-
-    interface IModel {
-        modelName: string,
-        size: number,
-        color: string
-    }
-
     const [showModel, setShowModel] = useState<IModel>({
         modelName: 'none',
         size: 1,
@@ -54,7 +52,6 @@ const Index = () => {
             size: 1.3,
             color: 'red'
         });
-
         !isDesigbVisible && !isBrandingVisible && !isDevelopmentVisible && setShowModel({
             modelName: '',
             size: 1.2,

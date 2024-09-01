@@ -4,7 +4,7 @@ import './timeInfoSection.scss'
 
 const Index = () => {
     return (
-        <div className="time-info-section">
+        <section id='time-lines' className="time-info-section">
             <div className="time-info-container">
                 <div className="respond-within card">
                     <div className="top">
@@ -17,7 +17,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>48<span>hours</span></p>
+                        <p>24<span>hours</span></p>
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>7<span>days</span></p>
+                        <p>4<span>days</span></p>
                     </div>
                 </div>
 
@@ -47,11 +47,11 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>45<span>days</span></p>
+                        <p>30<span>days</span></p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

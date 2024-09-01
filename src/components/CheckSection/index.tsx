@@ -10,7 +10,7 @@ const Index: React.FC = () => {
     const checks = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
     return (<>
-        <section className="check-section">
+        <section id='prices' className="check-section">
             <div className="check-section-price">
                 <h2>Prices for our vision.</h2>
             </div>
