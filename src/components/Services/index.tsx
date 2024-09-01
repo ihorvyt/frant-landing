@@ -44,7 +44,7 @@ const Index = () => {
     useEffect(() => {
         isDesigbVisible && setShowModel({
             modelName: 'head',
-            size: 1.3,
+            size: 1.10,
             color: 'green'
         });
         isDevelopmentVisible && setShowModel({

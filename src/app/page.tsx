@@ -33,6 +33,7 @@ export default function Home() {
             <CheckSection/>
             <TimeInfoSection/>
         </main>
-        {/*<Footer/>*/}
+        <div className="spacer"></div>
+        <Footer/>
     </>);
 }

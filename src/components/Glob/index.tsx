@@ -3,25 +3,39 @@ import './glob.scss'
 import Glob3D from "@/components/Glob/Glob3D";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
+const DateTime: React.FC = () => {
+    const [dateTime, setDateTime] = useState<{ date: string, time: string }>({
+        date: '',
+        time: '',
+    });
 
-const getCurrentDateTime = (): { time: string; date: string } => {
-    const now = new Date();
+    useEffect(() => {
+        const updateDateTime = () => {
+            const currentTime = new Date();
+            const formattedDate = currentTime.toLocaleDateString();
+            const formattedTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+            setDateTime({ date: formattedDate, time: formattedTime });
+        };
 
-    // Format time as HH:mm
-    const time = now.toTimeString().slice(0, 5);
+        updateDateTime(); // Зразу відображаємо дату та час при завантаженні
+        const intervalId = setInterval(updateDateTime, 1000); // Оновлюємо кожну секунду
 
-    // Format date as DD.MM.YYYY
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-    const year = now.getFullYear();
-    const date = `${day}.${month}.${year}`;
+        return () => clearInterval(intervalId); // Очищуємо інтервал при розмонтуванні компонента
+    }, []);
 
-    return { time, date };
+    return (
+        <>
+            <div className="time">
+                <span>{dateTime.time}</span>
+            </div>
+            <div className="date">
+                <span>{dateTime.date}</span>
+            </div>
+        </>
+    );
 };
 
-
 const Index = () => {
-    const [currentDateTime, setCurrentDateTime] = useState(getCurrentDateTime());
     const [showGlobal, setSowGlobal] = React.useState(false);
 
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
@@ -60,12 +74,7 @@ const Index = () => {
                     </div>
                     <div className="glob-time">
                         <div className="time-n-date">
-                            <div className="time">
-                                <span>{currentDateTime.time}</span>
-                            </div>
-                            <div className="date">
-                                <span>{currentDateTime.date}</span>
-                            </div>
+                            <DateTime/>
                         </div>
                     </div>
                 </div>

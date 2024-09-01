@@ -77,7 +77,7 @@ const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotat
 
             const bbox = myMesh.geometry.boundingBox;
             if (bbox) {
-                myMesh.position.y = (bbox.max.z - bbox.min.z) / 18;
+                myMesh.position.y = (bbox.max.z - bbox.min.z) / 24;
                 camera.position.set(bbox.max.x * 4, bbox.max.y, bbox.max.z * 3);
             }
 
