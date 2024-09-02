@@ -4,9 +4,38 @@
 .time-info-section {
   display: flex;
   flex-direction: column;
-  gap: 2.083vw;
+  gap: 2.604vw;
   padding: 0 3.073vw 15.052vw;
   background-color: $black;
+
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.156vw solid $grey;
+    padding-bottom: 2.604vw;
+
+    .title {
+      h3 {
+        color: $white;
+        font-family: Unbounded, sans-serif;
+        font-size: 4.427vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 107.93%; /* 91.74px */
+      }
+    }
+
+    .description {
+      p {
+        color: $white;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.771vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 141%; /* 47.94px */
+      }
+    }
+  }
 
   .time-info-container {
     display: flex;
@@ -93,20 +122,17 @@
       }
 
       width: 30%;
-
       transition: .3s;
-      border-bottom: 0 solid $white;
-
-      &:hover {
-        width: 35%;
-        border-bottom: 1.51vw solid $primary;
-      }
     }
 
     .respond-within {
       border-radius: 0 0 3.125vw 3.125vw;
       background: $white;
       border-bottom: 0 solid $white;
+
+      &:hover {
+        border-bottom: 1.51vw solid $primary;
+      }
     }
 
     .make-an-offer{

@@ -19,15 +19,19 @@
       display: flex;
       align-items: flex-end;
       gap: 1.042vw;
-      padding: 0 0 3% 2.2%;
+      padding: 0 0 3.229vw 3.229vw;
 
       .glob-text-code {
         display: flex;
         flex-direction: column;
-        gap: 2.344vw;
+        gap: 0.781vw;
         width: 48.073vw;
 
         .glob-text {
+          display: flex;
+          flex-direction: column;
+          gap: 1.563vw;
+
           h1 {
             color: $black;
             font-family: "Unbounded", sans-serif;

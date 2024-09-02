@@ -25,11 +25,11 @@ const Index = () => {
                 "E-commerce Websites",
                 "Landing Pages",
                 "Web Applications (CRM)",
-                "Blogs and Content Websites",
+                "Blogs & Content Websites",
                 "Portfolio Websites"
             ],
             "specialized_websites": [
-                "Healthcare and Medical Websites",
+                "Healthcare & Medical Websites",
                 "Educational Websites",
                 "Customer Support Websites",
                 "Custom Development"
@@ -39,7 +39,7 @@ const Index = () => {
                 "UI/UX Design",
                 "Graphic Design",
                 "Digital Design",
-                "Motion Graphics and Animation"
+                "Motion Graphics & Animation"
             ]
         }
     }

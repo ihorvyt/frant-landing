@@ -1,3 +1,7 @@
+@import "src/styles/values";
+
+$delay: 0.2;
+
 .header {
   display: flex;
   align-items: center;
@@ -35,6 +39,42 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
+
+      transform: translateY(-400%);
+      animation: drop-down 0.8s forwards;
+      cursor: pointer;
+
+      &:first-child {
+        animation-delay: $delay;
+      }
+
+      &:nth-child(2) {
+        animation-delay: $delay * 2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: $delay * 3s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: $delay * 4s;
+      }
+
+      &:nth-child(5) {
+        animation-delay: $delay * 5s;
+      }
+    }
+
+    @keyframes drop-down {
+      0% {
+        opacity: 0;
+        transform: translateY(-400%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
     }
   }
 

@@ -2,10 +2,6 @@ import React, { forwardRef, Ref } from 'react';
 import './design.scss';
 import ServiceInfoContainer from "@/components/Services/ServiceInfoContainer";
 
-interface DesignProps {
-    // Add any other props if needed
-}
-
 const Design = forwardRef<HTMLDivElement>((props, ref) => {
     return (
         <section id='design' ref={ref} className="design-section">

@@ -5,6 +5,15 @@ import './timeInfoSection.scss'
 const Index = () => {
     return (
         <section id='time-lines' className="time-info-section">
+            <div className="info-container">
+                <div className="title">
+                    <h3>Advice at the start for free!</h3>
+                </div>
+
+                <div className="description">
+                    <p>Contact us for a detailed consultation. Do you have an idea? </p>
+                </div>
+            </div>
             <div className="time-info-container">
                 <div className="respond-within card">
                     <div className="top">

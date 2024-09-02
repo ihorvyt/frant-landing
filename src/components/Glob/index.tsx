@@ -36,8 +36,6 @@ const DateTime: React.FC = () => {
 };
 
 const Index = () => {
-    const [showGlobal, setSowGlobal] = React.useState(false);
-
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
         rootMargin: '180px',
@@ -52,20 +50,15 @@ const Index = () => {
                     <div className="glob-text-code">
                         <div className="glob-text">
                             <h1>We are frant</h1>
-                            <p>An international web development and design studio specializing in practical and vibrant
-                                solutions. At Frant, powerful technical expertise combines with modern and bold creative
-                                vision to ensure your project is both </p>
-                            <div className="space-text">
-                                <span>effective</span>
-                                <span>and</span>
-                                <span>visually</span>
-                                <span>compelling.</span>
-                            </div>
-                            <div className="space-text">
-                                <span>We</span>
-                                <span>bring</span>
-                                <span>ideas to</span>
-                                <span>life.</span>
+                            <div>
+                                <p>An international web development and design studio specializing in practical and
+                                    vibrant
+                                    solutions. At Frant, powerful technical expertise combines with modern and bold
+                                    creative
+                                    vision to ensure your project is both effective and visually compelling.</p>
+                                <div className="space-text">
+                                    <span>We bring ideas to life.</span>
+                                </div>
                             </div>
                         </div>
                         <div className="glob-code">
