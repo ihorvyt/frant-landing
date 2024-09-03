@@ -5,7 +5,7 @@ interface InputFieldProps {
     name: string;
     mandatory: boolean;
     value: string;
-    setValue: (e: { e: React.ChangeEvent<HTMLInputElement>; name: string }) => void;
+    setValue: (value: string, name: string) => void;
 }
 
 const InputField = ({ name, mandatory, value, setValue }: InputFieldProps) => {
@@ -15,7 +15,11 @@ const InputField = ({ name, mandatory, value, setValue }: InputFieldProps) => {
                 <span className="name">{name}</span>{mandatory && <span className="mandatory">*</span>}
             </div>
             <div className={`input-field ${value !== '' ? 'active' : ''}`}>
-                <input type="text" value={value} onChange={(e) => setValue(e.target.value, name)}/>
+                <input
+                    type="text"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value, name)} // Updated to pass two arguments
+                />
             </div>
         </div>
     )

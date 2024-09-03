@@ -18,7 +18,7 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
             let procent: number = (userPositionFromStart / road) * 100;
 
             if (isVisible) {
-                if (procent >= 0 && procent < 67 && spanRef) {
+                if (procent >= 0 && procent < 66 && spanRef) {
                     if (spanRef.current) {
                         spanRef.current.style.transform = `translateX(${-procent}%)`;
                     }
