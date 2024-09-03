@@ -1,15 +1,11 @@
 import React from "react";
 import './checkBox.scss'
 
-export const Checkbox = ({ label, checked, setIsChecked }: {label: string, checked: boolean, setIsChecked: (value: boolean) => void}) => {
+export const Checkbox = ({ label, checked, setIsChecked }: {label: string, checked: boolean, setIsChecked: (checked: boolean) => void}) => {
     return (
         <label className={`${checked ? 'active' : ''}`}>
-            <input
-                type="checkbox"
-                checked={checked}
-                onChange={() => setIsChecked(!checked)}
-                style={{ display: 'none' }}
-            />
+
+            <input style={{display: 'none'}} type="checkbox" checked={checked} onChange={(e) => setIsChecked(e.target.checked)}/>
             <div className="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
                     <g clipPath="url(#clip0_62_84)">

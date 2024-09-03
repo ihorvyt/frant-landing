@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 const Index: React.FC = () => {
-    // Create refs for the cursor elements
+    // Create refs for the Cursor elements
     const bigBallRef = useRef<HTMLDivElement | null>(null);
     const smallBallRef = useRef<HTMLDivElement | null>(null);
     const hoverablesRef = useRef<NodeListOf<HTMLElement> | null>(null);

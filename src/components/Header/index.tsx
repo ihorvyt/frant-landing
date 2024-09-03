@@ -1,7 +1,6 @@
 import React, {RefObject} from 'react';
 import { Link } from 'react-scroll';
 import './header.scss'
-import {list} from "postcss";
 
 const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
     const links = [
@@ -27,8 +26,8 @@ const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
                     links.map((item) => (
                         <Link
                             key={item.name}
-                            smooth={true}
                             offset={-150}
+                            duration={1000}
                             to={item.link}
                         >
                             {item.name}

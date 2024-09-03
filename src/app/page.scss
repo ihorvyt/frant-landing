@@ -16,6 +16,12 @@ body {
   scrollbar-width: none;
 }
 
+::selection {
+  background-color: $white; /* Колір фону під час виділення */
+  color: $black; /* Колір тексту під час виділення */
+}
+
+
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {

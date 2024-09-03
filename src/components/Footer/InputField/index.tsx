@@ -1,14 +1,21 @@
 import React from "react";
 import './inputField.scss'
 
-const InputField = ({name, mandatory, value, setValue}: {name: string, mandatory: boolean, value: string, setValue: (value: string) => void}) => {
+interface InputFieldProps {
+    name: string;
+    mandatory: boolean;
+    value: string;
+    setValue: (e: { e: React.ChangeEvent<HTMLInputElement>; name: string }) => void;
+}
+
+const InputField = ({ name, mandatory, value, setValue }: InputFieldProps) => {
     return (
         <div className="input-container">
             <div>
                 <span className="name">{name}</span>{mandatory && <span className="mandatory">*</span>}
             </div>
             <div className={`input-field ${value !== '' ? 'active' : ''}`}>
-                <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
+                <input type="text" value={value} onChange={(e) => setValue(e.target.value, name)}/>
             </div>
         </div>
     )

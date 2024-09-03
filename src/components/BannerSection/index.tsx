@@ -16,10 +16,10 @@ const Index = () => {
                 <div className="links">
                     <div className="soc">
                         <a>Linked In</a>
-                        <a>Behance</a>
+                        <a href="https://www.behance.net/frantdigital" target="_blank" >Behance</a>
                     </div>
 
-                    <a href="">frant.digital@gmail.com</a>
+                    <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
                 </div>
             </section>
         </>
