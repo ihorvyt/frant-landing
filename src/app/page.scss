@@ -14,14 +14,28 @@ main {
 
 body {
   scrollbar-width: none;
+
+  animation: 3s scrollUnBlock forwards;
 }
+
+@keyframes scrollUnBlock {
+  0% {
+    overflow: hidden;
+  }
+
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: scroll;
+  }
+}
+
 
 ::selection {
   background-color: $white; /* Колір фону під час виділення */
   color: $black; /* Колір тексту під час виділення */
 }
-
-
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
