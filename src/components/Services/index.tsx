@@ -49,7 +49,7 @@ const Index = () => {
         });
         isBrandingVisible && setShowModel({
             modelName: 'eye',
-            size: 1.3,
+            size: 1.2,
             color: 'red'
         });
         !isDesigbVisible && !isBrandingVisible && !isDevelopmentVisible && setShowModel({

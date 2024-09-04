@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './footer.scss'
 
 import InputField from './InputField/'
@@ -14,12 +14,15 @@ const Index = () => {
         mobileNumber: "",
         description: "",
     });
-
     const [services, setServices] = useState({
         webDesign: false,
         webDevelopment: false,
         branding: false,
         smthElse: false,
+    });
+    const [messageStatus, setMessageStatus] = useState({
+        title: 'close',
+        description: ''
     });
 
     const isReadyToSend = formData.firstName && formData.email && formData.mobileNumber;
@@ -31,27 +34,40 @@ const Index = () => {
     const handleCheckboxChange = (name: ServiceName) => {
         setServices((prev) => ({ ...prev, [name]: !prev[name] }));
     };
-    const [status, setStatus] = useState({
-        title: 'close',
-        description: ''
-    });
+
 
     function close() {
         setTimeout(() => {
-            setStatus({
+            setMessageStatus({
                 title: 'close',
                 description: ''
             })
         }, 5000)
     }
 
+    const validateEmail = (email: string): boolean => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     const sentMail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+
         if (!isReadyToSend) {
-            setStatus({
+            setMessageStatus({
                 title: 'Oops!',
                 description: 'Please, enter all required the information!'
+            })
+            close()
+
+            return
+        }
+
+        if (!validateEmail(formData.email)) {
+            setMessageStatus({
+                title: 'Incorrect email :(',
+                description: 'Please, enter valid email!'
             })
             close()
 
@@ -77,26 +93,35 @@ const Index = () => {
             });
 
             if (response.ok) {
-                setStatus({
+                setMessageStatus({
                     title: 'Success!',
                     description: 'Your message has been sent.'
                 })
                 close()
             } else {
-                setStatus({
+                setMessageStatus({
                     title: 'Oops!',
                     description: 'There was a problem submitting your message.'
                 })
                 close()
             }
         } catch (error) {
-            setStatus({
+            setMessageStatus({
                 title: 'Oops!',
                 description: 'There was a problem submitting your message.'
             })
             close()
         }
     };
+
+    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+    const [isTextAreaActive, setIsTextAreaActive] = useState<boolean>(false);
+
+    useEffect(() => {
+        // Add 'active' class if the input is focused or has a value
+        setIsTextAreaActive(formData.description !== '' || document.activeElement === textareaRef.current);
+    }, [formData.description]);
+
 
     return (
         <>
@@ -144,10 +169,13 @@ const Index = () => {
                             <div className="text-area-container">
                                 <span>Description</span>
                                 <textarea
+                                    ref={textareaRef}
                                     name="description"
                                     value={formData.description}
                                     onChange={(e) => handleInputChange(e.target.value, 'description')}
-                                    className={`textarea ${formData.description ? 'active' : ''}`}
+                                    className={`textarea ${isTextAreaActive ? 'active' : ''}`}
+                                    onFocus={() => setIsTextAreaActive(true)}
+                                    onBlur={() => setIsTextAreaActive(formData.description !== '')}
                                 />
                             </div>
                         </div>
@@ -201,16 +229,16 @@ const Index = () => {
                 </div>
             </footer>
 
-            <article className={`message-log ${status.title === 'close' ? '' : 'active'}`}>
+            <article className={`message-log ${messageStatus.title === 'close' ? '' : 'active'}`}>
                 <div className="message-loading">
-                    <span>{status.title}</span>
-                    <p>{status.description}</p>
+                    <span>{messageStatus.title}</span>
+                    <p>{messageStatus.description}</p>
                 </div>
                 <div className="line">
 
                 </div>
 
-                <div className="close" onClick={() => setStatus({
+                <div className="close" onClick={() => setMessageStatus({
                     title: 'close',
                     description: '',
                 })}>

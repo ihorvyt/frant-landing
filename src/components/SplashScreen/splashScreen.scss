@@ -1,0 +1,73 @@
+@import "/src/styles/values";
+
+
+.splash-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99999999;
+  background-color: $black;
+
+  animation: 3s 3s background ease-in forwards;
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11.302vw;
+
+
+    svg {
+      animation: 3s 3s logoScale ease-in forwards;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .line {
+    position: absolute;
+    bottom: 5.052vw;
+    left: 4.531vw;
+
+    height: 0.625vw;
+    width: calc(100% - 9.062vw);
+
+
+    background-color: #D9D9D9;
+
+    animation: 3s line ease-in forwards;
+  }
+
+  @keyframes line {
+    0% {
+      width: calc(100% - 9.062vw);
+    }
+
+    100% {
+      width: 0;
+    }
+  }
+
+  @keyframes background {
+    0% {
+      opacity: 100%;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes logoScale {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(100);
+    }
+  }
+}

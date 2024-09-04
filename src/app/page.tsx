@@ -16,6 +16,7 @@ import './page.scss'
 import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
+import SplashScreen from "@/components/SplashScreen";
 
 export default function Home() {
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
@@ -61,6 +62,8 @@ export default function Home() {
         <div id='spacer' className="spacer" ref={refSpacer}></div>
         <Footer/>
 
+
+        <SplashScreen/>
         <LetsTalk
             hide={isLetsTalkHide}
         />

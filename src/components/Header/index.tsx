@@ -4,11 +4,11 @@ import './header.scss'
 
 const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
     const links = [
-        { name: 'Design', link: 'design' },
-        { name: 'Web Development', link: 'development' },
-        { name: 'Branding & Identity', link: 'branding' },
-        { name: 'Prices', link: 'prices' },
-        { name: 'Time-lines', link: 'time-lines' },
+        { name: 'Design', link: 'design', offset: -300 },
+        { name: 'Web Development', link: 'development', offset: -300 },
+        { name: 'Branding & Identity', link: 'branding', offset: -200 },
+        { name: 'Prices', link: 'prices', offset: -150 },
+        { name: 'Time-lines', link: 'time-lines', offset: -150 },
     ];
 
     return (
@@ -26,7 +26,7 @@ const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
                     links.map((item) => (
                         <Link
                             key={item.name}
-                            offset={-150}
+                            offset={item.offset}
                             duration={1000}
                             to={item.link}
                         >
