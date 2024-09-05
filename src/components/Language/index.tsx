@@ -1,11 +1,11 @@
 import React from 'react';
 import './langPopup.scss'
 
-const Index = ({ show }) => {
+const Index = ({ showLang, setShowLang }: {showLang: boolean, setShowLang: (b: boolean) => boolean}) => {
     const languages = ['Ukrainian', 'English', 'Polish', 'Spanish', 'German'];
 
     return (
-        <div className={`lang-popup ${show ? 'active' : ''}`}>
+        <div className={`lang-popup ${showLang ? 'active' : ''}`}>
             <div className="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="41" height="65" viewBox="0 0 41 65" fill="none">
                     <path
@@ -30,7 +30,7 @@ const Index = ({ show }) => {
             </div>
 
 
-            <div className="close">
+            <div onClick={() => setShowLang(!showLang)} className="close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="66" height="40" viewBox="0 0 66 40" fill="none">
                     <line x1="5.05469" y1="2.90192" x2="63.9444" y2="36.9019" stroke="#EEEAE4" strokeWidth="6"/>
                     <line y1="-3" x2="68" y2="-3" transform="matrix(-0.866025 0.5 0.5 0.866025 62.4453 5.5)"

@@ -33,6 +33,7 @@ export default function Home() {
     });
 
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
+    const [showLang, setShowLang] = useState<boolean>(true);
 
 
     useEffect(() => {
@@ -64,7 +65,7 @@ export default function Home() {
         <Footer/>
 
 
-        <Language/>
+        <Language showLang={showLang} setShowLang={setShowLang}/>
         {/*<SplashScreen/>*/}
         <LetsTalk
             hide={isLetsTalkHide}
