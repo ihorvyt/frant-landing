@@ -17,6 +17,7 @@ import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import SplashScreen from "@/components/SplashScreen";
+import Language from "@/components/Language";
 
 export default function Home() {
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
@@ -63,7 +64,8 @@ export default function Home() {
         <Footer/>
 
 
-        <SplashScreen/>
+        <Language/>
+        {/*<SplashScreen/>*/}
         <LetsTalk
             hide={isLetsTalkHide}
         />

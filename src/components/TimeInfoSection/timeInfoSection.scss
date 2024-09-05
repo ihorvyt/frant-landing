@@ -26,6 +26,8 @@
     }
 
     .description {
+      cursor: pointer;
+
       p {
         color: $white;
         font-family: "Plus Jakarta Sans", sans-serif;
@@ -137,11 +139,20 @@
 
     .make-an-offer{
       background: $white;
+      border-bottom: 0 solid $white;
+
+      &:hover {
+        border-bottom: 1.51vw solid $primary;
+      }
     }
 
     .project-realization{
       background: $primary;
+      border-bottom: 0 solid $white;
 
+      &:hover {
+        border-bottom: 1.51vw solid $white;
+      }
       .top {
         .count {
           &::before {

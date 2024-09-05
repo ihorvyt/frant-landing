@@ -2,8 +2,9 @@
 
 
 .site-variations {
-  padding: 0 3.542vw 13.75vw 3.542vw;
+  padding: 0 3.542vw 0vw 3.542vw;
   background-color: $black;
+  min-height: 30.344vw;
 
   .site-variation-container {
     display: flex;
@@ -18,6 +19,7 @@
         align-items: center;
         gap: 10px;
         position: relative;
+        opacity: 0;
 
         span {
           color: $white;
@@ -32,6 +34,15 @@
           white-space: nowrap;
         }
 
+        @keyframes fade-out {
+          0% {
+            opacity: 0;
+          }
+
+          100% {
+            opacity: 1;
+          }
+        }
 
         &::before {
           content: "";

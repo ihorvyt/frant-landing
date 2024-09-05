@@ -36,7 +36,7 @@
     left: 4.531vw;
 
     height: 0.625vw;
-    width: calc(100% - 9.062vw);
+    width: 91%;
 
 
     background-color: #D9D9D9;
@@ -46,7 +46,7 @@
 
   @keyframes line {
     0% {
-      width: calc(100% - 9.062vw);
+      width: 91%;
     }
 
     100% {
@@ -70,7 +70,7 @@
     }
 
     100% {
-      transform: scale(100);
+      transform: scale(40);
     }
   }
 }

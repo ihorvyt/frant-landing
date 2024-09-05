@@ -1,38 +1,12 @@
 import React from 'react';
 import './check.scss'
 
-const Index = () => {
-    const checkInfo = [
-        {
-          name: "24.08.24",
-          price: "23:31"
-        },
-        {
-            name: "24.08.24",
-            price: "23:31"
-        },
-        {
-            name: "24.08.24",
-            price: "23:31"
-        },
-        {
-            name: "24.08.24",
-            price: "23:31"
-        },
-        {
-            name: "24.08.24",
-            price: "23:31"
-        },
-        {
-            name: "24.08.24",
-            price: "23:31"
-        }
-    ]
-
+// @ts-ignore
+const Index = ({checkInfo}) => {
     return (
         <article className="check">
             <div className="site-variant">
-                <h3>Landing</h3>
+                <h3>{checkInfo.title}</h3>
             </div>
 
             <div className="check-info-secondary">
@@ -45,10 +19,10 @@ const Index = () => {
 
             <div className="check-info">
                 {
-                    checkInfo.map(info =>
+                    checkInfo.check_info_1.map((checkInfo: { name: string; value: string}) =>
                         <div className="info">
-                            <div className="name">{info.name}</div>
-                            <div className="value">{info.price}</div>
+                            <div className="name">{checkInfo.name}</div>
+                            <div className="value">{checkInfo.value}</div>
                         </div>
                     )
                 }
@@ -58,10 +32,10 @@ const Index = () => {
 
             <div className="check-info">
                 {
-                    checkInfo.slice(0, 3).map(info =>
+                    checkInfo.check_info_2.map((checkInfo: { name: string; value: string}) =>
                         <div className="info">
-                            <div className="name">{info.name}</div>
-                            <div className="value">{info.price}</div>
+                            <div className="name">{checkInfo.name}</div>
+                            <div className="value">{checkInfo.value}</div>
                         </div>
                     )
                 }
@@ -71,27 +45,26 @@ const Index = () => {
 
             <div className="total-price">
                 <div className="total">Total</div>
-                <div className="price">735.00$</div>
+                <div className="price">{checkInfo.price}</div>
             </div>
 
             <div className="check-info">
-                {
-                    checkInfo.slice(0, 2).map(info =>
-                        <div className="info">
-                            <div className="name">{info.name}</div>
-                            <div className="value">{info.price}</div>
-                        </div>
-                    )
-                }
+                <div className="info">
+                    <div className="name">e-cash:</div>
+                    <div className="value">{checkInfo.price}</div>
+                </div>
+                <div className="info">
+                    <div className="name">CHANGE:</div>
+                    <div className="value">our kindness :)</div>
+                </div>
             </div>
 
             <div className="line">----------------------------</div>
 
             <div className="check-info-secondary">
                 <p>THANK FOR YOUR PURCHASE!</p>
-                <p>EMAIL:fRANT.DIGITAL@GMAIL.COM</p>
+                <p>email: frantdigital@GMAIL.COM</p>
                 <p>15 articles</p>
-                <p>WE DO NOT MAKE REFUNDS </p>
 
                 <p className="full-width"><span>1996-∞</span> <span>23:31</span> <span>24.08.24</span></p>
             </div>

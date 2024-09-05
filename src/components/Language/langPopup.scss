@@ -1,0 +1,72 @@
+@import 'src/styles/values';
+
+.lang-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  z-index: 999999999999999999999;
+  background-color: $black;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  .logo {
+    position: absolute;
+    top: 2.396vw;
+    left: 2.396vw;
+  }
+
+  .lang-world {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    gap: 19.792vw;
+
+    .lang-list {
+      ul {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        li {
+          color: $white;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 2.292vw;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+    }
+
+    .world {
+      width: 41.667vw;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 2.396vw;
+    right: 2.396vw;
+
+    cursor: pointer;
+  }
+}

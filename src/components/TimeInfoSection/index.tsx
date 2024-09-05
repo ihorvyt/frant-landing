@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './timeInfoSection.scss'
+import {Link} from "react-scroll";
 
 const Index = () => {
     return (
@@ -10,9 +11,9 @@ const Index = () => {
                     <h3>Advice at the start for free!</h3>
                 </div>
 
-                <div className="description">
+                <Link to='spacer' className="description">
                     <p>Contact us for a detailed consultation. Do you have an idea? </p>
-                </div>
+                </Link>
             </div>
             <div className="time-info-container">
                 <div className="respond-within card">

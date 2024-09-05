@@ -1,5 +1,6 @@
 import React from 'react';
 import './SiteVariation.scss'
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 type ServiceCategoryProps = {
     title: string;
@@ -8,8 +9,12 @@ type ServiceCategoryProps = {
 
 const ServiceCategory = ({ title, services }: ServiceCategoryProps) => (
     <div className="site-variation-column">
-        {services.map((service) => (
-            <div key={service} className="site-variation-element">
+        {services.map((service, index) => (
+            <div
+                key={service}
+                className={`site-variation-element`}
+                style={{ animation: `fade-out 0.8s forwards ${index * 0.2}s` }} // Adjust the delay per element
+            >
                 <span>{service}</span>
             </div>
         ))}
@@ -45,22 +50,30 @@ const Index = () => {
     }
 
 
+    const [refSiteVariations, isSiteVariationsVisible] = useIntersectionObserver({
+        root: null, // використовувати viewport
+        rootMargin: '-100px',
+        threshold: 0.001
+    });
+
     return (
-        <section className="site-variations">
-            <div className="site-variation-container">
-                <ServiceCategory
-                    title="Website Types"
-                    services={servicesData.services.website_types}
-                />
-                <ServiceCategory
-                    title="Specialized Websites"
-                    services={servicesData.services.specialized_websites}
-                />
-                <ServiceCategory
-                    title="Design Services"
-                    services={servicesData.services.design_services}
-                />
-            </div>
+        <section ref={refSiteVariations} className="site-variations">
+            {
+                isSiteVariationsVisible && <div className="site-variation-container">
+                    <ServiceCategory
+                        title="Website Types"
+                        services={servicesData.services.website_types}
+                    />
+                    <ServiceCategory
+                        title="Specialized Websites"
+                        services={servicesData.services.specialized_websites}
+                    />
+                    <ServiceCategory
+                        title="Design Services"
+                        services={servicesData.services.design_services}
+                    />
+                </div>
+            }
         </section>
     );
 };
