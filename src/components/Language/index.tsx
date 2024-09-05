@@ -1,7 +1,7 @@
 import React from 'react';
 import './langPopup.scss'
 
-const Index = ({ showLang, setShowLang }: {showLang: boolean, setShowLang: (b: boolean) => boolean}) => {
+const Index = ({ showLang, setShowLang }: {showLang: boolean, setShowLang: (b: boolean) => void}) => {
     const languages = ['Ukrainian', 'English', 'Polish', 'Spanish', 'German'];
 
     return (
