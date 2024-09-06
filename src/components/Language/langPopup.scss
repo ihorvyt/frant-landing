@@ -49,6 +49,8 @@
           font-style: normal;
           font-weight: 600;
           line-height: normal;
+
+          cursor: pointer;
         }
       }
     }
@@ -59,6 +61,27 @@
       img {
         height: 100%;
         width: 100%;
+      }
+
+      svg {
+        height: 100%;
+        width: 100%;
+
+        cursor: pointer;
+
+        path {
+          transition: .3s;
+
+          .active {
+            fill: $primary;
+          }
+
+
+          &:hover {
+            //stroke: red;
+            fill: $primary;
+          }
+        }
       }
     }
   }

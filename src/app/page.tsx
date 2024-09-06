@@ -47,6 +47,7 @@ export default function Home() {
     return (<>
         <Header
             hide={isFrantSectionVisible}
+            setShowLang={setShowLang}
         />
         <main>
             <BannerSection/>

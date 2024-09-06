@@ -2,7 +2,7 @@ import React, {RefObject} from 'react';
 import { Link } from 'react-scroll';
 import './header.scss'
 
-const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
+const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) => void}) => {
     const links = [
         { name: 'Design', link: 'design', offset: -300 },
         { name: 'Web Development', link: 'development', offset: -300 },
@@ -37,7 +37,7 @@ const Index = ({hide}: {hide: boolean | RefObject<HTMLDivElement>}) => {
             </nav>
 
 
-            <div className="lang">
+            <div className="lang" onClick={() => setShowLang(true)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55" fill="none">
                     <path
                         d="M27.4693 3C13.9221 3 2.93872 13.9696 2.93872 27.5C2.93872 41.0304 13.9221 52 27.4693 52C41.0166 52 52 41.0304 52 27.5C52 13.9696 41.0166 3 27.4693 3Z"
