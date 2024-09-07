@@ -37,7 +37,15 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
             </nav>
 
 
-            <div className="lang" onClick={() => setShowLang(true)}>
+            <button className="burger-menu-icon">
+                <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="11" y1="2" x2="57" y2="2" stroke="#EEEAE4" stroke-width="3"/>
+                    <line x1="1.31134e-07" y1="16" x2="68" y2="16" stroke="#EEEAE4" stroke-width="3"/>
+                    <line x1="11" y1="30" x2="57" y2="30" stroke="#EEEAE4" stroke-width="3"/>
+                </svg>
+            </button>
+
+            <button className="lang" onClick={() => setShowLang(true)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55" fill="none">
                     <path
                         d="M27.4693 3C13.9221 3 2.93872 13.9696 2.93872 27.5C2.93872 41.0304 13.9221 52 27.4693 52C41.0166 52 52 41.0304 52 27.5C52 13.9696 41.0166 3 27.4693 3Z"
@@ -51,7 +59,7 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
                     <path d="M27.4693 3V52M52 27.5H2.93872" stroke="#C3B8A3" strokeWidth="4.22415"
                           strokeMiterlimit="10"/>
                 </svg>
-            </div>
+            </button>
         </header>
     );
 };

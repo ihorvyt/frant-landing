@@ -42,6 +42,13 @@ const Index = () => {
         threshold: 0.1 // Element should be visible at 50%
     });
 
+    const [isPhone, setIsPhone] = useState<boolean>(false)
+
+    useEffect(() => {
+        if(window.innerWidth < 768) {
+            setIsPhone(true)
+        }
+    }, []);
 
     return (
         <div className="glob" ref={refBranding}>
@@ -75,7 +82,7 @@ const Index = () => {
                     {isBrandingVisible && <Glob3D
                         modelName='globe'
                         rotate={true}
-                        size={1.32}
+                        size={isPhone ? 1.5 : 1.32}
                         color='black'
                     />}
                 </div>

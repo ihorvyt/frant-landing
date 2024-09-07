@@ -60,3 +60,13 @@
     }
   }
 }
+
+
+@media(max-width: 768px) {
+  .banner-section {
+
+    .links {
+      display: none;
+    }
+  }
+}

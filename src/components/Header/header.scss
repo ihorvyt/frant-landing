@@ -86,4 +86,48 @@ $delay: 0.2;
       cursor: pointer;
     }
   }
+
+
+
+
+  .burger-menu-icon {
+    display: none;
+  }
+}
+
+
+@media(max-width: 768px) {
+  .header {
+    padding:  6.616vw 7.634vw 0;
+
+    &--hide {
+    }
+
+    .logo {
+      svg {
+        width: 10.433vw;
+        height: 16.539vw;
+      }
+    }
+
+
+
+    .burger-menu-icon {
+      display: flex;
+
+      svg {
+        width: 16.794vw;
+      }
+
+      cursor: pointer;
+    }
+
+
+    nav {
+      display: none;
+    }
+    .lang {
+      display:none;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import * as THREE from 'three';
 // @ts-ignore
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
@@ -39,10 +39,11 @@ const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotat
         // Material
         const material = new THREE.MeshStandardMaterial({ flatShading: true, side: THREE.DoubleSide });
 
+        const sizess = window.innerWidth < 768 ?  window.innerWidth / 1.3 : window.innerWidth / 2.5
         // Sizes
         const sizes = {
-            width: window.innerWidth / 2.5,
-            height: window.innerWidth / 2.5
+            width: sizess,
+            height: sizess
         };
 
         // Camera
@@ -108,10 +109,10 @@ const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotat
         animate();
 
         const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.aspect = window.innerWidth  / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            effect.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(window.innerWidth / 1.3, window.innerHeight / 1.3);
+            effect.setSize(window.innerWidth / 1.3, window.innerHeight / 1.3);
         };
 
         window.addEventListener('resize', handleResize);

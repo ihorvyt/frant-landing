@@ -34,3 +34,21 @@
     line-height: normal;
   }
 }
+
+@media(max-width: 768px) {
+  .lets-chat {
+    left: 50%;
+
+    padding: 3.823vw 0;
+    transform: translateX(-50%);
+    width: 88.295vw;
+
+    &--hide {
+      transform: translateX(160%);
+    }
+
+    span {
+      font-size: 5.089vw;
+    }
+  }
+}

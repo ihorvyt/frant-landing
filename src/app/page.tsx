@@ -16,7 +16,6 @@ import './page.scss'
 import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
-import SplashScreen from "@/components/SplashScreen";
 import Language from "@/components/Language";
 
 export default function Home() {
@@ -33,7 +32,7 @@ export default function Home() {
     });
 
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
-    const [showLang, setShowLang] = useState<boolean>(true);
+    const [showLang, setShowLang] = useState<boolean>(false);
 
 
     useEffect(() => {

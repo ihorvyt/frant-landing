@@ -1,5 +1,7 @@
 @import '../../styles/values.scss';
 
+$mob-side-padding: 5.852vw;
+
 .glob {
   padding: 0 2.083vw 2.083vw;
   background-color: $black;
@@ -103,4 +105,84 @@
       cursor: grab !important;
     }
   }
+}
+
+@media (max-width: 768px) {
+  .glob {
+    padding: 0 $mob-side-padding $mob-side-padding;
+    .glob-bg {
+      flex-direction: column;
+      height: 220vw;
+      background-image: url('/frant-landing/images/componets/glob/globBgMobile.svg');
+      background-size: contain;
+
+      .glob-info {
+        padding: 10.178vw 10.178vw 0 10.178vw;
+
+        .glob-text-code {
+          width: 100%;
+          .glob-text {
+            gap: 5.042vw;
+            h1 {
+              font-size: 14.997vw;
+            }
+
+            > div {
+              display: flex;
+              flex-direction: column;
+              gap: 5.042vw;
+            }
+            p {
+              font-size: 4.58vw;
+            }
+
+            .space-text {
+              span {
+                font-size: 6.107vw;
+              }
+            }
+          }
+
+          .glob-code {
+            display: none;
+            img {
+            }
+          }
+        }
+
+        .glob-time {
+          display: none;
+          .time-n-date {
+            padding: 0.1vw 0;
+            gap: 0.938vw;
+
+            span {
+              font-size: 2.031vw;
+            }
+          }
+        }
+      }
+
+      .glob3d-container {
+        top: unset;
+        bottom: -4%;
+        right: 51%;
+        z-index: 20;
+
+        height: 101.781vw;
+        width: 101.781vw;
+
+        transform: translate(50%, 0%);
+        //background-color: red;
+
+        .main-model {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+
 }
