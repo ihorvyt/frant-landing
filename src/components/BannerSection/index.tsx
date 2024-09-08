@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './baner.scss'
 
 const Index = () => {
+    const [videoSrc, setVideoSrc] = useState('');
+
+    useEffect(() => {
+        const width = window.innerWidth;
+        const videoPath = `/frant-landing/video/Timeline${width < 768 ? 'Mobile' : ''}.mp4`;
+        setVideoSrc(videoPath);
+    }, []);
+
+
     return (
         <>
             <section id='banner' className="banner-section">
                 <div className="video">
                     <video autoPlay loop muted>
-                        <source src={`/frant-landing/video/Timeline${window.innerWidth < 768 ? 'Mobile' : ''}.mp4`} type="video/mp4"/>
+                        {videoSrc && <source src={videoSrc} type="video/mp4"/>}
                         Your browser does not support the video tag.
                     </video>
                 </div>
