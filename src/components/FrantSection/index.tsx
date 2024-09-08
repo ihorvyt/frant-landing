@@ -1,56 +1,52 @@
 import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import './frantSection.scss';
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 const Index = forwardRef<HTMLDivElement>((props, ref) => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
     const spanRef = useRef<HTMLDivElement>(null);
 
+    const [refDevelopment, isDevelopmentVisible] = useIntersectionObserver({
+        root: null, // використовувати viewport
+        rootMargin: '0px',
+        threshold: 0.2 // Елемент повинен бути видимим на 50%
+    });
+
+    console.log(isDevelopmentVisible)
     useEffect(() => {
         const handleScroll = () => {
-            let road: number = window.innerHeight * 4
+            let road: number = window.innerHeight * 3
             let userPositionFromStart: number  = 0;
 
-            if (sectionRef.current) {
-                userPositionFromStart = window.pageYOffset - sectionRef.current.offsetTop;
+            if (refDevelopment.current) {
+                userPositionFromStart = window.pageYOffset - refDevelopment.current.offsetTop;
             }
 
-            let procent: number = (userPositionFromStart / road) * 100;
+            let percent: number = (userPositionFromStart / road) * 100;
+            if (refDevelopment.current) {
+                console.log('window.pageYOffset: ' + window.pageYOffset.toFixed(1) + '\n'
+                    + 'userPositionFromStart: ' + userPositionFromStart.toFixed(1) + '\n'
+                    + 'refDevelopment.current.offsetTop: ' + refDevelopment.current.offsetTop + '\n'
+                    + 'percent: ' + (percent - 16)
+                );
+            }
 
-            if (isVisible) {
-                if (procent >= 0 && procent < 66 && spanRef) {
-                    if (spanRef.current) {
-                        spanRef.current.style.transform = `translateX(${-procent}%)`;
-                    }
+
+            if (isDevelopmentVisible && spanRef.current) {
+                if (window.innerWidth > 768 && percent >= 0 && percent < 66) {
+                    spanRef.current.style.transform = `translateX(${-percent}%)`;
+                } else if (window.innerWidth < 768 && percent < 70 && userPositionFromStart > 10) {
+
+                    spanRef.current.style.transform = `rotate(90deg) translateX(${-percent}%) translateY(-33%)`;
                 }
             }
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isVisible]);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsVisible(entry.isIntersecting);
-            },
-            { threshold: 0.1 } // Adjust as needed
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
+    }, [isDevelopmentVisible]);
 
     return (
-        <section className="frant-section" ref={sectionRef}>
+        <section className="frant-section" ref={refDevelopment}>
             <div ref={ref} className="frant-section-bg">
                 <span ref={spanRef}>FRANT</span>
             </div>

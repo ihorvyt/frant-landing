@@ -73,9 +73,6 @@
         }
       }
 
-
-
-
       &:first-child  {
         width: 27.5vw;
       }
@@ -87,6 +84,35 @@
       &:nth-child(3) {
         width: 29.9vw;
         margin-right: 3vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .site-variations {
+    .site-variation-container {
+      flex-direction: column;
+      gap: 114px;
+      .site-variation-column {
+        .site-variation-element {
+          span {
+            font-size: 4.853vw;
+          }
+        }
+
+        &:first-child  {
+          width: 100%;
+        }
+
+        &:nth-child(2) {
+          margin-right: initial;
+        }
+
+        &:nth-child(3) {
+          width: 100%;
+          margin-right: initial;
+        }
       }
     }
   }

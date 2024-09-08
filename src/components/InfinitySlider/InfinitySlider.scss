@@ -62,3 +62,29 @@
     animation-name: infiniteScroll-2;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .container {
+    height: 11.705vw;
+    border-top: 1.018vw solid var(--Grey, #C0C0C0);
+    border-bottom: 1.018vw solid var(--Grey, #C0C0C0);
+    margin-bottom: 15.052vw;
+  }
+
+  .horizontal-scrolling-items {
+    font-size: 10.178vw;
+
+    .item {
+      span {
+        font-size: 3.562vw;
+      }
+
+      svg {
+        width: 13.232vw;
+        height: 3.053vw;
+      }
+    }
+  }
+}

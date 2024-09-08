@@ -7,7 +7,6 @@
     .service-info-container {
       display: flex;
       flex-direction: column;
-      gap: 1.094vw;
 
       .service-info {
         .title {
@@ -16,6 +15,23 @@
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .development-section {
+    .development-container {
+      .service-info-container {
+        .service-info {
+          .title {
+            h3 {
+              font-size: 9.924vw;
+            }
           }
         }
       }

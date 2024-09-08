@@ -31,3 +31,23 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .frant-section {
+    padding: 0 $mob-side-padding 4.844vw;
+
+    .frant-section-bg {
+      display: flex;
+      align-items: initial;
+
+      span {
+        height: fit-content;
+        transition: 1s;
+        transform: rotate(90deg) translateX(-16%) translateY(-33%) ;
+        transform-origin: left;
+        font-size: 105.709vw;
+        //font-size: 105.709vw;
+      }
+    }
+  }
+}

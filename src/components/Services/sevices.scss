@@ -30,3 +30,14 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .services-models {
+    .services-container {
+      width: 100%;
+    }
+    .model-container {
+      display: none;
+    }
+  }
+}

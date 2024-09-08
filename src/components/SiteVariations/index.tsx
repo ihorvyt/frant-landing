@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './SiteVariation.scss'
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
@@ -56,10 +56,18 @@ const Index = () => {
         threshold: 0.001
     });
 
+    const [stayShown, setStayShown] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isSiteVariationsVisible) {
+            setStayShown(true)
+        }
+    }, [isSiteVariationsVisible]);
+
     return (
         <section ref={refSiteVariations} className="site-variations">
             {
-                isSiteVariationsVisible && <div className="site-variation-container">
+                (isSiteVariationsVisible || stayShown) && <div className="site-variation-container">
                     <ServiceCategory
                         title="Website Types"
                         services={servicesData.services.website_types}
