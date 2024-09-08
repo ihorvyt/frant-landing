@@ -54,3 +54,46 @@
     }
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .checkboxes {
+    gap: 3.817vw 5.122vw;
+    overflow: scroll;
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 3.817vw;
+    }
+
+    label {
+      height: 13.017vw;
+      gap: 2.134vw;
+      padding-right: 2.134vw;
+
+      .icon {
+        width: 13.017vw;
+
+        svg {
+          width: 6.829vw;
+          height: 6.829vw;
+        }
+      }
+
+      span {
+        white-space: nowrap;
+        font-size: 5.122vw;
+      }
+
+      &.active {
+        .icon {
+        }
+
+        span {
+        }
+      }
+    }
+  }
+}

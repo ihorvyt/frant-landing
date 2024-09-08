@@ -1,8 +1,6 @@
 @import "/src/styles/values";
 
 
-
-
 .input-container {
   display: flex;
   flex-direction: column;
@@ -59,6 +57,34 @@
 
       input {
         color: $white;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .input-container {
+    gap: 3.308vw;
+
+    .name {
+      font-size: 5.737vw;
+    }
+
+    .mandatory {
+      font-size: 5.737vw;
+    }
+
+    .input-field {
+      padding: 2.39vw;
+
+      input {
+        font-size: 7.125vw;
+      }
+
+      &.active {
+        input {
+        }
       }
     }
   }

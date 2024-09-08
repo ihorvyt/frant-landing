@@ -181,26 +181,30 @@ const Index = () => {
                         </div>
                         <div className="input-checkbox-sent">
                             <div className="checkboxes">
-                                <Checkbox
-                                    label='Web Development'
-                                    checked={services.webDesign}
-                                    setIsChecked={() => handleCheckboxChange('webDesign')}
-                                />
-                                <Checkbox
-                                    label='Web Design'
-                                    checked={services.webDevelopment}
-                                    setIsChecked={() => handleCheckboxChange('webDevelopment')}
-                                />
-                                <Checkbox
-                                    label='Branding'
-                                    checked={services.branding}
-                                    setIsChecked={() => handleCheckboxChange('branding')}
-                                />
-                                <Checkbox
-                                    label='Smth else'
-                                    checked={services.smthElse}
-                                    setIsChecked={() => handleCheckboxChange('smthElse')}
-                                />
+                                <div className='column'>
+                                    <Checkbox
+                                        label='Web Development'
+                                        checked={services.webDesign}
+                                        setIsChecked={() => handleCheckboxChange('webDesign')}
+                                    />
+                                    <Checkbox
+                                        label='Web Design'
+                                        checked={services.webDevelopment}
+                                        setIsChecked={() => handleCheckboxChange('webDevelopment')}
+                                    />
+                                </div>
+                                <div className='column'>
+                                    <Checkbox
+                                        label='Branding'
+                                        checked={services.branding}
+                                        setIsChecked={() => handleCheckboxChange('branding')}
+                                    />
+                                    <Checkbox
+                                        label='Smth else'
+                                        checked={services.smthElse}
+                                        setIsChecked={() => handleCheckboxChange('smthElse')}
+                                    />
+                                </div>
                             </div>
 
                             <button type="submit" className={`sent ${isReadyToSend ? 'active' : ''}`}>

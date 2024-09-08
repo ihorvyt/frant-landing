@@ -48,6 +48,7 @@ export default function Home() {
             hide={isFrantSectionVisible}
             setShowLang={setShowLang}
         />
+
         <main>
             <BannerSection/>
             <Glob/>
@@ -61,7 +62,6 @@ export default function Home() {
         </main>
         <div id='spacer' className="spacer" ref={refSpacer}></div>
         <Footer/>
-
 
         <Language showLang={showLang} setShowLang={setShowLang}/>
         {/*<SplashScreen/>*/}
