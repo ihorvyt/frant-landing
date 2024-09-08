@@ -2,7 +2,7 @@
 
 
 .site-variations {
-  padding: 0 3.542vw 0vw 3.542vw;
+  padding: 0 3.542vw 0 3.542vw;
   background-color: $black;
   min-height: 30.344vw;
 
@@ -91,9 +91,13 @@
 
 @media (max-width: 768px) {
   .site-variations {
+    padding: 0 $mob-side-padding 33vw;
+    min-height: 181.17vw;
+
     .site-variation-container {
       flex-direction: column;
       gap: 114px;
+
       .site-variation-column {
         .site-variation-element {
           span {

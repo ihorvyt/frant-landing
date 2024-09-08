@@ -11,7 +11,8 @@ import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 interface IModel {
     modelName: string,
     size: number,
-    color: string
+    color: string,
+    state?: string
 }
 
 const Index = () => {

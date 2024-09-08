@@ -184,7 +184,7 @@
 @media (max-width: 768px) {
   .time-info-section {
     gap: 2.604vw;
-    padding: 0 3.073vw 15.052vw;
+    padding: 0 $mob-side-padding 15.052vw;
 
     .info-container {
       border-bottom: 0.156vw solid $grey;
@@ -214,7 +214,7 @@
         padding: 4.58vw 5.71vw 4.58vw 4.071vw;
         border-radius: 0 0 14.294vw 14.294vw;
         width: 100%;
-        height: 86.26vw;
+        height: 105.26vw;
 
         .top {
           padding: 0 1vw 0 0;

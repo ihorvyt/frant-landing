@@ -36,7 +36,6 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
                 }
             </nav>
 
-
             <button className="burger-menu-icon">
                 <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="11" y1="2" x2="57" y2="2" stroke="#EEEAE4" stroke-width="3"/>
