@@ -178,9 +178,11 @@ const Index: React.FC = () => {
                 "price": "~700$"
             }
         }
-
-
     ]
+
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
 
     return (<>
         <section id='prices' className="check-section">
@@ -188,8 +190,8 @@ const Index: React.FC = () => {
                 <h2>Prices for our vision.</h2>
             </div>
             <Swiper
-                spaceBetween={-300} // Це забезпечить, що слайди перекриватимуться
-                slidesPerView={2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
+                spaceBetween={isMobile() ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
+                slidesPerView={1.35} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
                 centeredSlides={true} // Центрує активний слайд
                 loop={true} // Дозволяє безперервний цикл
                 autoplay={{

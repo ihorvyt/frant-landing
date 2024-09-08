@@ -76,6 +76,10 @@
   .horizontal-scrolling-items {
     font-size: 10.178vw;
 
+    .mob {
+      display: none;
+    }
+
     .item {
       span {
         font-size: 3.562vw;

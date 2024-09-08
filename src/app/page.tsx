@@ -51,9 +51,9 @@ export default function Home() {
         <main>
             <BannerSection/>
             <Glob/>
-            {/*<FrantSection ref={refFrantSection}/>*/}
+            <FrantSection ref={refFrantSection}/>
             <SiteVariations/>
-            {/*<TechnologyStack/>*/}
+            <TechnologyStack/>
             <Services />
             <InfinitySlider/>
             <CheckSection/>

@@ -127,3 +127,57 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .check {
+    gap: 3.817vw;
+    width: 68.852vw;
+
+    .site-variant {
+      h3 {
+        font-size: 30.478px;
+      }
+    }
+
+    .check-info-secondary {
+      p {
+        font-size: 14.087px;
+
+        b {
+          font-size: 14.087px;
+        }
+      }
+      .full-width {
+        padding-top: 0.2vw;
+
+        span {
+          font-size: 3.457vw;
+        }
+      }
+    }
+
+    .check-info {
+      .info {
+        div {
+          font-size: 3.457vw;
+        }
+      }
+    }
+
+    .line {
+      font-size: 3.998vw;
+    }
+
+    .total-price {
+      div {
+        font-size: 5.675vw;
+      }
+    }
+
+    .bar-code-line {
+      p {
+        font-size: 6.572vw;
+      }
+    }
+  }
+}
