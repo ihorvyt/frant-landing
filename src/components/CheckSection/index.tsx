@@ -180,18 +180,14 @@ const Index: React.FC = () => {
         }
     ]
 
-    function isMobile() {
-        return window.innerWidth <= 768;
-    }
-
     return (<>
         <section id='prices' className="check-section">
             <div className="check-section-price">
                 <h2>Prices for our vision.</h2>
             </div>
             <Swiper
-                spaceBetween={isMobile() ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
-                slidesPerView={isMobile() ? 1.35 : 2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
+                spaceBetween={window.innerWidth <= 768 ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
+                slidesPerView={window.innerWidth <= 768 ? 1.35 : 2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
                 centeredSlides={true} // Центрує активний слайд
                 loop={true} // Дозволяє безперервний цикл
                 autoplay={{
