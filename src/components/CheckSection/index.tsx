@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './checkSection.scss'
 import 'swiper/css';
@@ -180,14 +180,20 @@ const Index: React.FC = () => {
         }
     ]
 
+    const [isPhone, setIsPhone] = useState<boolean>();
+
+    useEffect(() => {
+        setIsPhone(window.innerWidth < 768)
+    }, []);
+
     return (<>
         <section id='prices' className="check-section">
             <div className="check-section-price">
                 <h2>Prices for our vision.</h2>
             </div>
             <Swiper
-                spaceBetween={window.innerWidth <= 768 ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
-                slidesPerView={window.innerWidth <= 768 ? 1.35 : 2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
+                spaceBetween={isPhone ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
+                slidesPerView={isPhone ? 1.35 : 2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
                 centeredSlides={true} // Центрує активний слайд
                 loop={true} // Дозволяє безперервний цикл
                 autoplay={{
