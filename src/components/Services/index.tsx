@@ -61,7 +61,11 @@ const Index = () => {
     }, [isDevelopmentVisible, isBrandingVisible, isDesigbVisible]);
 
 
+    const [isMobile, setIsMobile] = React.useState(false);
 
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
 
     return (
         <section className="services-models">
@@ -71,7 +75,7 @@ const Index = () => {
                 <BrandIdentity ref={refBranding} showModel={showModel}/>
             </div>
             <div className="model-container">
-                {showModel.modelName !== '' && showModel.modelName !== 'none' && <div className={`model`}>
+                {showModel.modelName !== '' && !isMobile && showModel.modelName !== 'none' && <div className={`model`}>
                     <Glob3D
                         modelName={showModel.modelName}
                         rotate={true}

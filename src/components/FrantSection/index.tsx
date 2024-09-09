@@ -22,13 +22,6 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
             }
 
             let percent: number = (userPositionFromStart / road) * 100;
-            // if (refDevelopment.current) {
-            //     console.log('window.pageYOffset: ' + window.pageYOffset.toFixed(1) + '\n'
-            //         + 'userPositionFromStart: ' + userPositionFromStart.toFixed(1) + '\n'
-            //         + 'refDevelopment.current.offsetTop: ' + refDevelopment.current.offsetTop + '\n'
-            //         + 'percent: ' + (percent - 16)
-            //     );
-            // }
 
 
             if (isDevelopmentVisible && spanRef.current) {
