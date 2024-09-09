@@ -65,8 +65,6 @@ export default function Home() {
 
         <Language showLang={showLang} setShowLang={setShowLang}/>
         {/*<SplashScreen/>*/}
-        <LetsTalk
-            hide={isLetsTalkHide}
-        />
+        <LetsTalk hide={isLetsTalkHide}/>
     </>);
 }

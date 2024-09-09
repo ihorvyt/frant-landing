@@ -304,9 +304,8 @@ footer {
 
 @media (max-width: 768px) {
   footer {
-
-    margin: 100px 0 0px 0;
-   overflow: scroll;
+    overflow: scroll;
+    padding: 500px 0 100px 0;
 
     .footer-form {
       width: 90vw;
@@ -399,6 +398,7 @@ footer {
     }
 
     .credential {
+      display: none;
       padding: 2.083vw;
       width: 100%;
 

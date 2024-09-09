@@ -1,4 +1,4 @@
-import React, {RefObject} from 'react';
+import React, {RefObject, useEffect, useState} from 'react';
 import { Link } from 'react-scroll';
 import './header.scss'
 
@@ -11,8 +11,31 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
         { name: 'Time-lines', link: 'time-lines', offset: -150 },
     ];
 
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+
+        setLastScrollY(currentScrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [lastScrollY]);
+
     return (
-        <header className={`header ${hide ? 'header--hide' : ''}`}>
+        <header className={`header ${hide || isVisible ? 'header--hide' : ''}`}>
             <Link to={'banner'} className="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 80" fill="none">
                     <path
