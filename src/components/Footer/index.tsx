@@ -136,13 +136,15 @@ const Index = () => {
                             <div className="inputs-container">
                                 <div className="company-first-name">
                                     <InputField
-                                        name="firstName"
+                                        name="First name"
+                                        stateName='firstName'
                                         mandatory
                                         value={formData.firstName}
                                         setValue={handleInputChange}
                                     />
                                     <InputField
-                                        name="companyName"
+                                        name="Company name"
+                                        stateName='companyName'
                                         mandatory={false}
                                         value={formData.companyName}
                                         setValue={handleInputChange}
@@ -150,7 +152,8 @@ const Index = () => {
                                 </div>
                                 <div className="email">
                                     <InputField
-                                        name="email"
+                                        name="Email"
+                                        stateName='email'
                                         mandatory
                                         value={formData.email}
                                         setValue={handleInputChange}
@@ -158,7 +161,8 @@ const Index = () => {
                                 </div>
                                 <div className="mobile">
                                     <InputField
-                                        name="mobileNumber"
+                                        name="Phone number"
+                                        stateName='mobileNumber'
                                         mandatory
                                         value={formData.mobileNumber}
                                         setValue={handleInputChange}

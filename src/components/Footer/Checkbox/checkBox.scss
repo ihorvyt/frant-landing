@@ -4,6 +4,11 @@
   display: flex;
   gap: 2.135vw;
 
+  .column {
+    display: flex;
+    gap: 2.135vw;
+  }
+
   label {
     display: flex;
     height: 3.177vw;

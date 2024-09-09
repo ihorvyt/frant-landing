@@ -3,12 +3,15 @@ import './inputField.scss'
 
 interface InputFieldProps {
     name: string;
+    stateName: string;
     mandatory: boolean;
     value: string;
     setValue: (value: string, name: string) => void;
 }
 
-const InputField = ({ name, mandatory, value, setValue }: InputFieldProps) => {
+const InputField = ({ name, stateName, mandatory, value, setValue }: InputFieldProps) => {
+
+    console.log(value)
 
     const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -30,7 +33,7 @@ const InputField = ({ name, mandatory, value, setValue }: InputFieldProps) => {
                     ref={inputRef}
                     type="text"
                     value={value}
-                    onChange={(e) => setValue(e.target.value, name)}
+                    onChange={(e) => setValue(e.target.value, stateName)}
                     onFocus={() => setIsActive(true)}
                     onBlur={() => setIsActive(value !== '')}
                 />

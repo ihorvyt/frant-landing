@@ -33,15 +33,26 @@
 
 @media (max-width: 768px) {
   .services-models {
-
     padding-bottom: 103.562vw;
     .services-container {
-      gap: 251.908vw;
+      //gap: 251.908vw;
       width: 100%;
+      z-index: 9;
+
+      .design-section {
+      }
+
+      .development-section {
+      }
+
+      .brand-ident-section {
+      }
     }
     .model-container {
+      display: none;
       position: fixed;
       top: 30%;
+      z-index: 0;
     }
   }
 }

@@ -61,10 +61,10 @@ export default function Home() {
             <TimeInfoSection/>
         </main>
         <div id='spacer' className="spacer" ref={refSpacer}></div>
-        <Footer/>
+        <Footer />
 
         <Language showLang={showLang} setShowLang={setShowLang}/>
-        {/*<SplashScreen/>*/}
         <LetsTalk hide={isLetsTalkHide}/>
+        {/*<SplashScreen/>*/}
     </>);
 }

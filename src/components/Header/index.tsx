@@ -11,7 +11,7 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
         { name: 'Time-lines', link: 'time-lines', offset: -150 },
     ];
 
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
 
     const handleScroll = () => {

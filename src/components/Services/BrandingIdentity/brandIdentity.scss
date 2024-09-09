@@ -2,6 +2,7 @@
 
 .brand-ident-section {
   padding-bottom: 15.625vw;
+
   .brand-ident-container {
     display: flex;
 
@@ -21,11 +22,19 @@
       }
     }
   }
+
+  .model-mob {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
   .brand-ident-section {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12.723vw;
+
     .brand-ident-container {
       width: 100%;
       .service-info-container {
@@ -36,6 +45,20 @@
             }
           }
         }
+      }
+    }
+
+    .model-mob {
+      display: block;
+      position: relative;
+      height: 251.908vw;
+
+      .main-model {
+        position: sticky;
+        top: 100px;
+
+        margin: 0 auto;
+        width: fit-content;
       }
     }
   }

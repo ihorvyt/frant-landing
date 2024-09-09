@@ -51,3 +51,11 @@ html {
 body {
   -ms-overflow-style: none; /* IE and Edge */
 }
+
+
+@media (max-width: 768px) {
+  .spacer {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}

@@ -17,4 +17,29 @@
       }
     }
   }
+
+  .model-mob {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .design-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12.723vw;
+
+    .model-mob {
+      display: block;
+      position: relative;
+      height: 251.908vw;
+
+      .main-model {
+        position: sticky;
+        top: 100px;
+        margin: 0 auto;
+        width: fit-content;
+      }
+    }
+  }
 }

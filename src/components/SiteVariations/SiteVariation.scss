@@ -1,6 +1,5 @@
 @import '../../styles/values.scss';
 
-
 .site-variations {
   padding: 0 3.542vw 0 3.542vw;
   background-color: $black;
@@ -96,9 +95,9 @@
 
     .site-variation-container {
       flex-direction: column;
-      gap: 114px;
 
       .site-variation-column {
+
         .site-variation-element {
           span {
             font-size: 4.853vw;
@@ -107,10 +106,14 @@
 
         &:first-child  {
           width: 100%;
+
+          margin-bottom: 7.634vw;
         }
 
         &:nth-child(2) {
           margin-right: initial;
+
+          margin-bottom: 22.901vw;
         }
 
         &:nth-child(3) {

@@ -304,26 +304,33 @@ footer {
 
 @media (max-width: 768px) {
   footer {
-    overflow: scroll;
-    padding: 500px 0 100px 0;
+    position: relative;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 35.369vw;
+    gap: 50.891vw;
+    z-index: 9999999999;
 
     .footer-form {
       width: 90vw;
 
       .footer-form-title {
         h6 {
-          font-size: 45.768px;
-          margin-bottom: 19px;
+          font-size: 11.646vw;
+          margin-bottom: 4.835vw;
         }
 
         p {
-          font-size: 22.884px;
-          margin-bottom: 51px;
+          font-size: 5.823vw;
+          margin-bottom: 12.977vw;
         }
       }
 
       form {
-        gap: 50px;
+        gap: 12.723vw;
 
         .inputs-text-area-container {
           gap: 9.924vw;
@@ -398,15 +405,20 @@ footer {
     }
 
     .credential {
-      display: none;
-      padding: 2.083vw;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      position: relative;
+      padding: $mob-side-padding;
+      align-items: flex-start;
+
+      gap: 16px;
 
       .links {
-        gap: 20px;
+        gap: 5.089vw;
 
         a {
-          font-size: 1.042vw;
+          font-size: 5.089vw;
         }
 
         .soc {
@@ -416,7 +428,7 @@ footer {
 
       .all-rights {
         span {
-          font-size: 0.99vw;
+          font-size: 4.835vw;
         }
       }
     }
