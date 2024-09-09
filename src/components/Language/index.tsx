@@ -87,6 +87,7 @@ const Index = ({ showLang, setShowLang }: {showLang: boolean, setShowLang: (b: b
                         {
                             languages.map(lan =>
                                 <li
+                                    key={lan.name}
                                     onMouseEnter={() => setLanguage(lan.country)}
                                     className={`${checkActiveCountry(lan.country) ? 'active' : ''}`}
                                 >
@@ -100,8 +101,9 @@ const Index = ({ showLang, setShowLang }: {showLang: boolean, setShowLang: (b: b
                     <svg width="771" height="549" viewBox="0 0 771 549" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_411_2540)">
                             {
-                                countries.map((country) =>
+                                countries.map((country, index) =>
                                     <path
+                                        key={index}
                                         id={country.name}
                                         d={country.pathData}
                                         onClick={() => setLanguage(country.name)}

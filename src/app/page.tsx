@@ -44,15 +44,15 @@ export default function Home() {
     }, [isFrantSectionVisible]);
 
     return (<>
-        <Header
-            hide={isFrantSectionVisible}
-            setShowLang={setShowLang}
-        />
+        {/*<Header*/}
+        {/*    hide={isFrantSectionVisible}*/}
+        {/*    setShowLang={setShowLang}*/}
+        {/*/>*/}
 
         <main>
             <BannerSection/>
             <Glob/>
-            <FrantSection ref={refFrantSection}/>
+            {/*<FrantSection ref={refFrantSection}/>*/}
             <SiteVariations/>
             <TechnologyStack/>
             <Services />

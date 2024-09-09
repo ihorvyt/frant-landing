@@ -20,7 +20,7 @@ const Index = ({checkInfo}) => {
             <div className="check-info">
                 {
                     checkInfo.check_info_1.map((checkInfo: { name: string; value: string}) =>
-                        <div className="info">
+                        <div key={checkInfo.name} className="info">
                             <div className="name">{checkInfo.name}</div>
                             <div className="value">{checkInfo.value}</div>
                         </div>
@@ -33,7 +33,7 @@ const Index = ({checkInfo}) => {
             <div className="check-info">
                 {
                     checkInfo.check_info_2.map((checkInfo: { name: string; value: string}) =>
-                        <div className="info">
+                        <div key={checkInfo.name} className="info">
                             <div className="name">{checkInfo.name}</div>
                             <div className="value">{checkInfo.value}</div>
                         </div>

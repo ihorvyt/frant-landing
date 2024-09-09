@@ -1,10 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Check from "@/components/CheckSection/Check";
 import './checkSection.scss'
+
+
+
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Check from "@/components/CheckSection/Check";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 
 const Index: React.FC = () => {
     const checkInfo = [
@@ -192,8 +197,9 @@ const Index: React.FC = () => {
                 <h2>Prices for our vision.</h2>
             </div>
             <Swiper
-                spaceBetween={isPhone ? 30 : -300} // Це забезпечить, що слайди перекриватимуться
-                slidesPerView={isPhone ? 1.35 : 2.5} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
+                modules={[Autoplay]}
+                spaceBetween={isPhone ? 30 : 300} // Це забезпечить, що слайди перекриватимуться
+                slidesPerView={isPhone ? 1.35 : 4} // Показує 2.5 слайда, де половина - це частина наступного та попереднього слайду
                 centeredSlides={true} // Центрує активний слайд
                 loop={true} // Дозволяє безперервний цикл
                 autoplay={{
@@ -202,9 +208,9 @@ const Index: React.FC = () => {
                 }}
             >
                 {
-                    checkInfo.map(obj =>
-                        <SwiperSlide key={obj.check.title}>
-                            <Check checkInfo={obj.check} />
+                    checkInfo.map((obj, index) =>
+                        <SwiperSlide key={index}>
+                            <Check  checkInfo={obj.check} />
                         </SwiperSlide>
                     )
                 }
