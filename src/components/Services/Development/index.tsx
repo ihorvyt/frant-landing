@@ -26,7 +26,7 @@ const Index = forwardRef<HTMLDivElement, DevelopmentProps>((props, ref) => {
                                       description="Craft with newest tech, all the way – JQuery, not today."/>
             </div>
             <div ref={isMobile ? ref : null} className={`model-mob`}>
-                {showModel.modelName !== '' && showModel.modelName !== 'none' &&
+                {showModel.modelName !== '' && showModel.modelName !== 'none' && isMobile &&
                     <Glob3D
                         modelName={'cursor'}
                         rotate={true}

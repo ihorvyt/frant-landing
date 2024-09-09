@@ -1,6 +1,6 @@
 import './brandIdentity.scss'
 import ServiceInfoContainer from "@/components/Services/ServiceInfoContainer";
-import React, {forwardRef} from "react";
+import React, {forwardRef, useEffect} from "react";
 import Glob3D from "@/components/Glob/Glob3D";
 
 
@@ -14,7 +14,11 @@ interface BrantProps {
 
 const Index = forwardRef<HTMLDivElement, BrantProps>((props, ref) => {
     const { showModel } = props;
+    const [isMobile, setIsMobile] = React.useState(false);
 
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
     return (
         <section id='branding' ref={ref} className="brand-ident-section">
             <div className="brand-ident-container">
@@ -23,7 +27,7 @@ const Index = forwardRef<HTMLDivElement, BrantProps>((props, ref) => {
             </div>
 
             <div className={`model-mob`}>
-                {showModel.modelName !== '' && showModel.modelName !== 'none' &&
+                {showModel.modelName !== '' && isMobile &&  showModel.modelName !== 'none' &&
                     <Glob3D
                         modelName={'eye'}
                         rotate={true}

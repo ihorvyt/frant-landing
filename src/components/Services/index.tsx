@@ -60,7 +60,8 @@ const Index = () => {
         })
     }, [isDevelopmentVisible, isBrandingVisible, isDesigbVisible]);
 
-    console.log(isDevelopmentVisible)
+
+
 
     return (
         <section className="services-models">
