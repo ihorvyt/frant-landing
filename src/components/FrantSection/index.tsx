@@ -11,7 +11,6 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
         threshold: 0.2 // Елемент повинен бути видимим на 50%
     });
 
-    console.log(isDevelopmentVisible)
     useEffect(() => {
         const handleScroll = () => {
             let road: number = window.innerHeight * 3

@@ -33,7 +33,8 @@
 
 @media (max-width: 768px) {
   .services-models {
-    padding-bottom: 103.562vw;
+    padding: 0 $mob-side-padding 80.562vw;
+
     .services-container {
       //gap: 251.908vw;
       width: 100%;

@@ -35,6 +35,43 @@ const DateTime: React.FC = () => {
     );
 };
 
+
+interface LetterAnimatorProps {
+    word: string;
+    interval: number; // Optional interval to control animation speed
+    delay: number;
+}
+
+const LetterAnimator: React.FC<LetterAnimatorProps> = ({ word, interval, delay }) => {
+    const [displayedText, setDisplayedText] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+        if (word.length === 0) return;
+
+        const timeout = setTimeout(() => {
+            setIsAnimating(true);
+        }, delay);
+
+        const timer = setInterval(() => {
+            if (currentIndex < word.length && isAnimating) {
+                setDisplayedText((prev) => prev + word[currentIndex]);
+                setCurrentIndex((prev) => prev + 1);
+            } else {
+                clearInterval(timer);
+            }
+        }, interval);
+
+        return () => {
+            clearTimeout(timeout);
+            clearInterval(timer);
+        };
+    }, [currentIndex, isAnimating]);
+
+    return displayedText;
+};
+
 const Index = () => {
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
@@ -56,15 +93,17 @@ const Index = () => {
                 <div className="glob-info">
                     <div className="glob-text-code">
                         <div className="glob-text">
-                            <h1>We are frant</h1>
+                            <h1><LetterAnimator word="We are frant" interval={50} delay={0} /></h1>
                             <div>
-                                <p>An international web development and design studio specializing in practical and
+                                <p>
+                                    <LetterAnimator word="An international web development and design studio specializing in practical and
                                     vibrant
                                     solutions. At Frant, powerful technical expertise combines with modern and bold
                                     creative
-                                    vision to ensure your project is both effective and visually compelling.</p>
+                                    vision to ensure your project is both effective and visually compelling." interval={10} delay={0} />
+                                    </p>
                                 <div className="space-text">
-                                    <span>We bring ideas to life.</span>
+                                    <span><LetterAnimator word="We bring ideas to life." interval={50} delay={6000} /></span>
                                 </div>
                             </div>
                         </div>
@@ -84,6 +123,7 @@ const Index = () => {
                         rotate={true}
                         size={isPhone ? 1.5 : 1.32}
                         color='black'
+                        windowSize={2.5}
                     />}
                 </div>
             </div>

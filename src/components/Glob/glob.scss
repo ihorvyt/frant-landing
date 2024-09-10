@@ -40,6 +40,10 @@
             line-height: normal;
           }
 
+          > div {
+            min-height: 15.625vw;
+          }
+
           p {
             color: #343434;
             text-align: justify;
@@ -65,6 +69,9 @@
         }
 
         .glob-code {
+          position: relative;
+
+
           img {
             width: 100%;
           }
@@ -119,8 +126,11 @@
 
         .glob-text-code {
           width: 100%;
+
           .glob-text {
             gap: 5.042vw;
+
+
             h1 {
               font-size: 14.997vw;
             }
@@ -130,6 +140,7 @@
               flex-direction: column;
               gap: 5.042vw;
             }
+
             p {
               font-size: 4.58vw;
             }
@@ -143,8 +154,6 @@
 
           .glob-code {
             display: none;
-            img {
-            }
           }
         }
 

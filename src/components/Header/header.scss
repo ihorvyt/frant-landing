@@ -130,7 +130,7 @@ $delay: 0.2;
     padding:  6.616vw 7.634vw 0;
     mix-blend-mode: initial;
     z-index: 8000005;
-    height: 100%;
+    height: initial;
     justify-content: space-between;
 
     nav {
@@ -153,6 +153,7 @@ $delay: 0.2;
     }
 
     &--show {
+      height: 100%;
       &:before {
         content: "";
         position: fixed;

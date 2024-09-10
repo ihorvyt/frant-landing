@@ -1,9 +1,55 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './timeInfoSection.scss'
 import {Link} from "react-scroll";
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
+
+
+interface NumberAnimationProps {
+    targetNumber: number;
+    duration: number;
+    delay: number; // Delay in milliseconds]
+    play: boolean;
+}
+
+const NumberAnimation: React.FC<NumberAnimationProps> = ({ targetNumber, duration, delay, play }) => {
+    const [currentNumber, setCurrentNumber] = useState(0);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        if (!play || hasAnimated) return;
+        setHasAnimated(true);
+        let start = 0;
+        const increment = targetNumber / (duration / 16.67); // 16.67ms is roughly 60 FPS
+
+        const updateNumber = () => {
+            start += increment;
+            if (start < targetNumber) {
+                setCurrentNumber(Math.round(start));
+                requestAnimationFrame(updateNumber);
+            } else {
+                setCurrentNumber(targetNumber);
+            }
+        };
+
+        const timer = setTimeout(() => {
+            requestAnimationFrame(updateNumber);
+        }, delay);
+
+        return () => clearTimeout(timer); // Cleanup timeout on component unmount
+    }, [targetNumber, duration, delay, play]);
+
+    return currentNumber;
+};
 
 const Index = () => {
+    const [refTime, isDevelopmentVisible] = useIntersectionObserver({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    });
+
+
     return (
         <section id='time-lines' className="time-info-section">
             <div className="info-container">
@@ -15,7 +61,8 @@ const Index = () => {
                     <p>Contact us for a detailed consultation. Do you have an idea? </p>
                 </Link>
             </div>
-            <div className="time-info-container">
+
+            <div ref={refTime} className="time-info-container">
                 <div className="respond-within card">
                     <div className="top">
                         <div className="title">
@@ -27,7 +74,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>24<span>hours</span></p>
+                        <p><NumberAnimation targetNumber={24} duration={4000} delay={500} play={isDevelopmentVisible}/><span>hours</span></p>
                     </div>
                 </div>
 
@@ -42,7 +89,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>4<span>days</span></p>
+                        <p><NumberAnimation targetNumber={4} duration={1000} delay={1500} play={isDevelopmentVisible}/><span>days</span></p>
                     </div>
                 </div>
 
@@ -57,7 +104,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p>30<span>days</span></p>
+                        <p><NumberAnimation targetNumber={30} duration={3000} delay={2500} play={isDevelopmentVisible}/><span>days</span></p>
                     </div>
                 </div>
             </div>

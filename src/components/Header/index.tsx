@@ -40,12 +40,8 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
             setIsVisible(false);
         }
 
-        console.log(currentScrollY + 400 > pageHeight - window.innerHeight - window.innerHeight)
         if (currentScrollY + 400 > pageHeight - window.innerHeight - window.innerHeight) {
             setIsVisible(false);
-        } else {
-            console.log(currentScrollY + 400)
-            console.log(pageHeight - window.innerHeight - window.innerHeight)
         }
 
         setLastScrollY(currentScrollY);
@@ -101,7 +97,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                         links.map((item) => (
                             <li key={item.name}>
                                 <Link
-                                    offset={isMobile ? 40 : item.offset}
+                                    offset={isMobile ? 0 : item.offset}
                                     to={item.link}
                                     onClick={() => setShowBurger(false)}
                                 >
