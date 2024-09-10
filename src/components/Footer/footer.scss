@@ -13,6 +13,11 @@ footer {
 
  .footer-form {
    width: 71.458vw;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+
+   transform: translate(-50%, -50%);
 
   .footer-form-title {
     h6 {
@@ -316,6 +321,11 @@ footer {
 
     .footer-form {
       width: 90vw;
+      position: initial;
+      top: 50%;
+      left: 50%;
+
+      transform: initial;
 
       .footer-form-title {
         h6 {

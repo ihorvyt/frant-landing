@@ -16,6 +16,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
     const [showBurger, setShowBurger] = useState<boolean>(false);
     const [showLangMob, setShowLangMob] = useState<boolean>(false);
     const [isMobile, setIsMobile] = React.useState(false);
+    const [pageHeight, setPageHeight] = useState(0);
 
     const languages = [
         {name: 'Ukrainian', country: 'ukraine'},
@@ -32,14 +33,28 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
+
         if (currentScrollY > lastScrollY) {
             setIsVisible(true);
         } else {
             setIsVisible(false);
         }
 
+        console.log(currentScrollY + 400 > pageHeight - window.innerHeight - window.innerHeight)
+        if (currentScrollY + 400 > pageHeight - window.innerHeight - window.innerHeight) {
+            setIsVisible(false);
+        } else {
+            console.log(currentScrollY + 400)
+            console.log(pageHeight - window.innerHeight - window.innerHeight)
+        }
+
         setLastScrollY(currentScrollY);
     };
+
+    useEffect(() => {
+        const height = document.documentElement.scrollHeight || document.body.scrollHeight;
+        setPageHeight(height);
+    }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -79,6 +94,8 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                                     offset={item.offset}
                                     duration={1000}
                                     to={item.link}
+
+                                    onClick={() => setShowBurger(false)}
                                 >
                                     {item.name}
                                 </Link>
