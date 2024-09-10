@@ -99,6 +99,12 @@
       .site-variation-column {
 
         .site-variation-element {
+
+          &:before {
+            width: 7.888vw;
+            height: 4.071vw;
+          }
+
           span {
             font-size: 4.853vw;
           }
