@@ -183,7 +183,7 @@ $delay: 0.2;
         visibility: initial;
 
         position: absolute;
-        top: 50%;
+        top: 40%;
 
         transform: translateY(-50%);
 
@@ -244,14 +244,42 @@ $delay: 0.2;
 
     .burger-menu-icon {
       display: flex;
+      width: 66px;
+      height: 34px;
 
       position: absolute;
       top: 9.616vw;
       right: 7.634vw;
 
       svg {
+        top: 0;
+        right: 0;
+        position: absolute;
+
+        transition: .5s;
+      }
+
+      svg:first-child {
         width: 16.794vw;
       }
+
+      svg:last-child {
+        width: 66px;
+        height: 34px;
+
+        transform: translateY(-400%);
+      }
+
+      &.active {
+        svg:first-child {
+          transform: translateY(-400%);
+        }
+
+        svg:last-child {
+          transform: translateY(0%);
+        }
+      }
+
       cursor: pointer;
     }
   }

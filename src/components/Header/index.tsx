@@ -98,11 +98,17 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                     </ul>
             </nav>
 
-            <button className="burger-menu-icon" onClick={() => setShowBurger(!showBurger)}>
+            <button className={`burger-menu-icon ${showBurger ? 'active' : ''}`} onClick={() => setShowBurger(!showBurger)}>
                 <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="11" y1="2" x2="57" y2="2" stroke="#EEEAE4" stroke-width="3"/>
                     <line x1="1.31134e-07" y1="16" x2="68" y2="16" stroke="#EEEAE4" stroke-width="3"/>
                     <line x1="11" y1="30" x2="57" y2="30" stroke="#EEEAE4" stroke-width="3"/>
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="66" height="38" viewBox="0 0 66 38" fill="none">
+                    <line x1="4.30469" y1="2.20096" x2="63.1944" y2="36.201" stroke="#EEEAE4" stroke-width="3"/>
+                    <line y1="-1.5" x2="68" y2="-1.5" transform="matrix(-0.866025 0.5 0.5 0.866025 62.4453 3.5)"
+                          stroke="#EEEAE4" stroke-width="3"/>
                 </svg>
             </button>
 
