@@ -1,18 +1,33 @@
 import React, {RefObject, useEffect, useState} from 'react';
-import { Link } from 'react-scroll';
+import {Link} from 'react-scroll';
 import './header.scss'
 
-const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) => void}) => {
+const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) => void }) => {
     const links = [
-        { name: 'Design', link: 'design', offset: -300 },
-        { name: 'Web Development', link: 'development', offset: -300 },
-        { name: 'Branding & Identity', link: 'branding', offset: -200 },
-        { name: 'Prices', link: 'prices', offset: -150 },
-        { name: 'Time-lines', link: 'time-lines', offset: -150 },
+        {name: 'Design', link: 'design', offset: -300},
+        {name: 'Web Development', link: 'development', offset: -300},
+        {name: 'Branding & Identity', link: 'branding', offset: -200},
+        {name: 'Prices', link: 'prices', offset: -150},
+        {name: 'Time-lines', link: 'time-lines', offset: -150},
     ];
 
     const [isVisible, setIsVisible] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [showBurger, setShowBurger] = useState<boolean>(false);
+    const [showLangMob, setShowLangMob] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    const languages = [
+        {name: 'Ukrainian', country: 'ukraine'},
+        {name: 'English', country: 'united-kingdom'},
+        {name: 'Polish', country: 'poland'},
+        {name: 'Spanish', country: 'spain'},
+        {name: 'German', country: 'germany'}
+    ];
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -34,8 +49,18 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
         };
     }, [lastScrollY]);
 
+    function setShowLanguage() {
+        isMobile ? setShowLangMob(!showLangMob) : setShowLang(true)
+    }
+
     return (
-        <header className={`header ${hide || isVisible ? 'header--hide' : ''}`}>
+        <header
+            className=
+                {`header 
+                    ${hide || isVisible && !showBurger ? 'header--hide' : ''}
+                    ${showBurger ? 'header--show' : ''}
+                `}
+        >
             <Link to={'banner'} className="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 80" fill="none">
                     <path
@@ -45,21 +70,35 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
             </Link>
 
             <nav>
-                {
-                    links.map((item) => (
-                        <Link
-                            key={item.name}
-                            offset={item.offset}
-                            duration={1000}
-                            to={item.link}
-                        >
-                            {item.name}
-                        </Link>
-                    ))
-                }
+                <ul>
+                    {showLangMob
+                        ?
+                        links.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    offset={item.offset}
+                                    duration={1000}
+                                    to={item.link}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))
+                        :
+                        languages.map(lan =>
+                            <li
+                                key={lan.name}
+                            >
+                                <a href="">
+                                    {lan.name}
+                                </a>
+                            </li>
+                        )
+                    }
+                    </ul>
             </nav>
 
-            <button className="burger-menu-icon">
+            <button className="burger-menu-icon" onClick={() => setShowBurger(!showBurger)}>
                 <svg width="68" height="32" viewBox="0 0 68 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <line x1="11" y1="2" x2="57" y2="2" stroke="#EEEAE4" stroke-width="3"/>
                     <line x1="1.31134e-07" y1="16" x2="68" y2="16" stroke="#EEEAE4" stroke-width="3"/>
@@ -67,7 +106,7 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
                 </svg>
             </button>
 
-            <button className="lang" onClick={() => setShowLang(true)}>
+            <button className="lang" onClick={setShowLanguage}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55" fill="none">
                     <path
                         d="M27.4693 3C13.9221 3 2.93872 13.9696 2.93872 27.5C2.93872 41.0304 13.9221 52 27.4693 52C41.0166 52 52 41.0304 52 27.5C52 13.9696 41.0166 3 27.4693 3Z"
@@ -82,8 +121,15 @@ const Index = ({hide, setShowLang}: {hide: boolean, setShowLang: (b: boolean) =>
                           strokeMiterlimit="10"/>
                 </svg>
             </button>
+
+
+            <div className="links">
+                <a>Linked In</a>
+                <a href="https://www.behance.net/frantdigital" target="_blank">Behance</a>
+                <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
+            </div>
         </header>
-    );
+);
 };
 
 export default Index;

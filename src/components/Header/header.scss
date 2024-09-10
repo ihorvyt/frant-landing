@@ -4,7 +4,6 @@ $delay: 0.2;
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
   position: fixed;
@@ -30,54 +29,59 @@ $delay: 0.2;
 
   nav {
     display: flex;
-    gap: 3.542vw;
 
-    a {
-      color: var(--White, #EEEAE4);
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 1.25vw;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+    ul {
+      display: flex;
+      gap: 3.542vw;
 
-      transform: translateY(-400%);
-      animation: drop-down 0.8s forwards;
-      cursor: pointer;
+      li {
+        a {
+          color: var(--White, #EEEAE4);
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 1.25vw;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
 
-      &:first-child {
-        animation-delay: $delay;
-      }
-
-      &:nth-child(2) {
-        animation-delay: $delay * 2s;
-      }
-
-      &:nth-child(3) {
-        animation-delay: $delay * 3s;
-      }
-
-      &:nth-child(4) {
-        animation-delay: $delay * 4s;
-      }
-
-      &:nth-child(5) {
-        animation-delay: $delay * 5s;
-      }
-    }
-
-    @keyframes drop-down {
-      0% {
-        opacity: 0;
         transform: translateY(-400%);
-      }
+        animation: drop-down 0.8s forwards;
+        cursor: pointer;
 
-      100% {
-        opacity: 1;
-        transform: translateY(0%);
+        &:first-child {
+          animation-delay: $delay;
+        }
+
+        &:nth-child(2) {
+          animation-delay: $delay * 2s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: $delay * 3s;
+        }
+
+        &:nth-child(4) {
+          animation-delay: $delay * 4s;
+        }
+
+        &:nth-child(5) {
+          animation-delay: $delay * 5s;
+        }
+
+        @keyframes drop-down {
+          0% {
+            opacity: 0;
+            transform: translateY(-400%);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0%);
+          }
+        }
       }
     }
   }
-
 
   .lang {
     svg {
@@ -87,11 +91,36 @@ $delay: 0.2;
     }
   }
 
-
-
-
   .burger-menu-icon {
     display: none;
+  }
+
+  .links {
+    transition: .3s;
+
+
+    opacity: 0;
+    visibility: hidden;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.545vw;
+
+
+    position: absolute;
+    bottom: 9.616vw;
+    left: 7.634vw;
+
+    a {
+      color: $white;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 4.071vw;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 185%; /* 29.6px */
+      text-transform: lowercase;
+    }
   }
 }
 
@@ -99,9 +128,112 @@ $delay: 0.2;
 @media(max-width: 768px) {
   .header {
     padding:  6.616vw 7.634vw 0;
+    mix-blend-mode: initial;
+    z-index: 9999999999999;
+    height: 100%;
+    justify-content: space-between;
 
-    &--hide {
+    nav {
+      display: none;
     }
+
+    .lang {
+      opacity: 0;
+      visibility: hidden;
+
+      transition: 2s;
+    }
+
+    &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      transition: .3s;
+    }
+
+    &--show {
+      &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: -1;
+
+        transform: translateY(400%);
+        animation: from-down 0.4s forwards;
+
+        @keyframes from-down {
+          0% {
+            transform: translateY(400%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
+
+      nav {
+        display: flex;
+        opacity: 1;
+        visibility: initial;
+
+        position: absolute;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        ul {
+          flex-direction: column;
+          gap: 12.214vw;
+
+          li {
+            a {
+              font-size: 6.107vw;
+            }
+
+            transform: translateX(-400%);
+            animation: from-left 0.8s forwards;
+
+            @keyframes from-left {
+              0% {
+                opacity: 0;
+                transform: translateX(-400%);
+              }
+
+              100% {
+                opacity: 1;
+                transform: translateX(0%);
+              }
+            }
+          }
+        }
+      }
+
+      .lang {
+        opacity: 1;
+        visibility: initial;
+
+        position: absolute;
+        bottom: 9.616vw;
+        right: 7.634vw;
+
+        svg {
+          width: 9.399vw;
+          height: 9.388vw;
+        }
+      }
+
+      .links {
+        opacity: 1;
+        visibility: initial;
+      }
+    }
+
 
     .logo {
       svg {
@@ -110,24 +242,17 @@ $delay: 0.2;
       }
     }
 
-
-
     .burger-menu-icon {
       display: flex;
+
+      position: absolute;
+      top: 9.616vw;
+      right: 7.634vw;
 
       svg {
         width: 16.794vw;
       }
-
       cursor: pointer;
-    }
-
-
-    nav {
-      display: none;
-    }
-    .lang {
-      display:none;
     }
   }
 }
