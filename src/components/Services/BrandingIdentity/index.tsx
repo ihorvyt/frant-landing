@@ -33,6 +33,7 @@ const Index = forwardRef<HTMLDivElement, BrantProps>((props, ref) => {
                         rotate={true}
                         size={1.40}
                         color={'red'}
+                        windowSize={3}
                     />
                 }
             </div>

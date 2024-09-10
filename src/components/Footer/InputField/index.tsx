@@ -11,8 +11,6 @@ interface InputFieldProps {
 
 const InputField = ({ name, stateName, mandatory, value, setValue }: InputFieldProps) => {
 
-    console.log(value)
-
     const [isActive, setIsActive] = useState<boolean>(false);
 
     useEffect(() => {

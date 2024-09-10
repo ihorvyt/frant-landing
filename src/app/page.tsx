@@ -45,7 +45,7 @@ export default function Home() {
     }, [isFrantSectionVisible]);
 
     return (<>
-        <SplashScreen/>
+        {/*<SplashScreen/>*/}
 
         <Header
             hide={isFrantSectionVisible}
@@ -55,7 +55,7 @@ export default function Home() {
         <main>
             <BannerSection/>
             <Glob/>
-            {/*<FrantSection ref={refFrantSection}/>*/}
+            <FrantSection ref={refFrantSection}/>
             <SiteVariations/>
             <TechnologyStack/>
             <Services />

@@ -1,14 +1,13 @@
 @import "/src/styles/values";
 
-
 .splash-screen {
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 9999999999999999999999999999999999999999;
+  z-index: 9999999999;
   background-color: $black;
 
   pointer-events: none;
@@ -24,7 +23,7 @@
 
 
     svg {
-      animation: 3s 3s logoScale ease-in forwards;
+      animation: 3s 3s logoScale ease-out forwards;
       height: 100%;
       width: 100%;
     }
@@ -38,19 +37,32 @@
     height: 0.625vw;
     width: 91%;
 
+    overflow: hidden;
+    z-index: 99999999999;
 
-    background-color: #D9D9D9;
 
-    animation: 3s line ease-in forwards;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      height: 0.625vw;
+      width: 100%;
+      z-index: 99999999999;
+      background-color: #D9D9D9;
+
+      animation: 3s line ease-out forwards;
+    }
   }
 
   @keyframes line {
     0% {
-      width: 91%;
+      transform: translateX(0%);
     }
 
     100% {
-      width: 0;
+      transform: translateX(-100%);
     }
   }
 
@@ -70,7 +82,7 @@
     }
 
     100% {
-      transform: scale(40);
+      transform: scale(20);
     }
   }
 }

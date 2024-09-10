@@ -31,6 +31,7 @@ const Design = forwardRef<HTMLDivElement, DesignProps>((props, ref) => {
                     rotate={true}
                     size={1.20}
                     color={'green'}
+                    windowSize={3}
                 />
             }
             </div>

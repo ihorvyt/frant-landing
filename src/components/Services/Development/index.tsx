@@ -32,6 +32,7 @@ const Index = forwardRef<HTMLDivElement, DevelopmentProps>((props, ref) => {
                         rotate={true}
                         size={1.0}
                         color={'blue'}
+                        windowSize={3}
                     />
                    }
             </div>

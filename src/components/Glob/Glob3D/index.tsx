@@ -8,9 +8,10 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotate: boolean, size: number, color: string }) => {
+const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: string, rotate: boolean, size: number, color: string, windowSize?: number }) => {
     const mountRef = useRef<HTMLDivElement | null>(null);
 
+    console.log(windowSize)
     useEffect(() => {
         let animationFrameId: number;
 
@@ -39,7 +40,7 @@ const STLModel = ({ modelName, rotate, size, color }: { modelName: string, rotat
         // Material
         const material = new THREE.MeshStandardMaterial({ flatShading: true, side: THREE.DoubleSide });
 
-        const sizess = window.innerWidth < 768 ?  window.innerWidth / 1.3 : window.innerWidth / 2.5
+        const sizess = window.innerWidth < 768 ?  window.innerWidth / 1.3 : window.innerWidth / (windowSize === undefined ? 3 : windowSize)
         // Sizes
         const sizes = {
             width: sizess,

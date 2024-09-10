@@ -183,29 +183,30 @@
 
 @media (max-width: 768px) {
   .time-info-section {
-    gap: 2.604vw;
-    padding: 0 $mob-side-padding 37.659vw;
+    padding: 0 0 37.659vw;
 
     .info-container {
       border-bottom: 0.156vw solid $grey;
-      padding-bottom: 2.604vw;
+      padding: 0 $mob-side-padding 8.397vw;
+      gap: 6.361vw;
 
       flex-direction: column;
 
       .title {
         h3 {
-          font-size: 12.723vw;
+          font-size: 9.415vw;
         }
       }
 
       .description {
         p {
-          font-size: 3.817vw;
+          font-size: 4.58vw;
         }
       }
     }
 
     .time-info-container {
+      padding: 8.397vw $mob-side-padding 0;
       height: auto;
       flex-direction: column;
       gap: 4.326vw;

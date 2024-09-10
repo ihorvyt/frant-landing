@@ -88,20 +88,6 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                 <ul>
                     {showLangMob
                         ?
-                        links.map((item) => (
-                            <li key={item.name}>
-                                <Link
-                                    offset={item.offset}
-                                    duration={1000}
-                                    to={item.link}
-
-                                    onClick={() => setShowBurger(false)}
-                                >
-                                    {item.name}
-                                </Link>
-                            </li>
-                        ))
-                        :
                         languages.map(lan =>
                             <li
                                 key={lan.name}
@@ -111,6 +97,18 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                                 </a>
                             </li>
                         )
+                        :
+                        links.map((item) => (
+                            <li key={item.name}>
+                                <Link
+                                    offset={isMobile ? 40 : item.offset}
+                                    to={item.link}
+                                    onClick={() => setShowBurger(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            </li>
+                        ))
                     }
                     </ul>
             </nav>
