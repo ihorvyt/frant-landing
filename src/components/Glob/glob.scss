@@ -70,7 +70,27 @@
 
         .glob-code {
           position: relative;
+          overflow: hidden;
 
+          &:before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $white;
+
+            width: 100%;
+            height: 100%;
+
+            transition: 3s 5s;
+          }
+
+          &.active {
+            &:before {
+              transform: translateX(100%);
+            }
+          }
 
           img {
             width: 100%;
@@ -79,6 +99,29 @@
       }
 
       .glob-time {
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+          content: "";
+
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $white;
+
+          width: 100%;
+          height: 100%;
+
+          transition: 1s 7s;
+        }
+
+        &.active {
+          &:before {
+            transform: translateY(-100%);
+          }
+        }
+
         .time-n-date {
           display: flex;
           flex-direction: column;

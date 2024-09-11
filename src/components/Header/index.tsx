@@ -1,5 +1,7 @@
-import React, {RefObject, useEffect, useState} from 'react';
+'use client';
+import React, {ChangeEvent, RefObject, useEffect, useState, useTransition} from 'react';
 import {Link} from 'react-scroll';
+import NextLink  from 'next/link';
 import './header.scss'
 
 const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) => void }) => {
@@ -11,6 +13,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
         {name: 'Time-lines', link: 'time-lines', offset: -150},
     ];
 
+
     const [isVisible, setIsVisible] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [showBurger, setShowBurger] = useState<boolean>(false);
@@ -19,11 +22,11 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
     const [pageHeight, setPageHeight] = useState(0);
 
     const languages = [
-        {name: 'Ukrainian', country: 'ukraine'},
-        {name: 'English', country: 'united-kingdom'},
-        {name: 'Polish', country: 'poland'},
-        {name: 'Spanish', country: 'spain'},
-        {name: 'German', country: 'germany'}
+        {name: 'Ukrainian', country: 'ukraine', short: 'ua'},
+        {name: 'English', country: 'united-kingdom', short: 'en'},
+        {name: 'Polish', country: 'poland', short: 'pl'},
+        {name: 'Spanish', country: 'spain', short: 'sp'},
+        {name: 'German', country: 'germany', short: 'gr'}
     ];
 
     useEffect(() => {
@@ -64,6 +67,8 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
         isMobile ? setShowLangMob(!showLangMob) : setShowLang(true)
     }
 
+
+
     return (
         <header
             className=
@@ -88,7 +93,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                             <li
                                 key={lan.name}
                             >
-                                <a href="">
+                                <a>
                                     {lan.name}
                                 </a>
                             </li>

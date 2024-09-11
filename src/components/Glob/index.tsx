@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './glob.scss'
 import Glob3D from "@/components/Glob/Glob3D";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
+import LetterAnimator from "@/components/LetterAnimator";
 
 const DateTime: React.FC = () => {
     const [dateTime, setDateTime] = useState<{ date: string, time: string }>({
@@ -35,47 +36,10 @@ const DateTime: React.FC = () => {
     );
 };
 
-
-interface LetterAnimatorProps {
-    word: string;
-    interval: number; // Optional interval to control animation speed
-    delay: number;
-}
-
-const LetterAnimator: React.FC<LetterAnimatorProps> = ({ word, interval, delay }) => {
-    const [displayedText, setDisplayedText] = useState('');
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    useEffect(() => {
-        if (word.length === 0) return;
-
-        const timeout = setTimeout(() => {
-            setIsAnimating(true);
-        }, delay);
-
-        const timer = setInterval(() => {
-            if (currentIndex < word.length && isAnimating) {
-                setDisplayedText((prev) => prev + word[currentIndex]);
-                setCurrentIndex((prev) => prev + 1);
-            } else {
-                clearInterval(timer);
-            }
-        }, interval);
-
-        return () => {
-            clearTimeout(timeout);
-            clearInterval(timer);
-        };
-    }, [currentIndex, isAnimating]);
-
-    return displayedText;
-};
-
 const Index = () => {
     const [refBranding, isBrandingVisible] = useIntersectionObserver({
         root: null, // using viewport
-        rootMargin: '180px',
+        rootMargin: '0px',
         threshold: 0.1 // Element should be visible at 50%
     });
 
@@ -88,30 +52,30 @@ const Index = () => {
     }, []);
 
     return (
-        <div className="glob" ref={refBranding}>
+        <div className="glob" >
             <div className="glob-bg">
                 <div className="glob-info">
-                    <div className="glob-text-code">
+                    <div className="glob-text-code" ref={refBranding}>
                         <div className="glob-text">
-                            <h1><LetterAnimator word="We are frant" interval={50} delay={0} /></h1>
+                            <h1><LetterAnimator word="We are frant" interval={50} delay={0} play={isBrandingVisible} /></h1>
                             <div>
                                 <p>
                                     <LetterAnimator word="An international web development and design studio specializing in practical and
                                     vibrant
                                     solutions. At Frant, powerful technical expertise combines with modern and bold
                                     creative
-                                    vision to ensure your project is both effective and visually compelling." interval={10} delay={0} />
+                                    vision to ensure your project is both effective and visually compelling." interval={10} delay={0} play={isBrandingVisible} />
                                     </p>
                                 <div className="space-text">
-                                    <span><LetterAnimator word="We bring ideas to life." interval={50} delay={6000} /></span>
+                                    <span><LetterAnimator word="We bring ideas to life." interval={50} delay={6000} play={isBrandingVisible} /></span>
                                 </div>
                             </div>
                         </div>
-                        <div className="glob-code">
+                        <div className={`glob-code ${isBrandingVisible ? 'active' : ''}`}>
                             <img src="/frant-landing/images/componets/glob/barCode.svg" alt=""/>
                         </div>
                     </div>
-                    <div className="glob-time">
+                    <div className={`glob-time ${isBrandingVisible ? 'active' : ''}`}>
                         <div className="time-n-date">
                             <DateTime/>
                         </div>
