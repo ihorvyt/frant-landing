@@ -40,9 +40,9 @@
     gap: 0.885vw;
 
     border-radius:  90vw;
-    border: 0.208vw solid $grey;
+    border: 0.208vw solid $white;
 
-
+    transition: .3s;
     cursor: pointer;
 
     span {
@@ -57,6 +57,19 @@
     svg {
       width: 3.49vw;
       height: 2.552vw;
+    }
+
+    &:hover {
+      span {
+        color: $black;
+      }
+
+      svg {
+        path {
+          fill: $black;
+        }
+      }
+      background: $white;
     }
   }
 }

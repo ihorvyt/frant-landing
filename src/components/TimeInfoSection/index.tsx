@@ -69,7 +69,7 @@ const Index = () => {
                 </div>
 
                 <Link to='spacer' className="description">
-                    <p>Contact us for a detailed consultation. Do you have an idea? </p>
+                    <p>Contact us for a detailed consultation. <br/> Do you have an idea? </p>
                 </Link>
             </div>
 

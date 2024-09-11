@@ -61,7 +61,8 @@
     }
 
     &.error {
-      border: red solid 1px;
+      background-color: #A41F1F;
+      border: #A41F1F solid 1px;
     }
   }
 }

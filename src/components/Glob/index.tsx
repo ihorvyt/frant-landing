@@ -70,7 +70,7 @@ const Index = () => {
                             </div>
                         </div>
                         <div className={`glob-code ${isBrandingVisible ? 'active' : ''}`}>
-                            <img src="/frant-landing/images/componets/glob/barCode.svg" alt=""/>
+                            <img src="/images/componets/glob/barCode.svg" alt=""/>
                         </div>
                     </div>
                     <div className={`glob-time ${isBrandingVisible ? 'active' : ''}`}>

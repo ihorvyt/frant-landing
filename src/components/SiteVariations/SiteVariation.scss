@@ -62,7 +62,7 @@
 
         &:hover {
           span {
-            margin-left: 10.083vw;
+            margin-left: 2.083vw;
             color: $primary;
           }
 
@@ -107,6 +107,17 @@
 
           span {
             font-size: 4.853vw;
+          }
+
+          &:hover {
+            span {
+              margin-left: 10.083vw;
+              color: $primary;
+            }
+
+            &::before {
+              transform: translate(0, -50%);
+            }
           }
         }
 

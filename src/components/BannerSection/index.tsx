@@ -6,7 +6,7 @@ const Index = () => {
 
     useEffect(() => {
         const width = window.innerWidth;
-        const videoPath = `/frant-landing/video/Timeline${width < 768 ? 'Mobile' : ''}.mp4`;
+        const videoPath = `/video/Timeline${width < 768 ? 'Mobile' : ''}.mp4`;
         setVideoSrc(videoPath);
     }, []);
 
