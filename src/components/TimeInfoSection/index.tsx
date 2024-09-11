@@ -17,8 +17,7 @@ const NumberAnimation: React.FC<NumberAnimationProps> = ({ targetNumber, duratio
     const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
-        if (!play || hasAnimated) return;
-        setHasAnimated(true);
+        if (!play) return;
         let start = 0;
         const increment = targetNumber / (duration / 16.67); // 16.67ms is roughly 60 FPS
 
@@ -46,7 +45,19 @@ const Index = () => {
     const [refTime, isDevelopmentVisible] = useIntersectionObserver({
         root: null,
         rootMargin: '0px',
-        threshold: 0.2
+        threshold: 0.1
+    });
+
+    const [refMake, isMakeVisible] = useIntersectionObserver({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    const [refRealization, isRealizationVisible] = useIntersectionObserver({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     });
 
 
@@ -62,8 +73,8 @@ const Index = () => {
                 </Link>
             </div>
 
-            <div ref={refTime} className="time-info-container">
-                <div className="respond-within card">
+            <div className="time-info-container">
+                <div  ref={refTime} className="respond-within card">
                     <div className="top">
                         <div className="title">
                             <h4>Respond within</h4>
@@ -78,7 +89,7 @@ const Index = () => {
                     </div>
                 </div>
 
-                <div className="make-an-offer card">
+                <div ref={refMake} className="make-an-offer card">
                     <div className="top">
                         <div className="title">
                             <h4>Make an offer</h4>
@@ -89,11 +100,11 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p><NumberAnimation targetNumber={4} duration={1000} delay={15} play={isDevelopmentVisible}/><span>days</span></p>
+                        <p><NumberAnimation targetNumber={4} duration={1000} delay={15} play={isMakeVisible}/><span>days</span></p>
                     </div>
                 </div>
 
-                <div className="project-realization card">
+                <div ref={refRealization} className="project-realization card">
                     <div className="top">
                         <div className="title">
                             <h4>Project realization</h4>
@@ -104,7 +115,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p><NumberAnimation targetNumber={30} duration={3000} delay={2500} play={isDevelopmentVisible}/><span>days</span></p>
+                        <p><NumberAnimation targetNumber={30} duration={3000} delay={2500} play={isRealizationVisible}/><span>days</span></p>
                     </div>
                 </div>
             </div>

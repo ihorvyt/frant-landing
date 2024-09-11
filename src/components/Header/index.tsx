@@ -1,7 +1,6 @@
 'use client';
 import React, {ChangeEvent, RefObject, useEffect, useState, useTransition} from 'react';
 import {Link} from 'react-scroll';
-import NextLink  from 'next/link';
 import './header.scss'
 
 const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) => void }) => {

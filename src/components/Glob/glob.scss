@@ -1,7 +1,7 @@
 @import '../../styles/values.scss';
 
 .glob {
-  padding: 0 2.083vw 2.083vw;
+  padding: 5vw 2.083vw 2.083vw;
   background-color: $black;
 
   .glob-bg {
@@ -157,7 +157,7 @@
 
 @media (max-width: 768px) {
   .glob {
-    padding: 0 $mob-side-padding $mob-side-padding;
+    padding: 20vw $mob-side-padding $mob-side-padding;
     .glob-bg {
       flex-direction: column;
       height: 220vw;
