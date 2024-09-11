@@ -59,6 +59,10 @@
         color: $white;
       }
     }
+
+    &.error {
+      border: red solid 1px;
+    }
   }
 }
 

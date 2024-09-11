@@ -7,9 +7,11 @@ interface InputFieldProps {
     mandatory: boolean;
     value: string;
     setValue: (value: string, name: string) => void;
+    handleBlur?: () => void;
+    error?: boolean;
 }
 
-const InputField = ({ name, stateName, mandatory, value, setValue }: InputFieldProps) => {
+const InputField = ({ name, stateName, mandatory, value, setValue, error, handleBlur }: InputFieldProps) => {
 
     const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -22,18 +24,23 @@ const InputField = ({ name, stateName, mandatory, value, setValue }: InputFieldP
 
 
     return (
-        <div className="input-container">
+        <div className={`input-container`}>
             <div>
                 <span className="name">{name}</span>{mandatory && <span className="mandatory">*</span>}
             </div>
-            <div className={`input-field ${isActive ? 'active' : ''}`}>
+            <div className={`input-field ${error ? 'error' : ''} ${isActive ? 'active' : ''}`}>
                 <input
                     ref={inputRef}
                     type="text"
                     value={value}
                     onChange={(e) => setValue(e.target.value, stateName)}
                     onFocus={() => setIsActive(true)}
-                    onBlur={() => setIsActive(value !== '')}
+                    onBlur={() => {
+                        if (handleBlur) {
+                            handleBlur()
+                        }
+                        setIsActive(value !== '')
+                    }}
                 />
             </div>
         </div>

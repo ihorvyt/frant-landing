@@ -71,7 +71,7 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
         const loader = new STLLoader();
         let myMesh: THREE.Mesh | null = null;
         // @ts-ignore
-        loader.load(`/frant-landing/models/${modelName}.stl`, (geometry) => {
+        loader.load(`/models/${modelName}.stl`, (geometry) => {
             myMesh = new THREE.Mesh(geometry, material);
 
             geometry.computeVertexNormals();

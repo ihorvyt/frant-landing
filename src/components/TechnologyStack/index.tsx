@@ -55,11 +55,12 @@ const Index = () => {
                 </div>
                 <div className="stack-technologies-container">
                     {chunkedTechnologies.map((techChunk, index) => (
-                        <div key={index} className="stack-technologies-row">
+                        <div key={index} className="stack-technologies-row" style={{ animation: `fade-out 0.8s forwards ${index * 0.2}s` }}>
                             {techChunk.map(technologie => (
                                 <div
                                     key={technologie}
                                     className={`technology-circle`}
+
                                 >
                                     <span>{technologie}</span>
                                 </div>

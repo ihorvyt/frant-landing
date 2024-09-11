@@ -52,12 +52,12 @@ const Index = () => {
     }, []);
 
     return (
-        <div className="glob" >
+        <div className="glob" ref={refBranding}>
             <div className="glob-bg">
                 <div className="glob-info">
-                    <div className="glob-text-code" ref={refBranding}>
+                    <div className="glob-text-code" >
                         <div className="glob-text">
-                            <h1><LetterAnimator word="We are frant" interval={50} delay={0} play={isBrandingVisible} /></h1>
+                            <h1><LetterAnimator word="We are frant" interval={100} delay={0} play={isBrandingVisible} /></h1>
                             <div>
                                 <p>
                                     <LetterAnimator word="An international web development and design studio specializing in practical and vibrant solutions." interval={10} delay={0} play={isBrandingVisible} />

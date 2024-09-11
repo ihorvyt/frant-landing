@@ -24,6 +24,7 @@ const Index = () => {
         title: 'close',
         description: ''
     });
+    const [wrongEmail, setWrongEmail] = useState<boolean>(false);
 
     const isReadyToSend = formData.firstName && formData.email && formData.mobileNumber;
 
@@ -34,7 +35,6 @@ const Index = () => {
     const handleCheckboxChange = (name: ServiceName) => {
         setServices((prev) => ({ ...prev, [name]: !prev[name] }));
     };
-
 
     function close() {
         setTimeout(() => {
@@ -52,7 +52,6 @@ const Index = () => {
 
     const sentMail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
 
         if (!isReadyToSend) {
             setMessageStatus({
@@ -122,6 +121,15 @@ const Index = () => {
         setIsTextAreaActive(formData.description !== '' || document.activeElement === textareaRef.current);
     }, [formData.description]);
 
+    const handleBlur = () => {
+        console.log(123)
+        if (formData.email === '') {
+            setWrongEmail(false)
+            return;
+        }
+        setWrongEmail(!validateEmail(formData.email));
+    };
+
 
     return (
         <>
@@ -157,6 +165,8 @@ const Index = () => {
                                         mandatory
                                         value={formData.email}
                                         setValue={handleInputChange}
+                                        handleBlur={handleBlur}
+                                        error={wrongEmail}
                                     />
                                 </div>
                                 <div className="mobile">

@@ -115,7 +115,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="center">
-                        <p><NumberAnimation targetNumber={30} duration={3000} delay={2500} play={isRealizationVisible}/><span>days</span></p>
+                        <p><NumberAnimation targetNumber={30} duration={3000} delay={50} play={isRealizationVisible}/><span>days</span></p>
                     </div>
                 </div>
             </div>

@@ -98,3 +98,9 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 768px) {
+  .lang-popup {
+    display: none;
+  }
+}
