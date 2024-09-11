@@ -17,7 +17,7 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
             </div>
         </div>
         <button className="service-ident-button">
-            <span>get in touch</span>
+            <span>Get in touch</span>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="38" viewBox="0 0 33 38" fill="none">
                 <g clipPath="url(#clip0_126_576)">

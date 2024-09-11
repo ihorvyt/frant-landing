@@ -3,25 +3,22 @@ import React, {useEffect, useState} from "react";
 
 import TechnologyStack from "@/components/TechnologyStack";
 import Header from "@/components/Header";
-import Glob from "../../components/Glob";
+import Glob from "../components/Glob";
 import FrantSection from "@/components/FrantSection";
 import SiteVariations from "@/components/SiteVariations";
 import InfinitySlider from "@/components/InfinitySlider";
-import CheckSection from "../../components/CheckSection";
+import CheckSection from "../components/CheckSection";
 import TimeInfoSection from "@/components/TimeInfoSection";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
 
 import './page.scss'
-import BannerSection from "../../components/BannerSection";
+import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Language from "@/components/Language";
-import {useTranslations} from "next-intl";
 
 export default function Home() {
-    const t = useTranslations('Index')
-
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
         rootMargin: '0px',
