@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type {Metadata, Viewport} from "next";
 import {Inter} from "next/font/google";
 import "../styles/global.scss";
 import "../styles/default.scss";
@@ -11,7 +11,30 @@ const inter = Inter({subsets: ["latin"]});
 export const metadata: Metadata = {
     title: "Site development, Web Design, Custom Web Solutions, Order site development",
     description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
+    applicationName: "Frant",
+    generator: "Next js",
+    keywords: ["site development"],
+    creator: "Frant team",
+    publisher: "Frant",
+    robots: { index: false, follow: false },
+    alternates: { canonical: "https://frant.digital" },
+    openGraph: {
+        type: "website",
+        url: "https://frant.digital",
+        title: "Site development, Web Design, Custom Web Solutions, Order site development",
+        description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
+        siteName: "Frant website",
+        images: [{     url: "https://frant.digital/og_image.png", secureUrl: "https://frant.digital/og_image.png", alt: "Site development, Web Design, Custom Web Solutions, Order site development", type: "website", width: "1200px", height: "768px"  }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "@site",
+        creator: "Frant team",
+        title: "Site development, Web Design, Custom Web Solutions, Order site development",
+        description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
+        images: "https://frant.digital/og_image.png"}
 };
+
 
 export default async function RootLayout({
                                              children,
@@ -30,26 +53,11 @@ export default async function RootLayout({
             <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
             <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
             <link rel="manifest" href="/favicons/site.webmanifest"/>
-            <meta name="msapplication-TileColor" content="#da532c"/>
-            <meta name="theme-color" content="#ffffff"/>
 
 
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
-
             <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
-
-            <meta name="theme-color" content="#0A0A0A"/>
-            <meta name="author" content="Frant Digital"/>
-
-            <meta property="title" content="Site development, Web Design, Custom Web Solutions, Order site development"/>
-            <meta property="description" content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
-            <meta property="og:title"
-                  content="Site development, Web Design, Custom Web Solutions, Order site development"/>
-            <meta property="og:description"
-                  content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
-            <meta property="og:url" content="https://frant.digital/"/>
-            <meta property="og:image" content="https://frant.digital/og_image.png"/>
         </head>
         <body className={inter.className}>
         <noscript>
