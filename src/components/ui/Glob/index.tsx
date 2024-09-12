@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './glob.scss'
-import Glob3D from "@/components/Glob/Glob3D";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import LetterAnimator from "@/components/LetterAnimator";
+import Glob3D from "@/components/ui/Glob/Glob3D";
 
 const DateTime: React.FC = () => {
     const [dateTime, setDateTime] = useState<{ date: string, time: string }>({

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Check from "@/components/CheckSection/Check";
 import './checkSection.scss'
 
 
@@ -10,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Check from "@/components/ui/CheckSection/Check";
 
 const Index: React.FC = () => {
     const checkInfo = [

@@ -1,7 +1,7 @@
 import './development.scss'
-import ServiceInfoContainer from "@/components/Services/ServiceInfoContainer";
+import ServiceInfoContainer from "@/components/ui/Services/ServiceInfoContainer";
 import React, {forwardRef, useEffect} from "react";
-import Glob3D from "@/components/Glob/Glob3D";
+import Glob3D from "@/components/ui/Glob/Glob3D";
 
 interface IModel {
     modelName: string;

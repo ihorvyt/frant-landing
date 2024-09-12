@@ -1,24 +1,22 @@
 'use client'
 import React, {useEffect, useState} from "react";
 
-import TechnologyStack from "@/components/TechnologyStack";
-import Header from "@/components/Header";
-import Glob from "../components/Glob";
-import FrantSection from "@/components/FrantSection";
-import SiteVariations from "@/components/SiteVariations";
-import InfinitySlider from "@/components/InfinitySlider";
-import CheckSection from "../components/CheckSection";
-import TimeInfoSection from "@/components/TimeInfoSection";
-import Footer from "@/components/Footer";
-import Services from "@/components/Services";
+import TechnologyStack from "../components/ui/TechnologyStack";
+import FrantSection from "../components/ui/FrantSection";
+import SiteVariations from "../components/ui/SiteVariations";
+import TimeInfoSection from "../components/ui/TimeInfoSection";
 
 import './page.scss'
-import BannerSection from "../components/BannerSection";
-import LetsTalk from "@/components/LetsTalk";
+import BannerSection from "../components/ui/BannerSection";
+import LetsTalk from "../components/ui/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
-import Language from "@/components/Language";
-import {headers} from "next/headers";
-import Script from "next/script";
+import Language from "../components/ui/Language";
+import Glob from "@/components/ui/Glob";
+import Services from "@/components/ui/Services";
+import InfinitySlider from "@/components/ui/InfinitySlider";
+import CheckSection from "@/components/ui/CheckSection";
+import Footer from "@/components/ui/Footer";
+import Header from "@/components/ui/Header";
 
 export default function Home() {
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({

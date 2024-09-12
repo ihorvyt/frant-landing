@@ -1,4 +1,4 @@
-@import '../../styles/values.scss';
+@import "/src/styles/values";
 
 @keyframes infiniteScroll {
   from {transform: translate(-100%, -50%);}
