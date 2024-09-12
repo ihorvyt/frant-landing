@@ -20,6 +20,7 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
         <Link
             offset={0}
             to='spacer'
+            id='/spacer'
             className="service-ident-button"
         >
             <span>Get in touch</span>

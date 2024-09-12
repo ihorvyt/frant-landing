@@ -5,8 +5,12 @@ import {Link} from "react-scroll";
 const Index = ({hide}: {hide: boolean}) => {
 
     return (
-        <Link smooth={true}
-              duration={1000} to='spacer' className={`lets-chat ${hide && 'lets-chat--hide'}`}>
+        <Link
+            id="spacer"
+            smooth={true}
+            duration={1000}
+            to='spacer'
+            className={`lets-chat ${hide && 'lets-chat--hide'}`}>
             <span>Let’s Chat</span>
         </Link>
     );

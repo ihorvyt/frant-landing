@@ -8,20 +8,21 @@ import GoogleAnalytic from "@/components/Custom/GoogleAnalytic";
 
 const inter = Inter({subsets: ["latin"]});
 
+const title = "Site development, Web Design, Custom Web Solutions"
+
 export const metadata: Metadata = {
-    title: "Site development, Web Design, Custom Web Solutions, Order site development",
+    title: title,
     description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
     applicationName: "Frant",
     generator: "Next js",
     keywords: ["site development"],
     creator: "Frant team",
     publisher: "Frant",
-    robots: { index: false, follow: false },
     alternates: { canonical: "https://frant.digital" },
     openGraph: {
         type: "website",
         url: "https://frant.digital",
-        title: "Site development, Web Design, Custom Web Solutions, Order site development",
+        title: title,
         description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
         siteName: "Frant website",
         images: [{     url: "https://frant.digital/og_image.png", secureUrl: "https://frant.digital/og_image.png", alt: "Site development, Web Design, Custom Web Solutions, Order site development", type: "website", width: "1200px", height: "768px"  }],

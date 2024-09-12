@@ -68,7 +68,7 @@ const Index = () => {
                     <h3>Advice at the start for free!</h3>
                 </div>
 
-                <Link to='spacer' className="description">
+                <Link to='spacer' id="spacer" className="description">
                     <p>Contact us for a detailed consultation. <br/> Do you have an idea? </p>
                 </Link>
             </div>
