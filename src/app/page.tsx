@@ -31,6 +31,7 @@ export default function Home() {
     });
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
     const [showLang, setShowLang] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         setLetsTalkHide(!isLetsTalkHide)
@@ -46,6 +47,7 @@ export default function Home() {
         <Header
             hide={isFrantSectionVisible}
             setShowLang={setShowLang}
+            isLoading={isLoading}
         />
 
         <main>
@@ -63,6 +65,6 @@ export default function Home() {
         <Footer />
 
         <Language showLang={showLang} setShowLang={setShowLang}/>
-        <LetsTalk hide={isLetsTalkHide}/>
+        <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading} />
     </>);
 }

@@ -106,9 +106,10 @@ $delay: 0.2;
 @media(max-width: 768px) {
   .header {
     padding:  6.616vw 7.634vw 0;
-    z-index: 8000005;
-    height: initial;
+    z-index: 600000;
     justify-content: space-between;
+    height: 100%;
+    transition: 0s;
 
     nav {
       display: none;
@@ -126,6 +127,18 @@ $delay: 0.2;
       top: 0;
       left: 0;
       transition: .3s;
+    }
+
+    &--hide {
+      transform: translateY(0);
+
+      .logo {
+        transform: translateY(-400%) !important;
+      }
+
+      .burger-menu-icon {
+        transform: translateY(-400%) !important;
+      }
     }
 
     &--show {
@@ -236,9 +249,72 @@ $delay: 0.2;
     }
 
     .logo {
+      position: absolute;
+      top: 6.616vw;
+      left: 6.616vw;
+
+      transform: translate(0, 0);
+      transition: .3s;
+
       svg {
         width: 10.433vw;
         height: 16.539vw;
+      }
+    }
+
+    &--loading {
+      z-index: 770000;
+      mix-blend-mode: initial;
+
+      &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        z-index: -1;
+
+        transform: translateY(400%);
+        animation: from-down 0.4s forwards, from-down 0.4s 4s forwards reverse;
+
+        @keyframes from-down {
+          0% {
+            transform: translateX(400%);
+          }
+
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      }
+
+      .burger-menu-icon {
+        transition: .3s;
+        transform: translateY(-400%);
+      }
+
+      .logo {
+        animation: back-logo 1s forwards,  back-logo 1s 2s forwards reverse;
+
+        @keyframes back-logo {
+          0% {
+            position: absolute;
+            top: 6.616vw;
+            left: 6.616vw;
+
+            transform: translate(0, 0);
+          }
+
+          100% {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+          }
+        }
       }
     }
 
@@ -250,6 +326,8 @@ $delay: 0.2;
       position: absolute;
       top: 9.616vw;
       right: 7.634vw;
+
+      transition: .3s;
 
       svg {
         top: 0;
