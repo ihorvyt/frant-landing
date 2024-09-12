@@ -15,7 +15,7 @@ const Index = () => {
         <>
             <section id='banner' className="banner-section">
                 <div className="video">
-                    <video>
+                    <video autoPlay loop muted controls={false} >
                         {videoSrc && <source src={videoSrc} type="video/mp4"/>}
                         Your browser does not support the video tag.
                     </video>

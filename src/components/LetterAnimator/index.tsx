@@ -11,13 +11,10 @@ const LetterAnimator: React.FC<LetterAnimatorProps> = ({ word, interval, delay, 
     const [displayedText, setDisplayedText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
-    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
         if (word.length === 0) return;
-        if (!play || !hasAnimated) return
-
-        setHasAnimated(true);
+        if (!play) return
 
         const timeout = setTimeout(() => {
             setIsAnimating(true);
