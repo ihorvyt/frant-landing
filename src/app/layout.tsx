@@ -21,7 +21,7 @@ export default async function RootLayout({
     return (
         <html lang='en'>
         <head>
-            <link rel="canonical" href="https://frant.digtal"/>
+            <link rel="canonical" href="https://frant.digital"/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
             <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
