@@ -11,7 +11,6 @@ import './glob3d.scss'
 const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: string, rotate: boolean, size: number, color: string, windowSize?: number }) => {
     const mountRef = useRef<HTMLDivElement | null>(null);
 
-    console.log(windowSize)
     useEffect(() => {
         let animationFrameId: number;
 
