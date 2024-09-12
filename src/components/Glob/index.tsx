@@ -53,7 +53,7 @@ const Index = () => {
 
         setTimeout(() => {
             setContentLoaded(true);
-        }, 2000);
+        }, 500);
     }, []);
 
     return (
@@ -79,7 +79,7 @@ const Index = () => {
                                             interval={10} delay={2000} play={isBrandingVisible}/>
                                     </p>
                                     <div className="space-text">
-                                        <span><LetterAnimator word="We bring ideas to life." interval={50} delay={6000}
+                                        <span><LetterAnimator word="We bring ideas to life." interval={50} delay={4200}
                                                               play={isBrandingVisible}/></span>
                                     </div>
                                 </div>

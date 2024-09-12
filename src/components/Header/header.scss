@@ -96,31 +96,9 @@ $delay: 0.2;
   }
 
   .links {
-    transition: .3s;
-
-
+    display: none;
     opacity: 0;
-    visibility: hidden;
-
-
-    display: flex;
-    flex-direction: column;
-    gap: 2.545vw;
-
-
-    position: absolute;
-    bottom: 9.616vw;
-    left: 7.634vw;
-
-    a {
-      color: $white;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 4.071vw;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 185%; /* 29.6px */
-      text-transform: lowercase;
-    }
+    pointer-events: none;
   }
 }
 
@@ -137,10 +115,9 @@ $delay: 0.2;
     }
 
     .lang {
+      position: relative;
       opacity: 0;
       visibility: hidden;
-
-      transition: 2s;
     }
 
     &:before {
@@ -153,6 +130,7 @@ $delay: 0.2;
 
     &--show {
       height: 100%;
+      mix-blend-mode: initial;
 
       &:before {
         content: "";
@@ -232,6 +210,28 @@ $delay: 0.2;
       .links {
         opacity: 1;
         visibility: initial;
+        position: absolute;
+        z-index: 9;
+        transition: .3s;
+
+
+        display: flex;
+        flex-direction: column;
+        gap: 2.545vw;
+
+
+        bottom: 9.616vw;
+        left: 7.634vw;
+
+        a {
+          color: $white;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 4.071vw;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 185%; /* 29.6px */
+          text-transform: lowercase;
+        }
       }
     }
 

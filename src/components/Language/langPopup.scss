@@ -7,21 +7,27 @@
   height: 100%;
   width: 100%;
 
-  z-index: 8000000;
   background-color: $black;
   opacity: 0;
   pointer-events: none;
   transition: .3s;
+  z-index: -1;
 
   &.active {
     opacity: 1;
     pointer-events: initial;
+    z-index: 8000000;
   }
 
   .logo {
     position: absolute;
-    top: 2.396vw;
-    left: 2.396vw;
+    top: 2.083vw;
+    left:  2.083vw;
+
+    svg {
+      width: 2.656vw;
+      height: 4.167vw;
+    }
   }
 
   .lang-world {

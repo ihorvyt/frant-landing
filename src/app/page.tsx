@@ -17,6 +17,8 @@ import BannerSection from "../components/BannerSection";
 import LetsTalk from "@/components/LetsTalk";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Language from "@/components/Language";
+import {headers} from "next/headers";
+import Script from "next/script";
 
 export default function Home() {
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({

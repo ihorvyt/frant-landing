@@ -237,8 +237,8 @@ const Index = () => {
                 <div className="credential">
                     <div className="links">
                         <div className="soc">
-                            <a href="https://www.linkedin.com/company/frant-digital/" target="_blank">Linked In</a>
-                            <a href="https://www.behance.net/frantdigital" target="_blank">Behance</a>
+                            <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank">Linked In</a>
+                            <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank">Behance</a>
                         </div>
                         <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
                     </div>

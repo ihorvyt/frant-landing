@@ -1,7 +1,7 @@
 @import "/src/styles/values";
 
 .frant-section {
-  height: 400vh;
+  height: 300vh;
   padding: 0 2.083vw 4.844vw;
   background-color: $black;
 
@@ -41,7 +41,7 @@
 
       span {
         height: fit-content;
-        transition: 1s;
+        //transition: 1s;
         transform: rotate(90deg) translateX(-16%) translateY(-33%) ;
         transform-origin: left;
         font-size: 105.709vw;
