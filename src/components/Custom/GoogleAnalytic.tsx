@@ -1,7 +1,7 @@
 import React from 'react';
 import Script from 'next/script';
 
-const GoogleTagManager = () => {
+const GoogleAnalytic = () => {
     return (
         <>
             <Script
@@ -26,4 +26,4 @@ const GoogleTagManager = () => {
     );
 };
 
-export default GoogleTagManager;
+export default GoogleAnalytic;
