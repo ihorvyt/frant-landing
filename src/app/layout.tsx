@@ -10,7 +10,7 @@ const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "Site development, Web Design, Custom Web Solutions, Order site development",
-    description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."
+    description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
 };
 
 export default async function RootLayout({
@@ -42,9 +42,12 @@ export default async function RootLayout({
             <meta name="theme-color" content="#0A0A0A"/>
             <meta name="author" content="Frant Digital"/>
 
-
-            <meta property="og:title" content="Site development, Web Design, Custom Web Solutions, Order site development"/>
-            <meta property="og:description" content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
+            <meta property="title" content="Site development, Web Design, Custom Web Solutions, Order site development"/>
+            <meta property="description" content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
+            <meta property="og:title"
+                  content="Site development, Web Design, Custom Web Solutions, Order site development"/>
+            <meta property="og:description"
+                  content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
             <meta property="og:url" content="https://frant.digital/"/>
             <meta property="og:image" content="/og_image.png"/>
         </head>
