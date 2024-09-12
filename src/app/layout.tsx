@@ -25,11 +25,14 @@ export default async function RootLayout({
             <GoogleAnalytic/>
             <link rel="canonical" href="https://frant.digital"/>
 
+
+            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
             <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
             <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
-            <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
-            <link rel="manifest" type="image/png" sizes="180x180" href="/favicons/site.webmanifest"/>
-            <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
+            <link rel="manifest" href="/favicons/site.webmanifest"/>
+            <meta name="msapplication-TileColor" content="#da532c"/>
+            <meta name="theme-color" content="#ffffff"/>
+
 
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
@@ -40,7 +43,10 @@ export default async function RootLayout({
             <meta name="author" content="Frant Digital"/>
         </head>
         <body className={inter.className}>
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MND73G6L" height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe></noscript>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MND73G6L" height="0" width="0"
+                    style={{display: 'none', visibility: 'hidden'}}></iframe>
+        </noscript>
         {children}
         </body>
         </html>
