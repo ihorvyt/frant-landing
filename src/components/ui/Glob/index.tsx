@@ -53,7 +53,7 @@ const Index = () => {
 
         setTimeout(() => {
             setContentLoaded(true);
-        }, 500);
+        }, 1);
     }, []);
 
     return (
