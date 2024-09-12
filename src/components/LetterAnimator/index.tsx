@@ -15,7 +15,7 @@ const LetterAnimator: React.FC<LetterAnimatorProps> = ({ word, interval, delay, 
 
     useEffect(() => {
         if (word.length === 0) return;
-        if (!play) return
+        if (!play || !hasAnimated) return
 
         setHasAnimated(true);
 
