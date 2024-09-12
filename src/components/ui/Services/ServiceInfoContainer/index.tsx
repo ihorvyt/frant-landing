@@ -1,10 +1,17 @@
 import './serviceInfoContainer.scss'
-import {Link} from "react-scroll";
+import {animateScroll, Link} from "react-scroll";
 
 interface IServiceInfoContainer {
     title: string,
     description?: string
 }
+
+const options = {
+    // Your options here, for example:
+    duration: 2000,
+    smooth: true,
+};
+
 
 
 const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
@@ -21,6 +28,7 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
             offset={0}
             to='spacer'
             id='/spacer'
+            onClick={() => {animateScroll.scrollToBottom(options)}}
             className="service-ident-button"
         >
             <span>Get in touch</span>
