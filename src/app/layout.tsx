@@ -5,7 +5,6 @@ import "../styles/default.scss";
 import "../styles/values.scss";
 import React from "react";
 import GoogleAnalytic from "@/components/Custom/GoogleAnalytic";
-import { GoogleTagManager } from "@next/third-parties/google"
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -23,9 +22,9 @@ export default async function RootLayout({
     return (
         <html lang='en'>
         <head>
-            <GoogleTagManager gtmId="GTM-MND73G6L"/>
             <GoogleAnalytic/>
             <link rel="canonical" href="https://frant.digital"/>
+            <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon"/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
 
