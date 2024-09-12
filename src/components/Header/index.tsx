@@ -92,7 +92,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                             <li
                                 key={lan.name}
                             >
-                                <a>
+                                <a href={`#${lan.name}`}>
                                     {lan.name}
                                 </a>
                             </li>
@@ -101,6 +101,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
                         links.map((item) => (
                             <li key={item.name}>
                                 <Link
+                                    href={`#${item.link}`}
                                     offset={isMobile ? 0 : item.offset}
                                     to={item.link}
                                     onClick={() => setShowBurger(false)}
@@ -145,7 +146,7 @@ const Index = ({hide, setShowLang}: { hide: boolean, setShowLang: (b: boolean) =
 
 
             <div className="links">
-                <a>Linked In</a>
+                <a href="https://www.linkedin.com/company/frant-digital/" target="_blank">Linked In</a>
                 <a href="https://www.behance.net/frantdigital" target="_blank">Behance</a>
                 <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
             </div>
