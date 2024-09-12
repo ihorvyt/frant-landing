@@ -49,7 +49,7 @@ export default async function RootLayout({
             <meta property="og:description"
                   content="We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."/>
             <meta property="og:url" content="https://frant.digital/"/>
-            <meta property="og:image" content="/og_image.png"/>
+            <meta property="og:image" content="https://frant.digital/og_image.png"/>
         </head>
         <body className={inter.className}>
         <noscript>
