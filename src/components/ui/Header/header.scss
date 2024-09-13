@@ -143,6 +143,7 @@ $delay: 0.2;
     &--show {
       height: 100%;
       mix-blend-mode: initial;
+      z-index: 99999999;
 
       &:before {
         content: "";
