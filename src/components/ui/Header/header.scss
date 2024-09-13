@@ -106,9 +106,8 @@ $delay: 0.2;
 @media(max-width: 768px) {
   .header {
     padding:  6.616vw 7.634vw 0;
-    z-index: 600000;
+    z-index:11;
     justify-content: space-between;
-    height: 100%;
     transition: 0s;
 
     nav {
@@ -296,23 +295,15 @@ $delay: 0.2;
       }
 
       .logo {
-        animation: back-logo 1s forwards,  back-logo 1s 2s forwards reverse;
+        animation: back-logo 0.5s 1s forwards;
 
         @keyframes back-logo {
           0% {
-            position: absolute;
-            top: 6.616vw;
-            left: 6.616vw;
-
-            transform: translate(0, 0);
+            transform: rotate(0);
           }
 
           100% {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-
-            transform: translate(-50%, -50%);
+            transform: rotate(360deg);
           }
         }
       }

@@ -1,6 +1,6 @@
 import React from "react";
 import './letsTalk.scss'
-import {animateScroll, Link} from "react-scroll";
+import { Link} from "react-scroll";
 
 const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) => void}) => {
     const options = {
@@ -26,5 +26,6 @@ const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) 
         </Link>
     );
 };
+
 
 export default Index;
