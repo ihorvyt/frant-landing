@@ -37,16 +37,48 @@
 
 @media(max-width: 768px) {
   .lets-chat {
-    left: 50%;
+    right: 6vw;
     bottom: 8.142vw;
 
     border-radius: 22.901vw;
-    padding: 5.99vw 0;
-    transform: translateX(-50%);
     width: 88.295vw;
+    height: 18.066vw;
+
+    overflow: hidden;
 
     &--hide {
       transform: translateX(160%);
+    }
+
+    span {
+      white-space: nowrap;
+      visibility: initial;
+    }
+
+    &--short {
+      right: 6vw;
+      width: 18.066vw;
+
+      &::before {
+        content: ""; /* Required to display the pseudo-element */
+        display: block; /* Ensures the pseudo-element takes up space */
+        position: absolute; /* Adjust positioning as needed */
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        width:6.142vw;
+        height: 6.142vw;
+        background-image: url('/images/svg/lets-chat-arrow.svg');
+        background-size: cover; /* Adjust as needed */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; /* Adjust as needed */
+      }
+
+      span {
+        visibility: hidden;
+      }
     }
 
     span {

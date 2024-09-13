@@ -17,6 +17,7 @@ import InfinitySlider from "@/components/ui/InfinitySlider";
 import CheckSection from "@/components/ui/CheckSection";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
+import SplashScreen from "@/components/ui/SplashScreen";
 
 export default function Home() {
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
@@ -29,6 +30,7 @@ export default function Home() {
         rootMargin: '100px',
         threshold: 0.001
     });
+
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
     const [showLang, setShowLang] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -42,7 +44,7 @@ export default function Home() {
     }, [isFrantSectionVisible]);
 
     return (<>
-        {/*<SplashScreen/>*/}
+        <SplashScreen/>
 
         <Header
             hide={isFrantSectionVisible}
@@ -65,6 +67,6 @@ export default function Home() {
         <Footer />
 
         <Language showLang={showLang} setShowLang={setShowLang}/>
-        <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading} />
+        <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading}/>
     </>);
 }

@@ -24,9 +24,17 @@ const Index = () => {
         title: 'close',
         description: ''
     });
-    const [wrongEmail, setWrongEmail] = useState<boolean>(false);
+    const [isTextAreaActive, setIsTextAreaActive] = useState<boolean>(false);
+    const [wrong, setWrong] = useState({
+        email: false,
+        mobileNumber: false
+    });
+
+    console.log(wrong)
+
 
     const isReadyToSend = formData.firstName && formData.email && formData.mobileNumber;
+    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
     const handleInputChange = (value: string, name: string) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -45,10 +53,23 @@ const Index = () => {
         }, 5000)
     }
 
+
+    useEffect(() => {
+        setIsTextAreaActive(formData.description !== '' || document.activeElement === textareaRef.current);
+    }, [formData.description]);
+
+    // Regex
     const validateEmail = (email: string): boolean => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
+
+    const validatePhoneNumber = (phoneNumber: string): boolean => {
+        // Regular expression to match phone numbers (allowing optional country code +)
+        const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\d{10})$/;
+        return phoneRegex.test(phoneNumber);
+    };
+
 
     const sentMail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -67,6 +88,16 @@ const Index = () => {
             setMessageStatus({
                 title: 'Incorrect email :(',
                 description: 'Please, enter valid email!'
+            })
+            close()
+
+            return
+        }
+
+        if (!validatePhoneNumber(formData.mobileNumber)) {
+            setMessageStatus({
+                title: 'Incorrect phone number :(',
+                description: 'Please, enter valid phone number!'
             })
             close()
 
@@ -113,21 +144,31 @@ const Index = () => {
         }
     };
 
-    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
-    const [isTextAreaActive, setIsTextAreaActive] = useState<boolean>(false);
-
-    useEffect(() => {
-        // Add 'active' class if the input is focused or has a value
-        setIsTextAreaActive(formData.description !== '' || document.activeElement === textareaRef.current);
-    }, [formData.description]);
-
     const handleBlur = () => {
-        console.log(123)
         if (formData.email === '') {
-            setWrongEmail(false)
-            return;
+            setWrong((prevState) => ({
+                ...prevState,
+                email: false
+            }))
+        } else {
+            setWrong((prevState) => ({
+                ...prevState,
+                email: !validateEmail(formData.email)
+            }))
         }
-        setWrongEmail(!validateEmail(formData.email));
+
+        if (formData.mobileNumber === '') {
+            setWrong((prevState) => ({
+                ...prevState,
+                mobileNumber: false
+            }))
+        } else {
+            setWrong((prevState) => ({
+                ...prevState,
+                mobileNumber: !validatePhoneNumber(formData.mobileNumber)
+            }))
+        }
+
     };
 
 
@@ -165,8 +206,9 @@ const Index = () => {
                                         mandatory
                                         value={formData.email}
                                         setValue={handleInputChange}
+
                                         handleBlur={handleBlur}
-                                        error={wrongEmail}
+                                        error={wrong.email}
                                     />
                                 </div>
                                 <div className="mobile">
@@ -176,6 +218,9 @@ const Index = () => {
                                         mandatory
                                         value={formData.mobileNumber}
                                         setValue={handleInputChange}
+
+                                        handleBlur={handleBlur}
+                                        error={wrong.mobileNumber}
                                     />
                                 </div>
                             </div>

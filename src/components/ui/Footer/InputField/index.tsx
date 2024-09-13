@@ -33,6 +33,7 @@ const InputField = ({ name, stateName, mandatory, value, setValue, error, handle
                     ref={inputRef}
                     type="text"
                     value={value}
+                    placeholder={name}
                     onChange={(e) => setValue(e.target.value, stateName)}
                     onFocus={() => setIsActive(true)}
                     onBlur={() => {

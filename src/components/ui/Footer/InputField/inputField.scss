@@ -85,6 +85,15 @@
 
       input {
         font-size: 7.125vw;
+
+        &::placeholder {
+          color: #C1B9AA;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 107.93%; /* 30.22px */
+        }
       }
 
       &.active {

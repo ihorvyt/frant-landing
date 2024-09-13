@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import './glob.scss'
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
-import LetterAnimator from "@/components/LetterAnimator";
 import Glob3D from "@/components/ui/Glob/Glob3D";
+import Typewriter from "@/components/Typewriter";
 
 const DateTime: React.FC = () => {
     const [dateTime, setDateTime] = useState<{ date: string, time: string }>({
@@ -36,12 +36,24 @@ const DateTime: React.FC = () => {
     );
 };
 
+interface IndexProps {
+    isBrandingVisible: boolean;
+}
+
 const Index = () => {
-    const [refBranding, isBrandingVisible] = useIntersectionObserver({
+    const [refGlobe, isGlobeVisible] = useIntersectionObserver({
         root: null, // using viewport
         rootMargin: '0px',
-        threshold: 0.1 // Element should be visible at 50%
+        threshold: 0.5, // Element should be visible at 50%,,
+        once: true
     });
+
+    const [refGlobeContainer, isGlobeContainerVisible] = useIntersectionObserver({
+        root: null, // using viewport
+        rootMargin: '00px',
+        threshold: 0.1, // Element should be visible at 50%,
+    });
+
 
     const [isPhone, setIsPhone] = useState<boolean>(false)
     const [contentLoaded, setContentLoaded] = useState(false);
@@ -57,30 +69,42 @@ const Index = () => {
     }, []);
 
     return (
-        <div className="glob" ref={refBranding}>
-            <div className="glob-bg">
+        <div className="glob"  ref={refGlobeContainer}>
+            <div className="glob-bg" ref={refGlobe}>
                 <div className="glob-info">
                     <div className="glob-text-code" >
                         {
                             contentLoaded
                                 ? <div className="glob-text">
-                                <h1>
-                                    <LetterAnimator word="We are frant" interval={100} delay={0}
-                                                    play={isBrandingVisible}/>
-                                </h1>
+                                    <h1>
+                                        {isGlobeVisible && <Typewriter
+                                            text="We are frant"
+                                            delay={50}
+                                            startDelay={500}
+                                        />}
+                                    </h1>
                                 <div>
                                     <p>
-                                        <LetterAnimator
-                                            word="An international web development and design studio specializing in practical and vibrant solutions."
-                                            interval={10} delay={0} play={isBrandingVisible}/>
+                                        {isGlobeVisible && <Typewriter
+                                            text="An international web development and design studio specializing in practical and vibrant solutions."
+                                            delay={10}
+                                            startDelay={1000}
+                                        />}
                                         <br/>
-                                        <LetterAnimator
-                                            word="At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling."
-                                            interval={10} delay={2000} play={isBrandingVisible}/>
+                                        {isGlobeVisible && <Typewriter
+                                            text="At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling."
+                                            delay={10}
+                                            startDelay={3000}
+                                        />}
                                     </p>
                                     <div className="space-text">
-                                        <span><LetterAnimator word="We bring ideas to life." interval={50} delay={4200}
-                                                              play={isBrandingVisible}/></span>
+                                        <span>
+                                            <Typewriter
+                                                text="We bring ideas to life."
+                                                delay={10}
+                                                startDelay={4200}
+                                            />
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -100,18 +124,18 @@ const Index = () => {
                                     </div>
                                 </div>
                         }
-                        <div className={`glob-code ${isBrandingVisible ? 'active' : ''}`}>
+                        <div className={`glob-code ${isGlobeContainerVisible ? 'active' : ''}`}>
                             <img src="/images/componets/glob/barCode.svg" alt="Barcode"/>
                         </div>
                     </div>
-                    <div className={`glob-time ${isBrandingVisible ? 'active' : ''}`}>
+                    <div className={`glob-time ${isGlobeVisible ? 'active' : ''}`}>
                         <div className="time-n-date">
                             <DateTime/>
                         </div>
                     </div>
                 </div>
                 <div className="glob3d-container">
-                    {isBrandingVisible && <Glob3D
+                    {isGlobeContainerVisible && <Glob3D
                         modelName='globe'
                         rotate={true}
                         size={isPhone ? 1.5 : 1.32}
@@ -122,6 +146,6 @@ const Index = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Index;

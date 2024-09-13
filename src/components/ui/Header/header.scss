@@ -277,7 +277,7 @@ $delay: 0.2;
         z-index: -1;
 
         transform: translateY(400%);
-        animation: from-down 0.4s forwards, from-down 0.4s 4s forwards reverse;
+        animation: from-down 0.4s forwards, from-down 0.4s 3s forwards reverse;
 
         @keyframes from-down {
           0% {
@@ -300,11 +300,13 @@ $delay: 0.2;
 
         @keyframes back-logo {
           0% {
-            transform: rotate(0);
+            opacity: 1;
           }
-
+          50% {
+            opacity: 0;
+          }
           100% {
-            transform: rotate(360deg);
+            opacity: 1;
           }
         }
       }

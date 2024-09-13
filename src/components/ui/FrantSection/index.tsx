@@ -24,11 +24,14 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
 
 
             if (isDevelopmentVisible && spanRef.current) {
-                if (window.innerWidth > 768 && percent >= 0 && percent < 66) {
-                    spanRef.current.style.transform = `translateX(${-percent}%)`;
-                } else if (window.innerWidth < 768 && percent < 70 && userPositionFromStart > 10) {
-
-                    spanRef.current.style.transform = `rotate(90deg) translateX(${-percent}%) translateY(-33%)`;
+                if (window.innerWidth > 768) {
+                    if (percent >= 0 && percent < 66) {
+                        spanRef.current.style.transform = `translateX(${-percent}%)`;
+                    }
+                } else {
+                    if (percent < 70 && userPositionFromStart > 10 && -percent - 16 >= -70) {
+                        spanRef.current.style.transform = `rotate(90deg) translateX(${-percent - 16}%) translateY(-33%)`;
+                    }
                 }
             }
         };

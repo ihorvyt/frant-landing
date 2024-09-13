@@ -1,27 +1,59 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './letsTalk.scss'
-import { Link} from "react-scroll";
+import { Link, animateScroll } from "react-scroll";
 
-const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) => void}) => {
+const Index = ({hide, setIsLoading, isShortMobile}: {hide: boolean, setIsLoading: (b: boolean) => void, isShortMobile?: boolean}) => {
     const options = {
         // Your options here, for example:
-        duration: 3000,
+        duration: 1000,
         smooth: true,
     };
+
+    const [isBelow100vh, setIsBelow100vh] = useState(false);
+
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
+
+
+
+    const checkScrollPosition = () => {
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.scrollY || window.pageYOffset;
+        setIsBelow100vh(scrollTop * 3 > viewportHeight);
+    };
+
+    useEffect(() => {
+        // Initial check
+        checkScrollPosition();
+
+        // Set up scroll event listener
+        window.addEventListener('scroll', checkScrollPosition);
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', checkScrollPosition);
+        };
+    }, []);
+
 
     return (
         <Link
             smooth={true}
-            to='footer'
+            to={`${isMobile ? 'spacer' : 'footer'} spacer`}
             delay={500}
-            offset={20}
+            offset={!isMobile ? 2000 : 0}
             onClick={() => {
                 setIsLoading(true)
                 setTimeout(() => {
                     setIsLoading(false)
                 }, 5000)
+
+                !isMobile && animateScroll.scrollToBottom(options)
             }}
-            className={`lets-chat ${hide && 'lets-chat--hide'}`}>
+            className={`lets-chat ${hide && 'lets-chat--hide'} ${isBelow100vh ? 'lets-chat--short' : ''}`}>
             <span>Let’s Chat</span>
         </Link>
     );

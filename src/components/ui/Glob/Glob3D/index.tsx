@@ -56,7 +56,7 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
         // Initialize ASCII effect
         const effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_abcdefghijklmnopqrstuvwxyz{|}~\n', {
             invert: true,
-            resolution: 0.15
+             resolution: 0.15
         });
         effect.setSize(sizes.width, sizes.height);
         effect.domElement.style.color = 'white';
