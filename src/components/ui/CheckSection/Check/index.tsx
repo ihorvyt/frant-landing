@@ -1,5 +1,6 @@
 import React from 'react';
 import './check.scss'
+import Typewriter from "@/components/Typewriter";
 
 // @ts-ignore
 const Index = ({checkInfo}) => {
@@ -19,7 +20,7 @@ const Index = ({checkInfo}) => {
 
             <div className="check-info">
                 {
-                    checkInfo.check_info_1.map((checkInfo: { name: string; value: string}) =>
+                    checkInfo.check_info_1.map((checkInfo: { name: string; value: string }) =>
                         <div key={checkInfo.name} className="info">
                             <div className="name">{checkInfo.name}</div>
                             <div className="value">{checkInfo.value}</div>
@@ -28,11 +29,11 @@ const Index = ({checkInfo}) => {
                 }
             </div>
 
-            <div className="line">----------------------------</div>
+            <div className="line">-------------------------</div>
 
             <div className="check-info">
                 {
-                    checkInfo.check_info_2.map((checkInfo: { name: string; value: string}) =>
+                    checkInfo.check_info_2.map((checkInfo: { name: string; value: string }) =>
                         <div key={checkInfo.name} className="info">
                             <div className="name">{checkInfo.name}</div>
                             <div className="value">{checkInfo.value}</div>
@@ -41,7 +42,7 @@ const Index = ({checkInfo}) => {
                 }
             </div>
 
-            <div className="line">----------------------------</div>
+            <div className="line">-------------------------</div>
 
             <div className="total-price">
                 <div className="total">Total</div>
@@ -59,7 +60,7 @@ const Index = ({checkInfo}) => {
                 </div>
             </div>
 
-            <div className="line">----------------------------</div>
+            <div className="line">-------------------------</div>
 
             <div className="check-info-secondary">
                 <p>THANK FOR YOUR PURCHASE!</p>
@@ -72,7 +73,7 @@ const Index = ({checkInfo}) => {
             <div className="bar-code-line">
                 <p>We bring your ideas to life.</p>
 
-                <div className="line">============================</div>
+                <div className="equal">=============================</div>
             </div>
 
             <div className="check-info-secondary">
@@ -81,7 +82,7 @@ const Index = ({checkInfo}) => {
                 </p>
             </div>
 
-            <div className="line">============================</div>
+            <div className="equal">=============================</div>
         </article>
     );
 };

@@ -1,20 +1,22 @@
 import './serviceInfoContainer.scss'
 import {animateScroll, Link} from "react-scroll";
+import Typewriter from "@/components/Typewriter";
 
 interface IServiceInfoContainer {
-    title: string,
-    description?: string
+    title: string;
+    description?: string;
+    show?: boolean
 }
 
 const options = {
     // Your options here, for example:
     duration: 2000,
-    smooth: true,
+    smooth: true
 };
 
 
 
-const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
+const ServiceInfoContainer = ({title, description, show}: IServiceInfoContainer) => {
     return (<div className="service-info-container">
         <div className="service-info">
             <div className="title">
@@ -28,7 +30,9 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
             offset={0}
             to='spacer'
             id='/spacer'
-            onClick={() => {animateScroll.scrollToBottom(options)}}
+            onClick={() => {
+                animateScroll.scrollToBottom(options)
+            }}
             className="service-ident-button"
         >
             <span>Get in touch</span>
@@ -46,7 +50,7 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
                 </defs>
             </svg>
         </Link>
-    </div>)
+    </div>);
 }
 
 export default ServiceInfoContainer

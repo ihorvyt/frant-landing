@@ -84,12 +84,20 @@
 
   .line {
     color: #202020;
-    text-align: center;
     font-family: "Courier New", monospace;
-    font-size: 1.25vw;
+    font-size: 1.45vw;
     font-style: normal;
     font-weight: 400;
     line-height: 107.93%; /* 25.903px */
+  }
+
+  .equal {
+    color: #202020;
+    text-align: center;
+    font-family: "Courier Prime", sans-serif;
+    font-size: 1.21vw;
+    line-height: 107.93%; /* 25.903px */
+    text-transform: uppercase;
   }
 
   .total-price {
@@ -159,7 +167,11 @@
     }
 
     .line {
-      font-size: 3.998vw;
+      font-size: 4.1vw;
+    }
+
+    .equal {
+      font-size: 3.5vw;
     }
 
     .total-price {

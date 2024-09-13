@@ -99,11 +99,11 @@ const Index = () => {
                                     </p>
                                     <div className="space-text">
                                         <span>
-                                            <Typewriter
+                                            {isGlobeVisible && <Typewriter
                                                 text="We bring ideas to life."
-                                                delay={10}
-                                                startDelay={4200}
-                                            />
+                                                delay={40}
+                                                startDelay={5800}
+                                            />}
                                         </span>
                                     </div>
                                 </div>

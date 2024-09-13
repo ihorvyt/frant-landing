@@ -29,7 +29,7 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
                         spanRef.current.style.transform = `translateX(${-percent}%)`;
                     }
                 } else {
-                    if (percent < 70 && userPositionFromStart > 10 && -percent - 16 >= -70) {
+                    if (percent < 70 && userPositionFromStart > 10 && -percent - 16 >= -76) {
                         spanRef.current.style.transform = `rotate(90deg) translateX(${-percent - 16}%) translateY(-33%)`;
                     }
                 }
