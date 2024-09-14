@@ -25,6 +25,8 @@
   }
 
   .input-field {
+    position: relative;
+
     display: flex;
     padding: 0.489vw;
     justify-content: center;
@@ -37,6 +39,7 @@
     transition: .3s;
 
     input {
+      position: relative;
       width: 100%;
 
       border: none;
@@ -50,6 +53,35 @@
       font-style: normal;
       font-weight: 600;
       line-height: 107.93%; /* 30.22px */
+
+      &::placeholder {
+        color: #C9C0AD;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.458vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 107.93%; /* 30.22px */
+
+        opacity: 1;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 96%;
+      height: 0.094vw;
+      left: 0;
+      bottom: 10%;
+
+      background-color: #C3B8A3;
+
+      //margin: 0 0.6%;
+
+      margin: 0 0 0 2%;
+
+      opacity: 0.6;
+      //background-color: #C3B8A3;
     }
 
     &.active {

@@ -44,7 +44,7 @@ export default function Home() {
     }, [isFrantSectionVisible]);
 
     return (<>
-        <SplashScreen/>
+        {/*<SplashScreen/>*/}
 
         <Header
             hide={isFrantSectionVisible}
