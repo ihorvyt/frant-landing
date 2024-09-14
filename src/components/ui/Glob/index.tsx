@@ -80,7 +80,7 @@ const Index = () => {
                                         {isGlobeVisible && <Typewriter
                                             text="We are frant"
                                             delay={50}
-                                            startDelay={500}
+                                            startDelay={50}
                                         />}
                                     </h1>
                                 <div>

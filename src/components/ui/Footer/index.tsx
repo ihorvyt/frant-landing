@@ -30,9 +30,6 @@ const Index = () => {
         mobileNumber: false
     });
 
-    console.log(wrong)
-
-
     const isReadyToSend = formData.firstName && formData.email && formData.mobileNumber;
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 

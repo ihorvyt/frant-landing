@@ -2,8 +2,15 @@
 
 import React from "react";
 import './TechnologyStack.scss'
+import Typewriter from "@/components/Typewriter";
+import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 
 const Index = () => {
+    const [refTechnologies, isTechnologiesVisible] = useIntersectionObserver({
+        root: null, // використовувати viewport
+        rootMargin: '100px',
+        threshold: 0.001
+    });
     const technologies = [
         "HTML5",
         "CSS3",
@@ -50,17 +57,17 @@ const Index = () => {
     return (
         <>
             <section className="stack-technologies">
-                <div className="stack-technologies-title">
-                    <h4>Stack technology</h4>
+                <div ref={refTechnologies} className="stack-technologies-title">
+                    <h4>{isTechnologiesVisible ? <Typewriter text='Stack technology' delay={50} startDelay={0} /> : 'Stack technology'} </h4>
                 </div>
                 <div className="stack-technologies-container">
                     {chunkedTechnologies.map((techChunk, index) => (
-                        <div key={index} className="stack-technologies-row" style={{ animation: `fade-out 0.8s forwards ${index * 0.2}s` }}>
+                        <div key={index} className="stack-technologies-row">
                             {techChunk.map(technologie => (
                                 <div
                                     key={technologie}
                                     className={`technology-circle`}
-
+                                    style={{ animation: `fade-out 0.8s forwards ${index * 0.2}s` }}
                                 >
                                     <span>{technologie}</span>
                                 </div>

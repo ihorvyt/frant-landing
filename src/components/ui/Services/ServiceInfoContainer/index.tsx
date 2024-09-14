@@ -16,10 +16,10 @@ const options = {
 
 
 
-const ServiceInfoContainer = ({title, description, show}: IServiceInfoContainer) => {
+const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
     return (<div className="service-info-container">
         <div className="service-info">
-            <div className="title">
+            <div className={`title`}>
                 <h2 dangerouslySetInnerHTML={{__html: title || ''}}/>
             </div>
             <div className="description">

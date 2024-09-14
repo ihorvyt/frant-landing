@@ -43,7 +43,8 @@ const Index = ({hide, setIsLoading, isShortMobile}: {hide: boolean, setIsLoading
         <Link
             smooth={true}
             to={`${isMobile ? 'spacer' : 'footer'} spacer`}
-            delay={500}
+            delay={2000}
+            duration={isMobile ? 0 : 2000}
             offset={!isMobile ? 2000 : 0}
             onClick={() => {
                 setIsLoading(true)

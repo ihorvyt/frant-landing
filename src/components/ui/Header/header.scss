@@ -263,7 +263,7 @@ $delay: 0.2;
     }
 
     &--loading {
-      z-index: 770000;
+      z-index: 9999999999999;
       mix-blend-mode: initial;
 
       &:before {

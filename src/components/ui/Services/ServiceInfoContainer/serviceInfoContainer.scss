@@ -7,7 +7,17 @@
 
   .service-info {
     .title {
+      overflow: hidden;
+
+      &.show {
+        h2 {
+          transform: translateY(0%);
+        }
+      }
+
       h2 {
+        transition: .3s;
+        transform: translateY(-100%);
         font-family: Unbounded, sans-serif;
         font-size: 6.667vw;
         font-style: normal;
