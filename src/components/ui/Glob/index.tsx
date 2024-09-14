@@ -41,21 +41,22 @@ interface IndexProps {
 }
 
 const Index = () => {
+    const [isPhone, setIsPhone] = useState<boolean>(false)
+
     const [refGlobe, isGlobeVisible] = useIntersectionObserver({
         root: null, // using viewport
-        rootMargin: '0px',
+        rootMargin: isPhone ? '200px' : '0px',
         threshold: 0.5, // Element should be visible at 50%,,
         once: true
     });
 
     const [refGlobeContainer, isGlobeContainerVisible] = useIntersectionObserver({
         root: null, // using viewport
-        rootMargin: '00px',
+        rootMargin: '0px',
         threshold: 0.1, // Element should be visible at 50%,
     });
 
 
-    const [isPhone, setIsPhone] = useState<boolean>(false)
     const [contentLoaded, setContentLoaded] = useState(false);
 
     useEffect(() => {
@@ -124,7 +125,7 @@ const Index = () => {
                                     </div>
                                 </div>
                         }
-                        <div className={`glob-code ${isGlobeContainerVisible ? 'active' : ''}`}>
+                        <div className={`glob-code ${isGlobeVisible ? 'active' : ''}`}>
                             <img src="/images/componets/glob/barCode.svg" alt="Barcode"/>
                         </div>
                     </div>
