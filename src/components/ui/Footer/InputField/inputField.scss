@@ -1,6 +1,5 @@
 @import "/src/styles/values";
 
-
 .input-container {
   display: flex;
   flex-direction: column;
@@ -99,7 +98,6 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .input-container {
     gap: 3.308vw;
@@ -121,7 +119,7 @@
         &::placeholder {
           color: #C1B9AA;
           font-family: "Plus Jakarta Sans", sans-serif;
-          font-size: 28px;
+          font-size: 7.125vw;
           font-style: normal;
           font-weight: 500;
           line-height: 107.93%; /* 30.22px */

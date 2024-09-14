@@ -184,6 +184,7 @@ const Index = () => {
                                     <InputField
                                         name="First name"
                                         stateName='firstName'
+                                        placeholder='Enter first name'
                                         mandatory
                                         value={formData.firstName}
                                         setValue={handleInputChange}
@@ -191,6 +192,7 @@ const Index = () => {
                                     <InputField
                                         name="Company name"
                                         stateName='companyName'
+                                        placeholder='Enter company name'
                                         mandatory={false}
                                         value={formData.companyName}
                                         setValue={handleInputChange}
@@ -200,6 +202,7 @@ const Index = () => {
                                     <InputField
                                         name="Email"
                                         stateName='email'
+                                        placeholder='Enter email'
                                         mandatory
                                         value={formData.email}
                                         setValue={handleInputChange}
@@ -212,6 +215,7 @@ const Index = () => {
                                     <InputField
                                         name="Phone number"
                                         stateName='mobileNumber'
+                                        placeholder='Enter phone number'
                                         mandatory
                                         value={formData.mobileNumber}
                                         setValue={handleInputChange}

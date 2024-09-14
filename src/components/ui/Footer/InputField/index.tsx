@@ -7,11 +7,12 @@ interface InputFieldProps {
     mandatory: boolean;
     value: string;
     setValue: (value: string, name: string) => void;
+    placeholder?: string;
     handleBlur?: () => void;
     error?: boolean;
 }
 
-const InputField = ({ name, stateName, mandatory, value, setValue, error, handleBlur }: InputFieldProps) => {
+const InputField = ({ name, stateName, mandatory, value, setValue, placeholder,  handleBlur, error }: InputFieldProps) => {
 
     const [isActive, setIsActive] = useState<boolean>(false);
 
@@ -33,7 +34,7 @@ const InputField = ({ name, stateName, mandatory, value, setValue, error, handle
                     ref={inputRef}
                     type="text"
                     value={value}
-                    placeholder={name}
+                    placeholder={placeholder}
                     onChange={(e) => setValue(e.target.value, stateName)}
                     onFocus={() => setIsActive(true)}
                     onBlur={() => {

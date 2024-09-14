@@ -12,7 +12,6 @@ const Index = () => {
                 </svg>
             </div>
 
-
             <div className="line" />
         </section>
     );
