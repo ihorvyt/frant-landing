@@ -43,12 +43,12 @@ const Index = () => {
             size: 1.10,
             color: 'green'
         });
-        isDevelopmentVisible && setShowModel({
+        isDevelopmentVisible && !isDesigbVisible && setShowModel({
             modelName: 'cursor',
             size: 0.8,
             color: 'blue'
         });
-        isBrandingVisible && setShowModel({
+        isBrandingVisible && !isDevelopmentVisible && setShowModel({
             modelName: 'eye',
             size: 1.2,
             color: 'red'
