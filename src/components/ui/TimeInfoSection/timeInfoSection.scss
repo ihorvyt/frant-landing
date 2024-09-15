@@ -106,21 +106,34 @@
       }
 
       .center {
+        position: relative;
         margin: auto;
 
         p {
+          position: relative;
           color: $black;
           font-family: Unbounded, sans-serif;
           font-size: 5vw;
           font-style: normal;
           font-weight: 600;
           line-height: 107.93%; /* 103.613px */
+          z-index: 99;
 
           span {
             font-family: Unbounded, sans-serif;
             color: $black;
             font-size: 1.563vw;
           }
+        }
+
+        svg {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+
+          transform: translate(-50%, -50%);
+
+          z-index: 0;
         }
       }
 
@@ -175,6 +188,19 @@
             font-style: normal;
             font-weight: 600;
           }
+        }
+      }
+
+      .center {
+        p {
+          color: $white;
+
+          span {
+            color: $white;
+          }
+        }
+        svg {
+          top: 20%;
         }
       }
     }
@@ -295,6 +321,12 @@
               font-family: Unbounded, sans-serif;
               font-size: 3.912vw;
             }
+          }
+        }
+
+        .center {
+          svg {
+            width: 50vw;
           }
         }
       }

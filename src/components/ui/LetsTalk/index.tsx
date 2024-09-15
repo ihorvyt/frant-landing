@@ -54,7 +54,7 @@ const Index = ({hide, setIsLoading, isShortMobile}: {hide: boolean, setIsLoading
 
                 !isMobile && animateScroll.scrollToBottom(options)
             }}
-            className={`lets-chat ${hide && 'lets-chat--hide'} ${isBelow100vh ? 'lets-chat--short' : ''}`}
+            className={`lets-chat ${hide ? 'lets-chat--hide' : ''} ${isBelow100vh ? 'lets-chat--short' : ''}`}
         >
             <span>Let’s Chat</span>
         </Link>

@@ -52,6 +52,7 @@ footer {
 
     .inputs-text-area-container {
       display: flex;
+      justify-content: space-between;
       gap: 1.823vw;
 
       .inputs-container {
@@ -380,6 +381,14 @@ footer {
         .input-checkbox-sent {
           flex-direction: column;
           gap: 8.906vw;
+
+          .checkboxes {
+            .column {
+              label {
+                width: 65.394vw;
+              }
+            }
+          }
 
           .sent {
             padding: 5.089vw 4.58vw;

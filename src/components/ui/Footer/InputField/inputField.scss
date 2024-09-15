@@ -27,7 +27,7 @@
     position: relative;
 
     display: flex;
-    padding: 0.489vw;
+    padding: 1vw 0.489vw;
     justify-content: center;
     align-items: flex-end;
     flex-shrink: 0;
@@ -56,7 +56,7 @@
       &::placeholder {
         color: #C9C0AD;
         font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.458vw;
+        font-size: 1.258vw;
         font-style: normal;
         font-weight: 500;
         line-height: 107.93%; /* 30.22px */
@@ -111,7 +111,7 @@
     }
 
     .input-field {
-      padding: 2.39vw;
+      padding: 4.69vw 2.39vw;
 
       input {
         font-size: 7.125vw;

@@ -61,7 +61,7 @@ export default function Home() {
             <Services />
             <InfinitySlider/>
             <CheckSection/>
-            <TimeInfoSection/>
+            <TimeInfoSection setIsLoading={setIsLoading}/>
         </main>
         <div id='spacer' className="spacer" ref={refSpacer}></div>
         <Footer />

@@ -260,7 +260,7 @@ const Index = () => {
                                         setIsChecked={() => handleCheckboxChange('branding')}
                                     />
                                     <Checkbox
-                                        label='Smth else'
+                                        label='Other Services'
                                         checked={services.smthElse}
                                         setIsChecked={() => handleCheckboxChange('smthElse')}
                                     />
