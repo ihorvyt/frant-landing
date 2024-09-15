@@ -147,6 +147,19 @@
       background: $white;
       border-bottom: 0 solid $white;
 
+      .top {
+        .count {
+          span {
+            color: black;
+            font-family: Unbounded, sans-serif;
+            font-size: 1.223vw;
+            font-style: normal;
+            font-weight: 600;
+            margin-right: 0.3vw;
+          }
+        }
+      }
+
       &:hover {
         border-bottom: 1.51vw solid $primary;
       }
