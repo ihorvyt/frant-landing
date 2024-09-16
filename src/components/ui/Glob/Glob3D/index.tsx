@@ -9,8 +9,8 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 import './glob3d.scss'
 
 const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: string, rotate: boolean, size: number, color: string, windowSize?: number }) => {
+    return
     const mountRef = useRef<HTMLDivElement | null>(null);
-
     useEffect(() => {
         let animationFrameId: number;
 
