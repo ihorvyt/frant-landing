@@ -33,7 +33,6 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
                     }
                 }
             }
-
         };
 
         window.addEventListener('scroll', handleScroll);

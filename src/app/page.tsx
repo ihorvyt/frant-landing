@@ -55,13 +55,6 @@ export default function Home() {
         <main>
             <BannerSection/>
             <Glob/>
-            <div>
-                <div className="s400 s">400</div>
-                <div className="s500 s">500</div>
-                <div className="s600 s">600</div>
-                <div className="s700 s">700</div>
-                <div className="s800 s">800</div>
-            </div>
             <FrantSection ref={refFrantSection}/>
             <SiteVariations/>
             <TechnologyStack/>

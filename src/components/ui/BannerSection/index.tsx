@@ -15,8 +15,8 @@ const Index = () => {
         <>
             <section id='banner' className="banner-section">
                 <div className="video">
-                    <video autoPlay loop muted >
-                        {videoSrc && <source src={videoSrc} type="video/mp4"/>}
+                    <video width="100%" autoPlay loop muted ngsw-bypass={true} playsInline>
+                        {videoSrc && <source src={videoSrc}  type="video/mp4"/>}
                         Your browser does not support the video tag.
                     </video>
                 </div>

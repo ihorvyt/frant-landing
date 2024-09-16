@@ -1,5 +1,4 @@
 @import "/src/styles/values";
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap');
 
 .frant-section {
   height: 300vh;
@@ -20,6 +19,7 @@
     border-radius: 4.688vw;
     background: $white;
     overflow: hidden; // Ensure no overflow
+    transition: 0.3s;
 
     span {
       color: $black;
@@ -28,6 +28,7 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
+      animation-duration: 1ms;
     }
   }
 }
