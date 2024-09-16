@@ -1,11 +1,13 @@
 import './serviceInfoContainer.scss'
 import {animateScroll, Link} from "react-scroll";
 import Typewriter from "@/components/Typewriter";
+import React, {useEffect} from "react";
 
 interface IServiceInfoContainer {
     title: string;
     description?: string;
-    show?: boolean
+    show?: boolean;
+    setIsLoading: (b: boolean) => void;
 }
 
 const options = {
@@ -16,7 +18,14 @@ const options = {
 
 
 
-const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
+
+const ServiceInfoContainer = ({title, description, setIsLoading}: IServiceInfoContainer) => {
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
+
     return (<div className="service-info-container">
         <div className="service-info">
             <div className={`title`}>
@@ -27,11 +36,18 @@ const ServiceInfoContainer = ({title, description}: IServiceInfoContainer) => {
             </div>
         </div>
         <Link
-            offset={0}
-            to='spacer'
-            id='/spacer'
+            smooth={true}
+            to={`${isMobile ? 'spacer' : 'footer'} spacer`}
+            delay={isMobile ? 500 : 2000}
+            duration={isMobile ? 0 : 2000}
+            offset={isMobile ? 50 : 2000}
             onClick={() => {
-                animateScroll.scrollToBottom(options)
+                setIsLoading(true)
+                setTimeout(() => {
+                    setIsLoading(false)
+                }, 3000)
+
+                !isMobile && animateScroll.scrollToBottom(options)
             }}
             className="service-ident-button"
         >

@@ -2,17 +2,11 @@ import './development.scss'
 import ServiceInfoContainer from "@/components/ui/Services/ServiceInfoContainer";
 import React, {forwardRef, useEffect} from "react";
 import Glob3D from "@/components/ui/Glob/Glob3D";
+import {IServiceProps} from "@/types";
 
-interface IModel {
-    modelName: string;
-}
 
-interface DevelopmentProps {
-    showModel: IModel;
-}
-
-const Index = forwardRef<HTMLDivElement, DevelopmentProps>((props, ref) => {
-    const { showModel } = props;
+const Index = forwardRef<HTMLDivElement, IServiceProps>((props, ref) => {
+    const { showModel, setIsLoading } = props;
     const [isMobile, setIsMobile] = React.useState(false);
 
     useEffect(() => {
@@ -22,8 +16,11 @@ const Index = forwardRef<HTMLDivElement, DevelopmentProps>((props, ref) => {
     return (
         <section ref={isMobile ? null : ref}  id='development'   className="development-section">
             <div className="development-container">
-                <ServiceInfoContainer title="Development"
-                                      description="Craft with newest tech, all the way – JQuery, not today."/>
+                <ServiceInfoContainer
+                    title="Development"
+                    description="Craft with newest tech, all the way – JQuery, not today."
+                    setIsLoading={setIsLoading}
+                />
             </div>
             <div ref={isMobile ? ref : null} className={`model-mob`}>
                 {showModel.modelName !== '' && showModel.modelName !== 'none' && isMobile &&

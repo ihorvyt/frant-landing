@@ -217,6 +217,20 @@ $delay: 0.2;
           width: 9.399vw;
           height: 9.388vw;
         }
+
+        transform: translateX(200%);
+        animation: fromLeft 0.4s 0.5s ease-out forwards;
+
+        @keyframes fromLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(200%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0%);
+          }
+        }
       }
 
       .links {
@@ -226,7 +240,6 @@ $delay: 0.2;
         z-index: 9;
         transition: .3s;
 
-
         display: flex;
         flex-direction: column;
         gap: 2.545vw;
@@ -235,7 +248,25 @@ $delay: 0.2;
         bottom: 9.616vw;
         left: 7.634vw;
 
+        div {
+          overflow: hidden;
+
+          &:nth-child(2) {
+            a {
+              animation-delay: 0.8s;
+            }
+          }
+
+          &:last-child {
+            a {
+              animation-delay: 1.3s;
+            }
+          }
+        }
+
         a {
+          display: inline-block;
+
           color: $white;
           font-family: "Plus Jakarta Sans", sans-serif;
           font-size: 4.071vw;
@@ -243,6 +274,20 @@ $delay: 0.2;
           font-weight: 700;
           line-height: 185%; /* 29.6px */
           text-transform: lowercase;
+
+          overflow: hidden;
+
+          transform: translateY(100%);
+          animation: fromDown 0.4s 0.5s ease-out forwards;
+        }
+
+        @keyframes fromDown {
+          0% {
+            transform: translateY(400%);
+          }
+          100% {
+            transform: translateY(0%);
+          }
         }
       }
     }

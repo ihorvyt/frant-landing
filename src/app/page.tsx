@@ -63,7 +63,7 @@ export default function Home() {
                 <FrantSection ref={refFrantSection}/>
                 <SiteVariations/>
                 <TechnologyStack/>
-                <Services />
+                <Services setIsLoading={setIsLoading}/>
                 <InfinitySlider/>
                 <CheckSection/>
                 <TimeInfoSection setIsLoading={setIsLoading}/>

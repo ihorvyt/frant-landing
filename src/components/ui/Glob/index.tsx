@@ -45,15 +45,15 @@ const Index = () => {
 
     const [refGlobe, isGlobeVisible] = useIntersectionObserver({
         root: null, // using viewport
-        rootMargin: isPhone ? '200px' : '0px',
-        threshold: 0.5, // Element should be visible at 50%,,
+        rootMargin: isPhone ? '350px' : '0px',
+        threshold: 0.5,
         once: true
     });
 
     const [refGlobeContainer, isGlobeContainerVisible] = useIntersectionObserver({
-        root: null, // using viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1, // Element should be visible at 50%,
+        threshold: 0.1
     });
 
 

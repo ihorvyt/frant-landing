@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './letsTalk.scss'
 import { Link, animateScroll } from "react-scroll";
 
-const Index = ({hide, setIsLoading, isShortMobile}: {hide: boolean, setIsLoading: (b: boolean) => void, isShortMobile?: boolean}) => {
+const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) => void, isShortMobile?: boolean}) => {
     const options = {
         // Your options here, for example:
         duration: 1000,

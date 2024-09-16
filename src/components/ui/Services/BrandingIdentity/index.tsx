@@ -2,18 +2,12 @@ import './brandIdentity.scss'
 import ServiceInfoContainer from "@/components/ui/Services/ServiceInfoContainer";
 import React, {forwardRef, useEffect} from "react";
 import Glob3D from "@/components/ui/Glob/Glob3D";
+import {IServiceProps} from "@/types";
 
 
-interface IModel {
-    modelName: string;
-}
 
-interface BrantProps {
-    showModel: IModel;
-}
-
-const Index = forwardRef<HTMLDivElement, BrantProps>((props, ref) => {
-    const { showModel } = props;
+const Index = forwardRef<HTMLDivElement, IServiceProps>((props, ref) => {
+    const { showModel, setIsLoading } = props;
     const [isMobile, setIsMobile] = React.useState(false);
 
     useEffect(() => {
@@ -22,8 +16,11 @@ const Index = forwardRef<HTMLDivElement, BrantProps>((props, ref) => {
     return (
         <section id='branding' ref={ref} className="brand-ident-section">
             <div className="brand-ident-container">
-                <ServiceInfoContainer title="Branding <br/> & <br/> Identity"
-                                      description="No Generic Templates Allowed."/>
+                <ServiceInfoContainer
+                    title="Branding <br/> & <br/> Identity"
+                    description="No Generic Templates Allowed."
+                    setIsLoading={setIsLoading}
+                />
             </div>
 
             <div className={`model-mob`}>

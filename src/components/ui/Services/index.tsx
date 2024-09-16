@@ -15,7 +15,7 @@ interface IModel {
     state?: string
 }
 
-const Index = () => {
+const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void}) => {
     const [refDesign, isDesigbVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
         rootMargin: '0px',
@@ -60,7 +60,6 @@ const Index = () => {
         })
     }, [isDevelopmentVisible, isBrandingVisible, isDesigbVisible]);
 
-
     const [isMobile, setIsMobile] = React.useState(false);
 
     useEffect(() => {
@@ -70,9 +69,9 @@ const Index = () => {
     return (
         <section className="services-models">
             <div className="services-container">
-                <Design ref={refDesign} showModel={showModel}/>
-                <Development ref={refDevelopment} showModel={showModel}/>
-                <BrandIdentity ref={refBranding} showModel={showModel}/>
+                <Design ref={refDesign} showModel={showModel} setIsLoading={setIsLoading}/>
+                <Development ref={refDevelopment} showModel={showModel} setIsLoading={setIsLoading}/>
+                <BrandIdentity ref={refBranding} showModel={showModel} setIsLoading={setIsLoading}/>
             </div>
             <div className="model-container">
                 {showModel.modelName !== '' && !isMobile && showModel.modelName !== 'none' && <div className={`model`}>

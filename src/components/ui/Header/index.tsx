@@ -145,12 +145,12 @@ const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b:
 
 
             <div className="links">
-                <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank">Linked In</a>
-                <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank">Behance</a>
-                <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
+                <div><a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank">Linked In</a></div>
+                <div><a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank">Behance</a></div>
+                <div><a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a></div>
             </div>
         </header>
-);
+    );
 };
 
 export default Index;
