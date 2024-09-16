@@ -18,8 +18,13 @@ import CheckSection from "@/components/ui/CheckSection";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 import SplashScreen from "@/components/ui/SplashScreen";
+import ReactLenis, {useLenis} from "lenis/react";
 
 export default function Home() {
+    const lenis = useLenis(({ scroll }) => {
+        // called every scroll
+    })
+
     const [refFrantSection, isFrantSectionVisible] = useIntersectionObserver({
         root: null, // використовувати viewport
         rootMargin: '0px',
@@ -45,28 +50,29 @@ export default function Home() {
 
     return (<>
         {/*<SplashScreen/>*/}
+            <ReactLenis root>
+            <Header
+                hide={isFrantSectionVisible}
+                setShowLang={setShowLang}
+                isLoading={isLoading}
+            />
 
-        <Header
-            hide={isFrantSectionVisible}
-            setShowLang={setShowLang}
-            isLoading={isLoading}
-        />
+            <main>
+                <BannerSection/>
+                <Glob/>
+                <FrantSection ref={refFrantSection}/>
+                <SiteVariations/>
+                <TechnologyStack/>
+                <Services />
+                <InfinitySlider/>
+                <CheckSection/>
+                <TimeInfoSection setIsLoading={setIsLoading}/>
+            </main>
+            <div id='spacer' className="spacer" ref={refSpacer}></div>
+            <Footer />
 
-        <main>
-            <BannerSection/>
-            <Glob/>
-            <FrantSection ref={refFrantSection}/>
-            <SiteVariations/>
-            <TechnologyStack/>
-            <Services />
-            <InfinitySlider/>
-            <CheckSection/>
-            <TimeInfoSection setIsLoading={setIsLoading}/>
-        </main>
-        <div id='spacer' className="spacer" ref={refSpacer}></div>
-        <Footer />
-
-        <Language showLang={showLang} setShowLang={setShowLang}/>
-        <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading}/>
+            <Language showLang={showLang} setShowLang={setShowLang}/>
+            <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading}/>
+        </ReactLenis>
     </>);
 }

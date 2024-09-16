@@ -5,7 +5,6 @@ import "../styles/default.scss";
 import "../styles/values.scss";
 import React from "react";
 import GoogleAnalytic from "@/components/Custom/GoogleAnalytic";
-import {ReactLenis, useLenis} from "lenis/react";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -44,41 +43,35 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
 
-    const lenis = useLenis(({ scroll }) => {
-        // called every scroll
-    })
-
     return (
-        <ReactLenis root>
-            <html lang='en'>
-            <head>
-                <GoogleAnalytic/>
-                <link rel="canonical" href="https://frant.digital"/>
+        <html lang='en'>
+        <head>
+            <GoogleAnalytic/>
+            <link rel="canonical" href="https://frant.digital"/>
 
 
-                <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
-                <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
-                <link rel="manifest" href="/favicons/site.webmanifest"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
+            <link rel="manifest" href="/favicons/site.webmanifest"/>
 
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap"
-                      rel="stylesheet"/>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap"
+                  rel="stylesheet"/>
 
 
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com"/>
-                <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
-            </head>
-            <body className={inter.className}>
-            <noscript>
-                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MND73G6L" height="0" width="0"
-                        style={{display: 'none', visibility: 'hidden'}}></iframe>
-            </noscript>
-            {children}
-            </body>
-            </html>
-        </ReactLenis>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
+        </head>
+        <body className={inter.className}>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MND73G6L" height="0" width="0"
+                    style={{display: 'none', visibility: 'hidden'}}></iframe>
+        </noscript>
+        {children}
+        </body>
+        </html>
     );
 }
