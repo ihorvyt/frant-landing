@@ -103,7 +103,7 @@ const Index = () => {
                                             {isGlobeVisible && <Typewriter
                                                 text="We bring ideas to life."
                                                 delay={40}
-                                                startDelay={5800}
+                                                startDelay={isPhone ? 5800 : 6800}
                                             />}
                                         </span>
                                     </div>
