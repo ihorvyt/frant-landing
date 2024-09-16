@@ -1,4 +1,5 @@
 @import "/src/styles/values";
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap');
 
 .frant-section {
   height: 300vh;
@@ -47,7 +48,7 @@
         transform: rotate(90deg) translateX(-16%) translateY(-33%) ;
         transform-origin: left;
         font-size: 105.709vw;
-        //font-size: 105.709vw;
+        font-weight: 600 !important;
       }
     }
   }
