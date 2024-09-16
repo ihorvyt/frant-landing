@@ -55,7 +55,10 @@ export default async function RootLayout({
             <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
             <link rel="manifest" href="/favicons/site.webmanifest"/>
 
-
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap"
+                  rel="stylesheet"/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
             <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
