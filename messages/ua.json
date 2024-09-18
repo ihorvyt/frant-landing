@@ -6,7 +6,6 @@
     "Prices": "الأسعار",
     "Time-lines": "الخطوط الزمنية"
   },
-  "Stack technology": "تكنولوجيا المكدس",
   "Glob": {
     "We are frant": "نحن مذعورون",
     "An international web development": "استوديو دولي لتطوير وتصميم الويب متخصص في الحلول العملية والحيوية.",
@@ -14,6 +13,7 @@
     "We bring ideas to life": "نحن نجلب الأفكار إلى الحياة.",
     "Frant: Website development, Design, Branding": "فرانت: تطوير مواقع الويب، التصميم، العلامات التجارية"
   },
+  "Stack technology": "تكنولوجيا المكدس",
   "Let’s Chat": "دعونا الدردشة",
   "Variations": {
     "Website Types": [
@@ -62,11 +62,11 @@
     "Total": "المجموع",
     "e-cash:": "النقد الإلكتروني:",
     "CHANGE:": "يتغير:",
-    "email": "email",
     "our kindness :)": "لطفنا :)",
     "THANK FOR YOUR PURCHASE!": "شكرا لشرائك!",
     "we bring your ideas to life": "نحن نجلب أفكارك إلى الحياة.",
     "thank you": "شكرًا لك",
+    "email": "بريد إلكتروني",
     "Prices for our vision.": "الأسعار لرؤيتنا.",
     "Landing": "الهبوط",
     "E-commerce": "التجارة الإلكترونية",
@@ -105,6 +105,33 @@
     "Make an offer": "تقديم عرض",
     "Project realization": "تحقيق المشروع",
     "days": "أيام",
-    "hours": "أيام"
+    "hours": "ساعات"
+  },
+  "Footer": {
+    "Thinking about NEW?": "هل تفكر في الجديد؟",
+    "Let's get talking": "دعونا نتحدث",
+    "Oops": "أُووبس",
+    "Please, enter all required the information!": "من فضلك قم بإدخال جميع المعلومات المطلوبة",
+    "Incorrect email :(": "البريد الإلكتروني غير صحيح :(",
+    "Please, enter valid email!": "الرجاء إدخال بريد إلكتروني صالح!",
+    "Incorrect phone number :(": "رقم الهاتف غير صحيح :(",
+    "Please, enter valid phone number!": "من فضلك أدخل رقم هاتف صحيح!",
+    "Success!": "نجاح!",
+    "Your message has been sent.": "لقد تم إرسال رسالتك.",
+    "There was a problem submitting your message": "كانت هناك مشكلة في إرسال رسالتك",
+    "Send a take": "أرسل لقطة",
+    "Web Development": "تطوير الويب",
+    "Web Design": "تصميم الويب",
+    "Branding": "العلامة التجارية",
+    "Other Services": "خدمات أخرى",
+    "First name": "الاسم الأول",
+    "Enter first name": "أدخل الاسم الأول",
+    "Company name": "اسم الشركة",
+    "Enter company name": "أدخل اسم الشركة",
+    "Email": "بريد إلكتروني",
+    "Enter email": "أدخل البريد الإلكتروني",
+    "Phone number": "رقم التليفون",
+    "Enter phone number": "أدخل رقم الهاتف",
+    "Description": "وصف"
   }
 }
