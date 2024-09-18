@@ -6,7 +6,7 @@ main {
   background-color: $black;
 }
 
-.spacer {
+#spacer {
   margin-bottom: 50vh;
   padding-bottom: 50vh
 }
@@ -52,7 +52,7 @@ body {
 
 
 @media (max-width: 768px) {
-  .spacer {
+  #spacer {
     margin-bottom: 0;
     padding-bottom: 0;
   }

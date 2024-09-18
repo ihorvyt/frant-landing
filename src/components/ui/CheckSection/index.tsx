@@ -10,15 +10,17 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Check from "@/components/ui/CheckSection/Check";
+import {useTranslations} from "next-intl";
 
 const Index: React.FC = () => {
+    const t = useTranslations("Check")
     const checkInfo = [
         {
             "check": {
                 "title": "Landing",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -52,7 +54,7 @@ const Index: React.FC = () => {
                 "title": "E-commerce",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -86,7 +88,7 @@ const Index: React.FC = () => {
                 "title": "Corporate Site",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -120,7 +122,7 @@ const Index: React.FC = () => {
                 "title": "Custom Solution",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -154,7 +156,7 @@ const Index: React.FC = () => {
                 "title": "Brand Book",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -188,7 +190,7 @@ const Index: React.FC = () => {
                 "title": "Landing",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -222,7 +224,7 @@ const Index: React.FC = () => {
                 "title": "E-commerce",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -256,7 +258,7 @@ const Index: React.FC = () => {
                 "title": "Corporate Site",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -290,7 +292,7 @@ const Index: React.FC = () => {
                 "title": "Custom Solution",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -324,7 +326,7 @@ const Index: React.FC = () => {
                 "title": "Brand Book",
                 "check_info_1": [
                     {
-                        "name": "24.08.24",
+                        "name": "date-num",
                         "value": "23:31"
                     },
                     {
@@ -364,7 +366,7 @@ const Index: React.FC = () => {
     return (<>
         <section id='prices' className="check-section">
             <div className="check-section-price">
-                <h3>Prices for our vision.</h3>
+                <h3>{t("Prices for our vision")}</h3>
             </div>
             <Swiper
                 modules={[Autoplay]}

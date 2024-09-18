@@ -80,17 +80,15 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
 
                 <Link
                     smooth={true}
-                    to={`${isMobile ? 'spacer' : 'footer'} spacer`}
-                    delay={isMobile ? 500 : 2000}
-                    duration={isMobile ? 0 : 2000}
-                    offset={!isMobile ? 2000 : 0}
+                    to={`${isMobile ? 'footer' : 'spacer'}`}
+                    delay={500}
+                    duration={0}
+                    offset={isMobile ? 0 : 2000}
                     onClick={() => {
                         setIsLoading(true)
                         setTimeout(() => {
                             setIsLoading(false)
                         }, 3000)
-
-                        !isMobile && animateScroll.scrollToBottom(options)
                     }}
                     className="description"
                 >

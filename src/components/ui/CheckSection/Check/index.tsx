@@ -16,7 +16,7 @@ const Index = ({checkInfo}) => {
             <div className="check-info-secondary">
                 <p>
                     <b>{t("development services")}</b>
-                    {t("c.l.u.f.a. “Frant-digital”")}
+                    {t("clufa “Frant-digital”")}
                     {t("Independent web space, official Frant website")}
                 </p>
             </div>

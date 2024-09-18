@@ -53,6 +53,7 @@ export default function Home() {
                 <Header
                     hide={isFrantSectionVisible}
                     setShowLang={setShowLang}
+                    setIsLoading={setIsLoading}
                     isLoading={isLoading}
                 />
                 <main>
@@ -66,7 +67,7 @@ export default function Home() {
                     <CheckSection/>
                     <TimeInfoSection setIsLoading={setIsLoading}/>
                 </main>
-                <div className="spacer"></div>
+                <div id="spacer"></div>
                 <Footer/>
 
                 <Language showLang={showLang} setShowLang={setShowLang}/>

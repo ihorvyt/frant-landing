@@ -124,20 +124,20 @@ const Index = () => {
             if (response.ok) {
                 setMessageStatus({
                     title: 'Success!',
-                    description: 'Your message has been sent.'
+                    description: 'Your message has been sent'
                 })
                 close()
             } else {
                 setMessageStatus({
                     title: 'Oops!',
-                    description: 'There was a problem submitting your message.'
+                    description: 'There was a problem submitting your message'
                 })
                 close()
             }
         } catch (error) {
             setMessageStatus({
                 title: 'Oops!',
-                description: 'There was a problem submitting your message.'
+                description: 'There was a problem submitting your message'
             })
             close()
         }

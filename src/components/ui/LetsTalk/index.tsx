@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import './letsTalk.scss'
 import { Link, animateScroll } from "react-scroll";
+import {useTranslations} from "next-intl";
 
 const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) => void, isShortMobile?: boolean}) => {
+    const t = useTranslations()
     const options = {
         // Your options here, for example:
         duration: 1000,
@@ -10,6 +12,7 @@ const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) 
     };
 
     const [isBelow100vh, setIsBelow100vh] = useState(false);
+    const [isNearFooter, setIsNearFooter] = useState(false);
 
     const [isMobile, setIsMobile] = React.useState(false);
 
@@ -38,25 +41,46 @@ const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) 
         };
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (documentHeight - scrollPosition <= window.innerHeight) {
+                !isMobile && setIsNearFooter(true)
+            } else {
+                setIsNearFooter(false)
+            }
+        };
+
+        // Додаємо обробник події скролу
+        window.addEventListener('scroll', handleScroll);
+
+        // Прибираємо обробник події при демонтажі компонента
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+
 
     return (
         <Link
             smooth={true}
-            to={`${isMobile ? 'spacer' : 'footer'} spacer`}
-            delay={isMobile ? 500 : 2000}
-            duration={isMobile ? 0 : 2000}
-            offset={!isMobile ? 2000 : 0}
+            to={`${isMobile ? 'footer' : 'spacer'}`}
+            delay={500}
+            duration={0}
+            offset={isMobile ? 0 : 2000}
             onClick={() => {
                 setIsLoading(true)
                 setTimeout(() => {
                     setIsLoading(false)
                 }, 3000)
-
-                !isMobile && animateScroll.scrollToBottom(options)
             }}
-            className={`lets-chat ${hide ? 'lets-chat--hide' : ''} ${isBelow100vh ? 'lets-chat--short' : ''}`}
+            className={`lets-chat ${(hide || isNearFooter) ? 'lets-chat--hide' : ''} ${isBelow100vh ? 'lets-chat--short' : ''}`}
         >
-            <span>Let’s Chat</span>
+            <span>{t("Let’s Chat")}</span>
         </Link>
     );
 };

@@ -117,9 +117,9 @@ const Index = () => {
                                     </h1>
                                     <div>
                                         <p>
-                                            {t("An international web development and design studio specializing in practical and vibrant solutions")}
+                                            {t("An international web development")}
                                             <br/>
-                                            {t("At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling")}
+                                            {t("At Frant, powerful technical")}
                                         </p>
                                         <div>
                                             <span>{t("We bring ideas to life")}</span>

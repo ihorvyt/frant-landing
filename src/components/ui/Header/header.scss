@@ -11,12 +11,36 @@ $delay: 0.2;
   z-index: 99;
 
   padding:  2.083vw 2.083vw 0;
-
   mix-blend-mode: difference;
   transition: .3s;
 
   &--hide {
     transform: translateY(-100%);
+  }
+
+  &--loading {
+    z-index: 9999999999999;
+
+    .burger-menu-icon {
+      transition: .3s;
+      transform: translateY(-400%);
+    }
+
+    .logo {
+      animation: back-logo 0.5s 1s forwards;
+
+      @keyframes back-logo {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .logo {
@@ -107,10 +131,33 @@ $delay: 0.2;
   }
 }
 
+
+.black-header {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 77;
+  background-color: black;
+  transform: translateX(400%);
+  animation: from-down-load 0.4s forwards, from-down-load 1s 2s reverse forwards;
+
+  @keyframes from-down-load {
+    0% {
+      transform: translateX(400%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
 @media(max-width: 768px) {
   .header {
     padding:  6.616vw 7.634vw 0;
-    z-index:11;
+    z-index: 99;
     justify-content: space-between;
     transition: 0s;
 
@@ -298,53 +345,7 @@ $delay: 0.2;
     }
 
     &--loading {
-      z-index: 9999999999999;
-      mix-blend-mode: initial;
 
-      &:before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        z-index: -1;
-
-        transform: translateY(400%);
-        animation: from-down 0.4s forwards, from-down 0.4s 1s forwards reverse;
-
-        @keyframes from-down {
-          0% {
-            transform: translateX(400%);
-          }
-
-          100% {
-            transform: translateX(0%);
-          }
-        }
-      }
-
-      .burger-menu-icon {
-        transition: .3s;
-        transform: translateY(-400%);
-      }
-
-      .logo {
-        animation: back-logo 0.5s 1s forwards;
-
-        @keyframes back-logo {
-          0% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-      }
     }
 
     .logo {
@@ -403,5 +404,10 @@ $delay: 0.2;
 
       cursor: pointer;
     }
+  }
+
+  .black-header {
+
+    z-index: 77;
   }
 }

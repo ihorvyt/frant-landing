@@ -27,7 +27,7 @@
     position: relative;
 
     display: flex;
-    padding: 1vw 0.489vw;
+    padding: 0.8vw 0.489vw;
     justify-content: center;
     align-items: flex-end;
     flex-shrink: 0;
@@ -54,18 +54,25 @@
       line-height: 107.93%; /* 30.22px */
 
       &::placeholder {
+        opacity: 0;
+
         color: #C9C0AD;
         font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 1.258vw;
         font-style: normal;
         font-weight: 500;
         line-height: 107.93%; /* 30.22px */
+      }
+    }
 
+    input:focus {
+      &::placeholder {
         opacity: 1;
       }
     }
 
     &:before {
+      opacity: 0;
       content: "";
       position: absolute;
       width: 96%;
@@ -79,7 +86,6 @@
 
       margin: 0 0 0 2%;
 
-      opacity: 0.6;
       //background-color: #C3B8A3;
     }
 
