@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import './timeInfoSection.scss'
 import {animateScroll, Link} from "react-scroll";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
+import {useTranslations} from "next-intl";
 
 
 interface NumberAnimationProps {
@@ -42,6 +43,7 @@ const NumberAnimation: React.FC<NumberAnimationProps> = ({ targetNumber, duratio
 };
 
 const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
+    const t = useTranslations("TimeInfoSection")
     const [isMobile, setIsMobile] = React.useState(false);
 
     const [refTime, isDevelopmentVisible] = useIntersectionObserver({
@@ -49,13 +51,11 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
         rootMargin: '0px',
         threshold: 0.1
     });
-
     const [refMake, isMakeVisible] = useIntersectionObserver({
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     });
-
     const [refRealization, isRealizationVisible] = useIntersectionObserver({
         root: null,
         rootMargin: '0px',
@@ -63,7 +63,6 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
     });
 
     const options = {
-        // Your options here, for example:
         duration: 1000,
         smooth: true,
     };
@@ -76,7 +75,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
         <section id='time-lines' className="time-info-section">
             <div className="info-container">
                 <div className="title">
-                    <h3>Advice at the start for free!</h3>
+                    <h3>{t("Advice at the start for free!")}</h3>
                 </div>
 
                 <Link
@@ -95,7 +94,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                     }}
                     className="description"
                 >
-                    <p>Contact us for a detailed consultation. <br/> Do you have an idea? </p>
+                    <p>{t("Contact us for a detailed consultation")} <br/> {t("Do you have an idea?")} </p>
                 </Link>
             </div>
 
@@ -103,7 +102,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                 <div  ref={refTime} className="respond-within card">
                     <div className="top">
                         <div className="title">
-                            <h4>Respond within</h4>
+                            <h4>{t("Respond within")}</h4>
                         </div>
 
                         <div className="count">
@@ -112,7 +111,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                     </div>
                     <div className="center">
                         <p><NumberAnimation targetNumber={24} duration={4000} delay={500}
-                                            play={isDevelopmentVisible}/><span>hours</span></p>
+                                            play={isDevelopmentVisible}/><span>{t("hours")}</span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="274" height="13" viewBox="0 0 274 13"
                              fill="none">
                             <path
@@ -125,7 +124,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                 <div ref={refMake} className="make-an-offer card">
                     <div className="top">
                         <div className="title">
-                            <h4>Make an offer</h4>
+                            <h4>{t("Make an offer")}</h4>
                         </div>
 
                         <div className="count">
@@ -134,7 +133,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                     </div>
                     <div className="center">
                         <p><NumberAnimation targetNumber={4} duration={1000} delay={15}
-                                            play={isMakeVisible}/><span>days</span></p>
+                                            play={isMakeVisible}/><span>{t("days")}</span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="188" height="20" viewBox="0 0 188 20"
                              fill="none">
                             <path
@@ -147,7 +146,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                 <div ref={refRealization} className="project-realization card">
                     <div className="top">
                         <div className="title">
-                            <h4>Project realization</h4>
+                            <h4>{t("Project realization")}</h4>
                         </div>
 
                         <div className="count">
@@ -156,7 +155,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
                     </div>
                     <div className="center">
                         <p><NumberAnimation targetNumber={30} duration={3000} delay={50}
-                                            play={isRealizationVisible}/><span>days</span></p>
+                                            play={isRealizationVisible}/><span>{t("days")}</span></p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="354" height="350" viewBox="0 0 354 350"
                              fill="none">
                             <path

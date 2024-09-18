@@ -3,9 +3,11 @@ import ServiceInfoContainer from "@/components/ui/Services/ServiceInfoContainer"
 import React, {forwardRef, useEffect} from "react";
 import Glob3D from "@/components/ui/Glob/Glob3D";
 import {IServiceProps} from "@/types";
+import {useTranslations} from "next-intl";
 
 
 const Index = forwardRef<HTMLDivElement, IServiceProps>((props, ref) => {
+    const t = useTranslations("Services")
     const { showModel, setIsLoading } = props;
     const [isMobile, setIsMobile] = React.useState(false);
 
@@ -17,8 +19,8 @@ const Index = forwardRef<HTMLDivElement, IServiceProps>((props, ref) => {
         <section ref={isMobile ? null : ref}  id='development'   className="development-section">
             <div className="development-container">
                 <ServiceInfoContainer
-                    title="Development"
-                    description="Craft with newest tech, all the way – JQuery, not today."
+                    title={t("Development.title")}
+                    description={t("Development.description")}
                     setIsLoading={setIsLoading}
                 />
             </div>

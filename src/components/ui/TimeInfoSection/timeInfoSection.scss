@@ -1,4 +1,4 @@
-@import '../../../styles/values';
+@import '@/styles/values';
 
 
 .time-info-section {
@@ -47,6 +47,7 @@
     .card {
       display: flex;
       flex-direction: column;
+      flex: 1;
       padding: 1.302vw 1.06vw 1.302vw 1.406vw;
       border-radius: 0 0 3.125vw 3.125vw;
 
@@ -130,7 +131,7 @@
           position: absolute;
           top: 100%;
           left: 50%;
-          width: 30vw;
+          width: 15.038vw;
 
           transform: translate(-50%, -50%);
 
@@ -216,6 +217,10 @@
         svg {
           top: 20%;
         }
+
+        svg {
+          width: 25.038vw;
+        }
       }
     }
   }
@@ -256,6 +261,7 @@
         border-radius: 0 0 14.294vw 14.294vw;
         width: 100%;
         height: 105.26vw;
+        flex: unset;
 
         .top {
           padding: 0 1vw 0 0;
@@ -298,6 +304,10 @@
             span {
               font-size: 7.147vw;
             }
+          }
+
+          svg {
+            width: 43.809vw;
           }
         }
       }

@@ -1,29 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import './SiteVariation.scss'
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
+import {useTranslations} from "next-intl";
 
 type ServiceCategoryProps = {
     title: string;
     services: string[];
 };
 
-const ServiceCategory = ({ title, services }: ServiceCategoryProps) => (
-    <div className="site-variation-column">
-        {services.map((service, index) => (
-            <div
-                key={service}
-                className={`site-variation-element`}
-                style={{ animation: `fade-out 0.8s forwards ${index * 0.2}s` }} // Adjust the delay per element
-            >
-                <span>{service}</span>
-            </div>
-        ))}
-    </div>
-);
+const ServiceCategory = ({ title, services }: ServiceCategoryProps) => {
+    const t = useTranslations('Variations');
+
+    return (
+        <div className="site-variation-column">
+            {services.map((service, index) => (
+                <div
+                    key={service}
+                    className={`site-variation-element`}
+                    style={{animation: `fade-out 0.8s forwards ${index * 0.2}s`}} // Adjust the delay per element
+                >
+                    <span>{t(`${title}.${index}`)}</span>
+                </div>
+            ))}
+        </div>
+    )
+}
 
 
 const Index = () => {
-    const servicesData  = {
+    const servicesData = {
         "services": {
             "website_types": [
                 "Corporate Websites",

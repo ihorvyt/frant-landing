@@ -1,5 +1,144 @@
 {
-  "Index": {
-    "india": "idi naxyi"
+  "Navigation": {
+    "Design": "Design",
+    "Branding & Identity": "Branding & Identity",
+    "Web Development": "Web Development",
+    "Prices": "Prices",
+    "Time-lines": "Time-lines"
+  },
+  "Glob": {
+    "We are frant": "We are frant",
+    "An international web development": "An international web development and design studio specializing in practical and vibrant solutions.",
+    "At Frant, powerful technical": "At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling.",
+    "We bring ideas to life": "We bring ideas to life.",
+    "Frant: Website development, Design, Branding": "Frant: Website development, Design, Branding"
+  },
+  "Stack technology": "Stack technology",
+  "Let’s Chat": "Let’s Chat",
+  "Variations": {
+    "Website Types": [
+      "Corporate Websites",
+      "E-commerce Websites",
+      "Landing Pages",
+      "Web Applications (CRM)",
+      "Blogs & Content Websites",
+      "Portfolio Websites"
+    ],
+    "Specialized Websites": [
+      "Healthcare & Medical Websites",
+      "Educational Websites",
+      "Customer Support Websites",
+      "Custom Development"
+    ],
+    "Design Services": [
+      "Website Design",
+      "UI/UX Design",
+      "Graphic Design",
+      "Digital Design",
+      "Motion Graphics & Animation"
+    ]
+  },
+  "Services": {
+    "Design": {
+      "title": "Design",
+      "description": "Websites that look awesome and work even better — jealous competitors included."
+    },
+    "Development": {
+      "title": "Development",
+      "description": "Craft with newest tech, all the way – JQuery, not today."
+    },
+    "Branding & Identity": {
+      "title": "Branding & Identity",
+      "description": "No Generic Templates Allowed."
+    }
+  },
+  "InfinitySlider": {
+    "Streamlined Solutions for Modern Businesses": "Streamlined Solutions for Modern Businesses"
+  },
+  "Check": {
+    "development services":  "development services",
+    "c.l.u.f.a. “Frant-digital”": "c.l.u.f.a. “Frant-digital”",
+    "Independent web space, official Frant website": "Independent web space, official Frant website",
+    "Total": "Total",
+    "e-cash:": "e-cash:",
+    "CHANGE:": "CHANGE:",
+    "our kindness :)": "our kindness :)",
+    "THANK FOR YOUR PURCHASE!": "THANK FOR YOUR PURCHASE!",
+    "we bring your ideas to life": "We bring your ideas to life.",
+    "thank you": "thank you",
+
+
+    "email": "email",
+    "Prices for our vision.": "Prices for our vision.",
+    "Landing": "Landing",
+    "E-commerce": "E-commerce",
+    "Corporate Site": "Corporate Site",
+    "Custom Solution": "Custom Solution",
+    "Brand Book": "Brand Book",
+    "date": "Date",
+    "Website Design": "Website Design",
+    "Frontend Development": "Frontend Development",
+    "Domain Registration": "Domain Registration",
+    "Hosting (1 year)": "Hosting (1 year)",
+    "SSL Certificate": "SSL Certificate",
+    "Payment Gateway Integration": "Payment Gateway Integration",
+    "Product Management System": "Product Management System",
+    "User Authentication": "User Authentication",
+    "Custom CMS Development": "Custom CMS Development",
+    "SEO Optimization": "SEO Optimization",
+    "Contact Form Integration": "Contact Form Integration",
+    "Custom Website Design": "Custom Website Design",
+    "Frontend & Backend Development": "Frontend & Backend Development",
+    "API Integration": "API Integration",
+    "Custom Features Development": "Custom Features Development",
+    "Security Optimization": "Security Optimization",
+    "Logo Design": "Logo Design",
+    "Color Palette": "Color Palette",
+    "Typography Guidelines": "Typography Guidelines",
+    "Brand Voice & Messaging": "Brand Voice & Messaging",
+    "Imagery Style": "Imagery Style",
+    "price": "Price"
+  },
+  "TimeInfoSection": {
+    "Advice at the start for free!": "Advice at the start for free!",
+    "Contact us for a detailed consultation": "Contact us for a detailed consultation.",
+    "Do you have an idea?": "Do you have an idea?",
+    "Respond within": "Respond within",
+    "Make an offer": "Make an offer",
+    "Project realization": "Project realization",
+    "days": "days",
+    "hours": "hours"
+  },
+  "Footer": {
+    "Thinking about NEW?": "Thinking about NEW?",
+    "Let's get talking": "Let's get talking",
+    "Oops": "Oops",
+    "Please, enter all required the information!": "Please, enter all required the information",
+
+    "Incorrect email :(": "Incorrect email :(",
+    "Please, enter valid email!": "Please, enter valid email!",
+
+    "Incorrect phone number :(": "Incorrect phone number :(",
+    "Please, enter valid phone number!": "Please, enter valid phone number!",
+
+    "Success!": "Success!",
+    "Your message has been sent.": "Your message has been sent.",
+
+    "There was a problem submitting your message": "There was a problem submitting your message",
+    "Send a take": "Send a take",
+    "Web Development": "Web Development",
+    "Web Design": "Web Design",
+    "Branding": "Branding",
+    "Other Services": "Other Services",
+
+    "First name": "First name",
+    "Enter first name": "Enter first name",
+    "Company name": "Company name",
+    "Enter company name": "Enter company name",
+    "Email": "Email",
+    "Enter email": "Enter email",
+    "Phone number": "Phone number",
+    "Enter phone number": "Enter phone number",
+    "Description": "Description"
   }
 }

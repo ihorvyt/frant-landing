@@ -1,5 +1,110 @@
 {
-  "Index": {
-    "india": "іді нахуй"
+  "Navigation": {
+    "Design": "تصميم",
+    "Branding & Identity": "العلامة التجارية والهوية",
+    "Web Development": "تطوير الويب",
+    "Prices": "الأسعار",
+    "Time-lines": "الخطوط الزمنية"
+  },
+  "Stack technology": "تكنولوجيا المكدس",
+  "Glob": {
+    "We are frant": "نحن مذعورون",
+    "An international web development": "استوديو دولي لتطوير وتصميم الويب متخصص في الحلول العملية والحيوية.",
+    "At Frant, powerful technical": "في Frant، تجتمع الخبرة التقنية القوية مع الرؤية الإبداعية الحديثة والجريئة لضمان أن يكون مشروعك فعالًا ومقنعًا بصريًا.",
+    "We bring ideas to life": "نحن نجلب الأفكار إلى الحياة.",
+    "Frant: Website development, Design, Branding": "فرانت: تطوير مواقع الويب، التصميم، العلامات التجارية"
+  },
+  "Let’s Chat": "دعونا الدردشة",
+  "Variations": {
+    "Website Types": [
+      "مواقع الشركات",
+      "مواقع التجارة الإلكترونية",
+      "الصفحات المقصودة",
+      "تطبيقات الويب (CRM)",
+      "المدونات ومواقع المحتوى",
+      "مواقع المحفظة"
+    ],
+    "Specialized Websites": [
+      "مواقع الرعاية الصحية والطبية",
+      "المواقع التعليمية",
+      "مواقع دعم العملاء",
+      "التطوير المخصص"
+    ],
+    "Design Services": [
+      "تصميم الموقع",
+      "تصميم واجهة المستخدم/تجربة المستخدم",
+      "التصميم الجرافيكي",
+      "التصميم الرقمي",
+      "الرسوم المتحركة والرسوم المتحركة"
+    ]
+  },
+  "Services": {
+    "Design": {
+      "title": "تصميم",
+      "description": "مواقع الويب التي تبدو رائعة وتعمل بشكل أفضل، بما في ذلك المنافسين الغيورين."
+    },
+    "Development": {
+      "title": "تطوير",
+      "description": "اصنع باستخدام أحدث التقنيات، على طول الطريق - JQuery، ليس اليوم."
+    },
+    "Branding & Identity": {
+      "title": "العلامة التجارية والهوية",
+      "description": "لا توجد قوالب عامة مسموح بها."
+    }
+  },
+  "InfinitySlider": {
+    "Streamlined Solutions for Modern Businesses": "حلول مبسطة للشركات الحديثة"
+  },
+  "Check": {
+    "development services": "خدمات التطوير",
+    "c.l.u.f.a. “Frant-digital”": "c.l.u.f. ",
+    "Independent web space, official Frant website": "مساحة ويب مستقلة، الموقع الرسمي لفرانت",
+    "Total": "المجموع",
+    "e-cash:": "النقد الإلكتروني:",
+    "CHANGE:": "يتغير:",
+    "email": "email",
+    "our kindness :)": "لطفنا :)",
+    "THANK FOR YOUR PURCHASE!": "شكرا لشرائك!",
+    "we bring your ideas to life": "نحن نجلب أفكارك إلى الحياة.",
+    "thank you": "شكرًا لك",
+    "Prices for our vision.": "الأسعار لرؤيتنا.",
+    "Landing": "الهبوط",
+    "E-commerce": "التجارة الإلكترونية",
+    "Corporate Site": "موقع الشركة",
+    "Custom Solution": "حل مخصص",
+    "Brand Book": "كتاب العلامة التجارية",
+    "date": "تاريخ",
+    "Website Design": "تصميم الموقع",
+    "Frontend Development": "تطوير الواجهة الأمامية",
+    "Domain Registration": "تسجيل النطاق",
+    "Hosting (1 year)": "الاستضافة (سنة واحدة)",
+    "SSL Certificate": "شهادة SSL",
+    "Payment Gateway Integration": "تكامل بوابة الدفع",
+    "Product Management System": "نظام إدارة المنتج",
+    "User Authentication": "مصادقة المستخدم",
+    "Custom CMS Development": "تطوير CMS مخصص",
+    "SEO Optimization": "تحسين محركات البحث",
+    "Contact Form Integration": "تكامل نموذج الاتصال",
+    "Custom Website Design": "تصميم موقع مخصص",
+    "Frontend & Backend Development": "تطوير الواجهة الأمامية والخلفية",
+    "API Integration": "تكامل واجهة برمجة التطبيقات",
+    "Custom Features Development": "تطوير الميزات المخصصة",
+    "Security Optimization": "تحسين الأمن",
+    "Logo Design": "تصميم الشعار",
+    "Color Palette": "لوحة الألوان",
+    "Typography Guidelines": "إرشادات الطباعة",
+    "Brand Voice & Messaging": "صوت العلامة التجارية والرسائل",
+    "Imagery Style": "نمط الصور",
+    "price": "سعر"
+  },
+  "TimeInfoSection": {
+    "Advice at the start for free!": "نصيحة في البداية مجانا!",
+    "Contact us for a detailed consultation": "اتصل بنا للحصول على استشارة مفصلة.",
+    "Do you have an idea?": "هل لديك فكرة؟",
+    "Respond within": "الرد داخل",
+    "Make an offer": "تقديم عرض",
+    "Project realization": "تحقيق المشروع",
+    "days": "أيام",
+    "hours": "أيام"
   }
 }

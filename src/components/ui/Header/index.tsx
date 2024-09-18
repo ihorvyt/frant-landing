@@ -1,9 +1,11 @@
-'use client';
-import React, {ChangeEvent, RefObject, useEffect, useState, useTransition} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-scroll';
 import './header.scss'
+import {useTranslations} from "next-intl";
 
 const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b: boolean) => void, isLoading: boolean }) => {
+    const t = useTranslations('Navigation')
+
     const links = [
         {name: 'Design', link: 'design', offset: -300},
         {name: 'Web Development', link: 'development', offset: -300},
@@ -12,6 +14,13 @@ const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b:
         {name: 'Time-lines', link: 'time-lines', offset: -150},
     ];
 
+    const languages = [
+        {name: 'Ukrainian', country: 'ukraine', short: 'ua'},
+        {name: 'English', country: 'united-kingdom', short: 'en'},
+        {name: 'Polish', country: 'poland', short: 'pl'},
+        {name: 'Spanish', country: 'spain', short: 'sp'},
+        {name: 'German', country: 'germany', short: 'gr'}
+    ];
 
     const [isVisible, setIsVisible] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -20,13 +29,7 @@ const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b:
     const [isMobile, setIsMobile] = React.useState(false);
     const [pageHeight, setPageHeight] = useState(0);
 
-    const languages = [
-        {name: 'Ukrainian', country: 'ukraine', short: 'ua'},
-        {name: 'English', country: 'united-kingdom', short: 'en'},
-        {name: 'Polish', country: 'poland', short: 'pl'},
-        {name: 'Spanish', country: 'spain', short: 'sp'},
-        {name: 'German', country: 'germany', short: 'gr'}
-    ];
+
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 768)
@@ -66,8 +69,6 @@ const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b:
         isMobile ? setShowLangMob(!showLangMob) : setShowLang(true)
     }
 
-
-
     return (
         <header
             className={`header ${hide || isVisible && !showBurger && !isLoading ? 'header--hide' : ''} ${showBurger && !isLoading ? 'header--show' : ''} ${isLoading ? 'header--loading' : ''}`}
@@ -105,7 +106,7 @@ const Index = ({hide, setShowLang, isLoading}: { hide: boolean, setShowLang: (b:
                                     to={item.link}
                                     onClick={() => setShowBurger(false)}
                                 >
-                                    {item.name}
+                                    {t(item.name)}
                                 </Link>
                             </li>
                         ))

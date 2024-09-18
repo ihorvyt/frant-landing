@@ -3,10 +3,12 @@ import './footer.scss'
 
 import InputField from './InputField/'
 import Checkbox from './Checkbox/'
+import {useTranslations} from "next-intl";
 
 type ServiceName = 'webDesign' | 'webDevelopment' | 'branding' | 'smthElse';
 
 const Index = () => {
+    const t = useTranslations("Footer")
     const [formData, setFormData] = useState({
         firstName: "",
         companyName: "",
@@ -174,25 +176,25 @@ const Index = () => {
             <footer id='footer'>
                 <div className="footer-form">
                     <div className="footer-form-title">
-                        <h6>Thinking about NEW?</h6>
-                        <p>Let's get talking</p>
+                        <h5>{t("Thinking about NEW?")}</h5>
+                        <p>{t("Let's get talking")}</p>
                     </div>
                     <form onSubmit={(e) => sentMail(e)}>
                         <div className="inputs-text-area-container">
                             <div className="inputs-container">
                                 <div className="company-first-name">
                                     <InputField
-                                        name="First name"
+                                        name={t("First name")}
                                         stateName='firstName'
-                                        placeholder='Enter first name'
+                                        placeholder={t("Enter first name")}
                                         mandatory
                                         value={formData.firstName}
                                         setValue={handleInputChange}
                                     />
                                     <InputField
-                                        name="Company name"
+                                        name={t("Company name")}
                                         stateName='companyName'
-                                        placeholder='Enter company name'
+                                        placeholder={t("Enter company name")}
                                         mandatory={false}
                                         value={formData.companyName}
                                         setValue={handleInputChange}
@@ -200,9 +202,9 @@ const Index = () => {
                                 </div>
                                 <div className="email">
                                     <InputField
-                                        name="Email"
+                                        name={t("Email")}
                                         stateName='email'
-                                        placeholder='Enter email'
+                                        placeholder={t('Enter email')}
                                         mandatory
                                         value={formData.email}
                                         setValue={handleInputChange}
@@ -213,9 +215,9 @@ const Index = () => {
                                 </div>
                                 <div className="mobile">
                                     <InputField
-                                        name="Phone number"
+                                        name={t("Phone number")}
                                         stateName='mobileNumber'
-                                        placeholder='Enter phone number'
+                                        placeholder={t("Enter phone number")}
                                         mandatory
                                         value={formData.mobileNumber}
                                         setValue={handleInputChange}
@@ -227,7 +229,7 @@ const Index = () => {
                             </div>
 
                             <div className="text-area-container">
-                                <span>Description</span>
+                                <span>{t("Description")}</span>
                                 <textarea
                                     ref={textareaRef}
                                     name="description"
@@ -243,24 +245,24 @@ const Index = () => {
                             <div className="checkboxes">
                                 <div className='column'>
                                     <Checkbox
-                                        label='Web Development'
+                                        label={t('Web Development')}
                                         checked={services.webDesign}
                                         setIsChecked={() => handleCheckboxChange('webDesign')}
                                     />
                                     <Checkbox
-                                        label='Web Design'
+                                        label={t('Web Design')}
                                         checked={services.webDevelopment}
                                         setIsChecked={() => handleCheckboxChange('webDevelopment')}
                                     />
                                 </div>
                                 <div className='column'>
                                     <Checkbox
-                                        label='Branding'
+                                        label={t('Branding')}
                                         checked={services.branding}
                                         setIsChecked={() => handleCheckboxChange('branding')}
                                     />
                                     <Checkbox
-                                        label='Other Services'
+                                        label={t('Other Services')}
                                         checked={services.smthElse}
                                         setIsChecked={() => handleCheckboxChange('smthElse')}
                                     />
@@ -268,7 +270,7 @@ const Index = () => {
                             </div>
 
                             <button type="submit" className={`sent ${isReadyToSend ? 'active' : ''}`}>
-                                <span>Send a take</span>
+                                <span>{t("Send a take")}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33"
                                      fill="none">
                                     <path

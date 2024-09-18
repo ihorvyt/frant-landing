@@ -3,6 +3,7 @@ import './glob.scss'
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Glob3D from "@/components/ui/Glob/Glob3D";
 import Typewriter from "@/components/Typewriter";
+import {useTranslations} from "next-intl";
 
 const DateTime: React.FC = () => {
     const [dateTime, setDateTime] = useState<{ date: string, time: string }>({
@@ -41,6 +42,7 @@ interface IndexProps {
 }
 
 const Index = () => {
+    const t = useTranslations('Glob');
     const [isPhone, setIsPhone] = useState<boolean>(false)
 
     const [refGlobe, isGlobeVisible] = useIntersectionObserver({
@@ -79,7 +81,7 @@ const Index = () => {
                                 ? <div className="glob-text">
                                     <h1>
                                         {isGlobeVisible && <Typewriter
-                                            text="We are frant"
+                                            text= {t("We are frant")}
                                             delay={50}
                                             startDelay={50}
                                         />}
@@ -87,13 +89,13 @@ const Index = () => {
                                 <div>
                                     <p>
                                         {isGlobeVisible && <Typewriter
-                                            text="An international web development and design studio specializing in practical and vibrant solutions."
+                                            text={t("An international web development")}
                                             delay={10}
                                             startDelay={1000}
                                         />}
                                         <br/>
                                         {isGlobeVisible && <Typewriter
-                                            text="At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling."
+                                            text={t("At Frant, powerful technical")}
                                             delay={10}
                                             startDelay={3000}
                                         />}
@@ -101,7 +103,7 @@ const Index = () => {
                                     <div className="space-text">
                                         <span>
                                             {isGlobeVisible && <Typewriter
-                                                text="We bring ideas to life."
+                                                text={t("We bring ideas to life")}
                                                 delay={40}
                                                 startDelay={isPhone ? 5800 : 6800}
                                             />}
@@ -111,16 +113,16 @@ const Index = () => {
                             </div>
                                 : <div>
                                     <h1>
-                                        Frant: Website development
+                                        {t("Frant: Website development, Design, Branding")}
                                     </h1>
                                     <div>
                                         <p>
-                                            An international web development and design studio specializing in practical and vibrant solutions.
+                                            {t("An international web development and design studio specializing in practical and vibrant solutions")}
                                             <br/>
-                                            At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling.
+                                            {t("At Frant, powerful technical expertise combines with modern and bold creative vision to ensure your project is both effective and visually compelling")}
                                         </p>
                                         <div>
-                                            <span>We bring ideas to life.</span>
+                                            <span>{t("We bring ideas to life")}</span>
                                         </div>
                                     </div>
                                 </div>

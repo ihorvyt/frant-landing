@@ -13,6 +13,7 @@
       .service-info {
         .title {
           h2 {
+            width: 40vw;
             background: linear-gradient(92deg, $white 60.96%, #E61717 80.51%);
             background-clip: text;
             -webkit-background-clip: text;
@@ -55,6 +56,7 @@
         .service-info {
           .title {
             h2 {
+              width: 80vw;
               font-size: 13.232vw;
             }
           }

@@ -1,9 +1,11 @@
 import './InfinitySlider.scss'
+import {useTranslations} from "next-intl";
 
 const Items = () => {
+    const t = useTranslations('InfinitySlider')
     return (<>
         <div className="item">
-            <span>Streamlined Solutions for Modern Businesses</span>
+            <span>{t("Streamlined Solutions for Modern Businesses")}</span>
         </div>
         <div className="item">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="16" viewBox="0 0 80 16" fill="none">
@@ -13,7 +15,7 @@ const Items = () => {
             </svg>
         </div>
         <div className="item mob">
-            <span>Streamlined Solutions for Modern Businesses</span>
+            <span>{t("Streamlined Solutions for Modern Businesses")}</span>
         </div>
         <div className="item mob">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="16" viewBox="0 0 80 16" fill="none">
