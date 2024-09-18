@@ -1,9 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react';
+// @ts-ignore
 import * as THREE from 'three';
 // @ts-ignore
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 // @ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// @ts-ignore
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
