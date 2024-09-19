@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, startTransition, useEffect, useState} from 'react';
 import {Link} from 'react-scroll';
 import './header.scss'
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
+import {useRouter} from "next/navigation";
 
 const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, setShowLang: (b: boolean) => void, setIsLoading: (b: boolean) => void, isLoading: boolean }) => {
     const t = useTranslations('Navigation')
@@ -19,7 +20,8 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
         {name: 'English', country: 'united-kingdom', short: 'en'},
         {name: 'Polish', country: 'poland', short: 'pl'},
         {name: 'Spanish', country: 'spain', short: 'sp'},
-        {name: 'German', country: 'germany', short: 'gr'}
+        {name: 'German', country: 'germany', short: 'gm'},
+        {name: 'French', country: 'france', short: 'fr'}
     ];
 
     const [isVisible, setIsVisible] = useState(false);
@@ -69,6 +71,18 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
         isMobile ? setShowLangMob(!showLangMob) : setShowLang(true)
     }
 
+
+
+    // for translate
+    const router = useRouter();
+    const localActive = useLocale();
+
+    const onSelectChange = (language: string) => {
+        startTransition(() => {
+            router.replace(`/${language}`);
+        });
+    };
+
     return (
         <>
             <header
@@ -89,7 +103,9 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
                             ?
                             languages.map(lan =>
                                 <li
+                                    className={`${localActive === lan.short? '' : ''}`}
                                     key={lan.name}
+                                    onClick={() => onSelectChange(lan.name)}
                                 >
                                     <a href={`#${lan.name}`}>
                                         {lan.name}

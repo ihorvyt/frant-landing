@@ -1,0 +1,138 @@
+{
+  "Navigation": {
+    "Design": "Diseño",
+    "Branding & Identity": "Marca e identidad",
+    "Web Development": "Desarrollo Web",
+    "Prices": "Precios",
+    "Time-lines": "Líneas de tiempo"
+  },
+  "Glob": {
+    "We are frant": "estamos francos",
+    "An international web development": "Un estudio internacional de diseño y desarrollo web especializado en soluciones prácticas y vibrantes.",
+    "At Frant, powerful technical": "En Frant, nuestra poderosa experiencia técnica se combina con una visión creativa moderna y audaz para garantizar que su proyecto sea efectivo y visualmente atractivo.",
+    "We bring ideas to life": "Damos vida a las ideas.",
+    "Frant: Website development, Design, Branding": "Frant: Desarrollo de sitios web, Diseño, Branding"
+  },
+  "Stack technology": "Tecnología de pila",
+  "Let’s Chat": "Charlemos",
+  "Variations": {
+    "Website Types": [
+      "Sitios web corporativos",
+      "Sitios web de comercio electrónico",
+      "Páginas de destino",
+      "Aplicaciones Web (CRM)",
+      "Blogs y sitios web de contenido",
+      "Sitios web de cartera"
+    ],
+    "Specialized Websites": [
+      "Sitios web médicos y de atención médica",
+      "Sitios web educativos",
+      "Sitios web de atención al cliente",
+      "Desarrollo personalizado"
+    ],
+    "Design Services": [
+      "Diseño de sitios web",
+      "Diseño UI/UX",
+      "Diseño Gráfico",
+      "Diseño Digital",
+      "Gráficos en movimiento y animación"
+    ]
+  },
+  "Services": {
+    "Design": {
+      "title": "Diseño",
+      "description": "Sitios web que se ven increíbles y funcionan aún mejor, incluidos los competidores celosos."
+    },
+    "Development": {
+      "title": "Desarrollo",
+      "description": "Crea con la última tecnología, hasta el final: JQuery, hoy no."
+    },
+    "Branding & Identity": {
+      "title": "Marca e identidad",
+      "description": "No se permiten plantillas genéricas."
+    }
+  },
+  "InfinitySlider": {
+    "Streamlined Solutions for Modern Businesses": "Soluciones optimizadas para empresas modernas"
+  },
+  "Check": {
+    "date-num": "24.08.24",
+    "development services": "servicios de desarrollo",
+    "clufa “Frant-digital”": "c.l.u.f.a. ",
+    "Independent web space, official Frant website": "Espacio web independiente, sitio web oficial de Frant",
+    "Total": "Total",
+    "e-cash:": "efectivo electrónico:",
+    "CHANGE:": "CAMBIAR:",
+    "our kindness :)": "nuestra amabilidad :)",
+    "THANK FOR YOUR PURCHASE!": "¡GRACIAS POR SU COMPRA!",
+    "we bring your ideas to life": "Damos vida a tus ideas.",
+    "thank you": "gracias",
+    "email": "correo electrónico",
+    "Prices for our vision": "Precios para nuestra visión.",
+    "Landing": "Aterrizaje",
+    "E-commerce": "Comercio electrónico",
+    "Corporate Site": "Sitio Corporativo",
+    "Custom Solution": "Solución personalizada",
+    "Brand Book": "Libro de marca",
+    "date": "Fecha",
+    "Website Design": "Diseño de sitios web",
+    "Frontend Development": "Desarrollo front-end",
+    "Domain Registration": "Registro de Dominio",
+    "Hosting (1 year)": "Alojamiento (1 año)",
+    "SSL Certificate": "Certificado SSL",
+    "Payment Gateway Integration": "Integración de pasarela de pago",
+    "Product Management System": "Sistema de gestión de productos",
+    "User Authentication": "Autenticación de usuario",
+    "Custom CMS Development": "Desarrollo de CMS personalizado",
+    "SEO Optimization": "Optimización SEO",
+    "Contact Form Integration": "Integración del formulario de contacto",
+    "Custom Website Design": "Diseño de sitio web personalizado",
+    "Frontend & Backend Development": "Desarrollo frontend y backend",
+    "API Integration": "Integración API",
+    "Custom Features Development": "Desarrollo de funciones personalizadas",
+    "Security Optimization": "Optimización de seguridad",
+    "Logo Design": "Diseño de logotipo",
+    "Color Palette": "Paleta de colores",
+    "Typography Guidelines": "Pautas de tipografía",
+    "Brand Voice & Messaging": "Voz y mensajería de marca",
+    "Imagery Style": "Estilo de imágenes",
+    "price": "Precio"
+  },
+  "TimeInfoSection": {
+    "Advice at the start for free!": "¡Asesoramiento al inicio gratis!",
+    "Contact us for a detailed consultation": "Contáctenos para una consulta detallada.",
+    "Do you have an idea?": "¿Tienes una idea?",
+    "Respond within": "Responder dentro",
+    "Make an offer": "hacer una oferta",
+    "Project realization": "Realización del proyecto",
+    "days": "días",
+    "hours": "horas"
+  },
+  "Footer": {
+    "Thinking about NEW?": "¿Estás pensando en NUEVO?",
+    "Let's get talking": "vamos a hablar",
+    "Oops": "Ups",
+    "Please, enter all required the information!": "Por favor, ingrese toda la información requerida",
+    "Incorrect email :(": "Correo electrónico incorrecto :(",
+    "Please, enter valid email!": "¡Por favor, introduce un correo electrónico válido!",
+    "Incorrect phone number :(": "Número de teléfono incorrecto :(",
+    "Please, enter valid phone number!": "¡Por favor, introduce un número de teléfono válido!",
+    "Success!": "¡Éxito!",
+    "Your message has been sent": "Tu mensaje ha sido enviado.",
+    "There was a problem submitting your message": "Hubo un problema al enviar tu mensaje.",
+    "Send a take": "enviar una toma",
+    "Web Development": "Desarrollo Web",
+    "Web Design": "Diseño Web",
+    "Branding": "Herrada",
+    "Other Services": "Otros servicios",
+    "First name": "Nombre de pila",
+    "Enter first name": "Introduce el nombre",
+    "Company name": "Nombre de empresa",
+    "Enter company name": "Introduzca el nombre de la empresa",
+    "Email": "Correo electrónico",
+    "Enter email": "Ingrese el correo electrónico",
+    "Phone number": "Número de teléfono",
+    "Enter phone number": "Introduce el número de teléfono",
+    "Description": "Descripción"
+  }
+}
