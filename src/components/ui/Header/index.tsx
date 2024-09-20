@@ -14,7 +14,6 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
         {name: 'Prices', link: 'prices', offset: -150},
         {name: 'Time-lines', link: 'time-lines', offset: -150},
     ];
-
     const languages = [
         {name: 'Ukrainian', country: 'ukraine', short: 'ua'},
         {name: 'English', country: 'united-kingdom', short: 'en'},
@@ -30,12 +29,6 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
     const [showLangMob, setShowLangMob] = useState<boolean>(false);
     const [isMobile, setIsMobile] = React.useState(false);
     const [pageHeight, setPageHeight] = useState(0);
-
-
-
-    useEffect(() => {
-        setIsMobile(window.innerWidth < 768)
-    }, []);
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -54,6 +47,11 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
         setLastScrollY(currentScrollY);
     };
 
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768)
+    }, []);
+
     useEffect(() => {
         const height = document.documentElement.scrollHeight || document.body.scrollHeight;
         setPageHeight(height);
@@ -66,6 +64,7 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
             window.removeEventListener("scroll", handleScroll);
         };
     }, [lastScrollY]);
+
 
     function setShowLanguage() {
         isMobile ? setShowLangMob(!showLangMob) : setShowLang(true)
@@ -154,7 +153,7 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
                     </svg>
                 </button>
 
-                <button className="lang" onClick={setShowLanguage}>
+                <button className="lang" onClick={() => onSelectChange(localActive === 'ua' ? 'en' : 'ua')}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55" fill="none">
                         <path
                             d="M27.4693 3C13.9221 3 2.93872 13.9696 2.93872 27.5C2.93872 41.0304 13.9221 52 27.4693 52C41.0166 52 52 41.0304 52 27.5C52 13.9696 41.0166 3 27.4693 3Z"

@@ -1,1 +1,1 @@
-export const locales = ['en', 'ua', 'pl', 'es', 'de', 'fr']
+export const locales = ['en', 'ua']

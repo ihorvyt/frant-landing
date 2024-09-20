@@ -4,12 +4,12 @@ import {locales} from "@/locales";
 export default createMiddleware({
   // A list of all locales that are supported
   locales: locales,
- 
+
   // Used when no locale matches
-  defaultLocale: 'en'
+  defaultLocale: 'en',
 });
- 
+
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(en|ua|pl|sp|de|fr)/:path*']
+  matcher: ['/', '/(en|ua)/:path*']
 };
