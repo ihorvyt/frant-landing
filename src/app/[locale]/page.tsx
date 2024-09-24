@@ -20,6 +20,7 @@ import Footer from "@/components/ui/Footer";
 import Language from "@/components/ui/Language";
 import LetsTalk from "@/components/ui/LetsTalk";
 import './page.scss'
+import SplashScreen from "@/components/ui/SplashScreen";
 
 
 export default function Home() {
