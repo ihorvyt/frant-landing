@@ -1,22 +1,23 @@
 import React from 'react';
 import './check.scss'
-import Typewriter from "@/components/Typewriter";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
-// @ts-ignore
-const Index = ({checkInfo}) => {
+const Index = ({checkInfo}: any) => {
     const t = useTranslations("Check")
+    const lang = useLocale()
 
     return (
         <article className="check">
-            <div className="site-variant">
+            <div className={`site-variant ${lang === 'ua' ? 'ua' : ''}`}>
                 <h3>{t(checkInfo.title)}</h3>
             </div>
 
             <div className="check-info-secondary">
                 <p>
                     <b>{t("development services")}</b>
+                    <br/>
                     {t("clufa “Frant-digital”")}
+                    <br/>
                     {t("Independent web space, official Frant website")}
                 </p>
             </div>

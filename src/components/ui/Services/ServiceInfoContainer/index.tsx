@@ -1,7 +1,7 @@
 import './serviceInfoContainer.scss'
 import {animateScroll, Link} from "react-scroll";
-import Typewriter from "@/components/Typewriter";
 import React, {useEffect} from "react";
+import {useLocale, useTranslations} from "next-intl";
 
 interface IServiceInfoContainer {
     title: string;
@@ -20,15 +20,18 @@ const options = {
 
 
 const ServiceInfoContainer = ({title, description, setIsLoading}: IServiceInfoContainer) => {
+    const t = useTranslations("Services")
     const [isMobile, setIsMobile] = React.useState(false);
+    const lang = useLocale();
 
+    console.log(title)
     useEffect(() => {
         setIsMobile(window.innerWidth < 768)
     }, []);
 
     return (<div className="service-info-container">
         <div className="service-info">
-            <div className={`title`}>
+            <div className={`title ${lang === 'ua' && title === 'Розробка' ? 'ua-dev' : ''}`}>
                 <h2 dangerouslySetInnerHTML={{__html: title || ''}}/>
             </div>
             <div className="description">
@@ -51,7 +54,7 @@ const ServiceInfoContainer = ({title, description, setIsLoading}: IServiceInfoCo
             }}
             className="service-ident-button"
         >
-            <span>Get in touch</span>
+            <span>{t("Get in touch")}</span>
 
             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="38" viewBox="0 0 33 38" fill="none">
                 <g clipPath="url(#clip0_126_576)">

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import './timeInfoSection.scss'
 import {animateScroll, Link} from "react-scroll";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 
 interface NumberAnimationProps {
@@ -43,7 +43,8 @@ const NumberAnimation: React.FC<NumberAnimationProps> = ({ targetNumber, duratio
 };
 
 const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
-    const t = useTranslations("TimeInfoSection")
+    const t = useTranslations("TimeInfoSection");
+    const lang = useLocale();
     const [isMobile, setIsMobile] = React.useState(false);
 
     const [refTime, isDevelopmentVisible] = useIntersectionObserver({
@@ -74,7 +75,7 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void} ) => {
     return (
         <section id='time-lines' className="time-info-section">
             <div className="info-container">
-                <div className="title">
+                <div className={`title ${lang === 'ua' ? 'ua' : ''}`}>
                     <h3>{t("Advice at the start for free!")}</h3>
                 </div>
 

@@ -205,14 +205,20 @@ footer {
         flex-direction: column;
         gap: 0.521vw;
 
-        a {
-          &:first-child:hover {
-            color: #0A66C2;
-          }
+        .linked-in:hover {
+          color: #0A66C2;
+        }
 
-          &:last-child:hover {
-            color: #1769FF;
-          }
+        .behance:hover {
+          color: #1769FF;
+        }
+
+        .telegram:hover {
+          color: #2AABEE;
+        }
+
+        .email:hover {
+          color: $primary;
         }
       }
 
@@ -449,4 +455,36 @@ footer {
       }
     }
   }
+
+  .message-log {
+    right: 5.97vw; // 2.344vw adjusted for 375px width
+    bottom: 6.94vw; // 2.604vw adjusted for 375px width
+    width: 75vw; // 37.448vw adjusted for 375px width
+
+    gap: 5.41vw; // 2.031vw adjusted for 375px width
+    padding: 5.14vw 3.05vw 3.05vw; // 1.927vw and 1.146vw adjusted
+
+    .message-loading {
+      gap: 2.78vw; // 1.042vw adjusted for 375px width
+      padding: 0 2.78vw; // 1.042vw adjusted
+
+      span {
+        font-size: 7.56vw; // 2.083vw adjusted
+      }
+
+      p {
+        font-size: 4.33vw; // 1.25vw adjusted
+      }
+    }
+
+    .line {
+      height: 1.27vw; // 0.625vw adjusted
+    }
+
+    .close {
+      top: 3.05vw; // 1.146vw adjusted
+      right: 3.05vw; // 1.146vw adjusted
+    }
+  }
+
 }

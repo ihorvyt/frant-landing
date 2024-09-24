@@ -38,6 +38,11 @@
       .service-info-container {
         .service-info {
           .title {
+            &.ua-dev {
+              h2 {
+                font-size: 12.924vw;
+              }
+            }
             h2 {
               font-size: 9.924vw;
             }

@@ -15,6 +15,9 @@ const Index = forwardRef<HTMLDivElement>((props, ref) => {
         const handleScroll = () => {
             let road: number = window.innerHeight * 3
             let userPositionFromStart: number  = 0;
+            let maxPhonePercent = (835 / window.innerHeight) * 100;
+
+            console.log(maxPhonePercent);
 
             if (refDevelopment.current) {
                 userPositionFromStart = window.pageYOffset - refDevelopment.current.offsetTop;

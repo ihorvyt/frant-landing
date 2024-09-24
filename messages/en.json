@@ -41,16 +41,17 @@
   "Services": {
     "Design": {
       "title": "Design",
-      "description": "Websites that look awesome and work even better — jealous competitors included."
+      "description": "Design at Frant is not only about aesthetics, but also about effective functional solutions that provide a great user experience. "
     },
     "Development": {
       "title": "Development",
-      "description": "Craft with newest tech, all the way – JQuery, not today."
+      "description": "Our developers create fast, reliable and secure websites with an emphasis on technical excellence and quality of user experience. "
     },
     "Branding & Identity": {
-      "title": "Branding & Identity",
-      "description": "No Generic Templates Allowed."
-    }
+      "title": "Branding and identity",
+      "description": "We create a unique identity that accurately conveys the values ​​and philosophy of your business. "
+    },
+    "Get in touch": "Contact us"
   },
   "InfinitySlider": {
     "Streamlined Solutions for Modern Businesses": "Streamlined Solutions for Modern Businesses"

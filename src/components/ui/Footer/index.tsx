@@ -285,10 +285,15 @@ const Index = () => {
                 <div className="credential">
                     <div className="links">
                         <div className="soc">
-                            <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank">Linked In</a>
-                            <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank">Behance</a>
+                            <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank"
+                               className="linked-in">Linked In</a>
+                            <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank"
+                               className="behance">Behance</a>
                         </div>
-                        <a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a>
+                        <div className="soc">
+                            <a href="https://t.me/frantdigital" target="_blank" className="telegram">Telegram</a>
+                            <a href="mailto:frantdigital@gmail.com" className="email">frantdigital@gmail.com</a>
+                        </div>
                     </div>
                     <div className="all-rights">
                         <span>© 2024, frant, All Rights Reserved.</span>

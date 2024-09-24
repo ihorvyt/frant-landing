@@ -15,6 +15,12 @@
     padding-bottom: 2.604vw;
 
     .title {
+      width: 60%;
+
+      &.ua {
+        width: 100%;
+      }
+
       h3 {
         color: $white;
         font-family: Unbounded, sans-serif;
