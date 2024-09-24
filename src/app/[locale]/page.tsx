@@ -49,7 +49,7 @@ export default function Home() {
     return (
         <>
             <ReactLenis root>
-                {/*<SplashScreen/>*/}
+                <SplashScreen/>
                 <Header
                     hide={isFrantSectionVisible}
                     setShowLang={setShowLang}
@@ -63,9 +63,9 @@ export default function Home() {
                     <SiteVariations/>
                     <TechnologyStack/>
                     <Services setIsLoading={setIsLoading}/>
-                    {/*<InfinitySlider/>*/}
-                    {/*<CheckSection/>*/}
-                    {/*<TimeInfoSection setIsLoading={setIsLoading}/>*/}
+                    <InfinitySlider/>
+                    <CheckSection/>
+                    <TimeInfoSection setIsLoading={setIsLoading}/>
                 </main>
                 <div id="spacer"></div>
                 <Footer/>
