@@ -1,5 +1,8 @@
+@import "./values";
+
 * {
   font-family: "Courier New";
+  font-family: "FixelText";
   box-sizing: border-box;
   color: white;
 }
@@ -131,4 +134,5 @@ table {
 
 html,
 body {
+  background-color: $black;
 }

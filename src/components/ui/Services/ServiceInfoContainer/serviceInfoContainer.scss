@@ -6,6 +6,10 @@
   gap: 1.094vw;
 
   .service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.083vw;
+
     .title {
       h2 {
         font-family: Unbounded, sans-serif;
@@ -21,11 +25,9 @@
 
       p {
         color: #EEEAE4;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.163vw;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 185%; /* 55.5px */
+        font-family: 'FixelText', sans-serif;
+        font-size: 1.193vw;
+        line-height: 150%; /* 55.5px */
       }
     }
   }
@@ -82,7 +84,7 @@
     margin: 0 auto;
 
     .service-info {
-      gap: 9.415vw;
+      gap: 2.415vw;
 
       .title {
         h2 {
@@ -91,10 +93,11 @@
       }
 
       .description {
-        width: 82.135vw;
+        width: unset;
 
         p {
-          font-size: 5.107vw;
+          text-align: match-parent;
+          font-size: 4.507vw;
         }
       }
     }

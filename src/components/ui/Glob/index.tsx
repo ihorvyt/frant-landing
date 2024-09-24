@@ -3,7 +3,7 @@ import './glob.scss'
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Glob3D from "@/components/ui/Glob/Glob3D";
 import Typewriter from "@/components/Typewriter";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 const DateTime: React.FC = () => {
     const [dateTime, setDateTime] = useState<{ date: string, time: string }>({
@@ -43,6 +43,7 @@ interface IndexProps {
 
 const Index = () => {
     const t = useTranslations('Glob');
+    const lang = useLocale();
     const [isPhone, setIsPhone] = useState<boolean>(false)
 
     const [refGlobe, isGlobeVisible] = useIntersectionObserver({
@@ -100,7 +101,7 @@ const Index = () => {
                                             startDelay={3000}
                                         />}
                                     </p>
-                                    <div className="space-text">
+                                    <div className={`space-text ${lang === 'ua' ? 'ua' : ''}`}>
                                         <span>
                                             {isGlobeVisible && <Typewriter
                                                 text={t("We bring ideas to life")}

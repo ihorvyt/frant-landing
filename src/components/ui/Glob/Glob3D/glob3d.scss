@@ -1,6 +1,16 @@
 @import "src/styles/values";
 
 .main-model {
+
+
+  table {
+    tbody {
+      td {
+        font-family: "Courier New" !important;
+      }
+    }
+  }
+
   &.black {
     table {
       tbody {

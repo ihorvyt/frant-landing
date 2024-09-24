@@ -34,7 +34,7 @@ const ServiceInfoContainer = ({title, description, setIsLoading}: IServiceInfoCo
             <div className={`title ${lang === 'ua' && title === 'Розробка' ? 'ua-dev' : ''}`}>
                 <h2 dangerouslySetInnerHTML={{__html: title || ''}}/>
             </div>
-            <div className="description">
+            <div className={`description ${title === 'Розробка' || 'Development' ? 'ua-dev' : ''}`}>
                 <p dangerouslySetInnerHTML={{__html: description || ''}}/>
             </div>
         </div>

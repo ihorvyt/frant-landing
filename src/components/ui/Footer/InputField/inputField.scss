@@ -7,7 +7,7 @@
 
   .name {
     color: #1F1F1F;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: "FixelText", sans-serif;
     font-size: 1.174vw;
     font-style: normal;
     font-weight: 800;
@@ -16,7 +16,7 @@
 
   .mandatory {
     color: #6D6D6D;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: "FixelText", sans-serif;
     font-size: 1.174vw;
     font-style: normal;
     font-weight: 800;
@@ -47,7 +47,7 @@
 
 
       color: $black;
-      font-family: "Plus Jakarta Sans", sans-serif;
+      font-family: "FixelText", sans-serif;
       font-size: 1.458vw;
       font-style: normal;
       font-weight: 600;
@@ -57,7 +57,7 @@
         opacity: 0;
 
         color: #C9C0AD;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: "FixelText", sans-serif;
         font-size: 1.258vw;
         font-style: normal;
         font-weight: 500;
@@ -109,23 +109,23 @@
     gap: 3.308vw;
 
     .name {
-      font-size: 5.737vw;
+      font-size: 4.737vw;
     }
 
     .mandatory {
-      font-size: 5.737vw;
+      font-size: 4.737vw;
     }
 
     .input-field {
-      padding: 2.69vw 2.39vw;
+      padding: 3.6vw 2.39vw;
 
       input {
-        font-size: 7.125vw;
+        font-size:3.817vw;
 
         &::placeholder {
           color: #C1B9AA;
-          font-family: "Plus Jakarta Sans", sans-serif;
-          font-size: 7.125vw;
+          font-family: "FixelText", sans-serif;
+          font-size: 3.817vw;
           font-style: normal;
           font-weight: 500;
           line-height: 107.93%; /* 30.22px */

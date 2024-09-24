@@ -34,7 +34,7 @@ footer {
 
     p {
       color: $black;
-      font-family: "Plus Jakarta Sans", sans-serif;
+      font-family: "FixelText", sans-serif;
       font-size: 1.667vw;
       font-style: normal;
       font-weight: 700;
@@ -83,7 +83,7 @@ footer {
 
         span {
           color: #1F1F1F;
-          font-family: "Plus Jakarta Sans", sans-serif;
+          font-family: "FixelText", sans-serif;
           font-size: 1.174vw;
           font-style: normal;
           font-weight: 800;
@@ -102,7 +102,7 @@ footer {
 
 
           color: $black;
-          font-family: "Plus Jakarta Sans", sans-serif;
+          font-family: "FixelText", sans-serif;
           font-size: 1.042vw;
           font-style: normal;
           font-weight: 700;
@@ -137,7 +137,7 @@ footer {
 
          span {
            color: $white;
-           font-family: "Plus Jakarta Sans", sans-serif;
+           font-family: "FixelText", sans-serif;
            font-size: 1.25vw;
            font-style: normal;
            font-weight: 800;
@@ -190,10 +190,10 @@ footer {
 
       a {
         color: $black;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: "FixelText", sans-serif;
         font-size: 1.042vw;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 185%;
 
         transition: .3s;
@@ -230,7 +230,7 @@ footer {
     .all-rights {
       span {
         color: #383838;
-        font-family: "Plus Jakarta Sans", sans-serif;
+        font-family: "FixelText", sans-serif;
         font-size: 0.99vw;
         font-style: normal;
         font-weight: 500;
@@ -275,7 +275,7 @@ footer {
 
     p {
       color: $white;
-      font-family: "Plus Jakarta Sans", sans-serif;
+      font-family: "FixelText", sans-serif;
       font-size: 1.25vw;
       font-style: normal;
       font-weight: 500;
@@ -333,7 +333,7 @@ footer {
 
       .footer-form-title {
         h5 {
-          font-size: 11.646vw;
+          font-size: 11.45vw;
           margin-bottom: 4.835vw;
         }
 
@@ -440,7 +440,7 @@ footer {
         gap: 5.089vw;
 
         a {
-          font-size: 5.089vw;
+          font-size: 4.389vw;
         }
 
         .soc {
@@ -486,5 +486,4 @@ footer {
       right: 3.05vw; // 1.146vw adjusted
     }
   }
-
 }

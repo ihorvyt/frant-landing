@@ -189,6 +189,14 @@
             }
 
             .space-text {
+              &.ua {
+                span {
+                  white-space: nowrap;
+                  font-size: 5.507vw;
+                }
+              }
+
+
               span {
                 font-size: 6.107vw;
               }
