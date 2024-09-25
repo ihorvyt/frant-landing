@@ -17,10 +17,9 @@ import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Header from "@/components/ui/Header";
 import ReactLenis from "lenis/react";
 import Footer from "@/components/ui/Footer";
-import Language from "@/components/ui/Language";
 import LetsTalk from "@/components/ui/LetsTalk";
-import './page.scss'
 import SplashScreen from "@/components/ui/SplashScreen";
+import './page.scss'
 
 
 export default function Home() {
@@ -46,6 +45,7 @@ export default function Home() {
     useEffect(() => {
         setLetsTalkHide(!isLetsTalkHide)
     }, [isFrantSectionVisible]);
+
 
     return (
         <>

@@ -9,6 +9,7 @@
   width: 100%;
   z-index: 9999999999;
   background-color: $black;
+  opacity: 0 !important;
 
   pointer-events: none;
 
@@ -96,6 +97,26 @@
       //transform: translate(0%, 0%);
 
       opacity: 0;
+    }
+  }
+}
+
+
+html, body {
+  overflow: hidden;
+  animation: 5s hideScoll forwards;
+
+  @keyframes hideScroll {
+    0% {
+      overflow: hidden;
+    }
+
+    99% {
+      overflow: hidden;
+    }
+
+    100% {
+      overflow: scroll;
     }
   }
 }
