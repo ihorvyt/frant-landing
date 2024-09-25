@@ -50,7 +50,7 @@ export default function Home() {
     return (
         <>
             <ReactLenis root>
-                {/*<SplashScreen/>*/}
+                <SplashScreen/>
                 <Header
                     hide={isFrantSectionVisible}
                     setShowLang={setShowLang}
@@ -71,7 +71,6 @@ export default function Home() {
                 <div id="spacer"></div>
                 <Footer/>
 
-                <Language showLang={showLang} setShowLang={setShowLang}/>
                 <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading}/>
             </ReactLenis>
         </>

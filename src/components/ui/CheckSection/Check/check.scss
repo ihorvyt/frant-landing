@@ -141,6 +141,11 @@
     padding: 4.779vw 3.584vw;
 
     .site-variant {
+      &.ua {
+        h3 {
+          font-size: 5.755vw;
+        }
+      }
       h3 {
         font-size: 7.755vw;
       }
