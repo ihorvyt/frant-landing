@@ -175,6 +175,7 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
                     <div><a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank">Linked
                         In</a></div>
                     <div><a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank">Behance</a></div>
+                    <div><a href="https://t.me/frantdigital" target="_blank" className="telegram">Telegram</a></div>
                     <div><a href="mailto:frantdigital@gmail.com">frantdigital@gmail.com</a></div>
                 </div>
             </header>
