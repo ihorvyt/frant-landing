@@ -88,7 +88,6 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
                 className={`header ${hide || isVisible && !showBurger && !isLoading ? 'header--hide' : ''} ${showBurger && !isLoading ? 'header--show' : ''} ${isLoading ? 'header--loading' : ''}`}
             >
                 <Link
-                    href="#"
                     to={'banner'} smooth={true}
                       duration={1000} className="logo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 80" fill="none">
@@ -148,10 +147,10 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
                         <line x1="11" y1="30" x2="57" y2="30" stroke="#EEEAE4" strokeWidth="3"/>
                     </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="66" height="38" viewBox="0 0 66 38" fill="none">
-                        <line x1="4.30469" y1="2.20096" x2="63.1944" y2="36.201" stroke="#EEEAE4" strokeWidth="3"/>
-                        <line y1="-1.5" x2="68" y2="-1.5" transform="matrix(-0.866025 0.5 0.5 0.866025 62.4453 3.5)"
-                              stroke="#EEEAE4" strokeWidth="3"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="#fff"
+                         viewBox="0 0 50 50">
+                        <path
+                            d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path>
                     </svg>
                 </button>
 
