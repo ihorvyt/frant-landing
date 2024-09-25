@@ -67,6 +67,7 @@ const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) 
 
     return (
         <Link
+            href="#"
             smooth={true}
             to={`${isMobile ? 'footer' : 'spacer'}`}
             delay={500}

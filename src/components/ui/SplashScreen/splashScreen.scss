@@ -101,27 +101,6 @@
   }
 }
 
-
-html, body {
-  overflow: hidden;
-  animation: 5s hideScoll forwards;
-
-  @keyframes hideScroll {
-    0% {
-      overflow: hidden;
-    }
-
-    99% {
-      overflow: hidden;
-    }
-
-    100% {
-      overflow: scroll;
-    }
-  }
-}
-
-
 @media (max-width: 768px) {
   .splash-screen {
     .logo {

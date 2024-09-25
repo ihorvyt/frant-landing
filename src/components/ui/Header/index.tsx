@@ -87,7 +87,9 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
             <header
                 className={`header ${hide || isVisible && !showBurger && !isLoading ? 'header--hide' : ''} ${showBurger && !isLoading ? 'header--show' : ''} ${isLoading ? 'header--loading' : ''}`}
             >
-                <Link to={'banner'} smooth={true}
+                <Link
+                    href="#"
+                    to={'banner'} smooth={true}
                       duration={1000} className="logo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="80" viewBox="0 0 52 80" fill="none">
                         <path
