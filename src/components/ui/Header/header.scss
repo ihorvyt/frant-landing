@@ -370,11 +370,10 @@ $delay: 0.2;
 
     .burger-menu-icon {
       display: flex;
-      width: 66px;
-      height: 34px;
+
 
       position: absolute;
-      top: 9.616vw;
+      top: 7.634vw;
       right: 7.634vw;
 
       transition: .3s;
@@ -388,11 +387,11 @@ $delay: 0.2;
       }
 
       svg:first-child {
-        width: 16.794vw;
+        width: 13.794vw;
       }
 
       svg:last-child {
-        right: -15%;
+
         width: 11.837vw;
         height: 11.837vw;
 

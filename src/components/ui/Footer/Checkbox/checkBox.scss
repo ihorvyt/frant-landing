@@ -25,7 +25,7 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      width: 3.177vw;
+      width: 4.177vw;
       background: $primary;
       transition: .3s;
 
@@ -43,7 +43,7 @@
       font-family: "FixelText", sans-serif;
       font-size: 1.25vw;
       font-style: normal;
-      font-weight: 500;
+      font-weight: 600;
       line-height: 107.93%; /* 25.903px */
     }
 
@@ -78,6 +78,13 @@
       height: 13.017vw;
       gap: 2.134vw;
       padding-right: 2.134vw;
+
+      #design {
+        svg {
+          width: 7.829vw;
+          height: 7.829vw;
+        }
+      }
 
       .icon {
         width: 13.017vw;
