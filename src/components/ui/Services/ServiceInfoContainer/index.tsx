@@ -24,7 +24,6 @@ const ServiceInfoContainer = ({title, description, setIsLoading}: IServiceInfoCo
     const [isMobile, setIsMobile] = React.useState(false);
     const lang = useLocale();
 
-    console.log(title)
     useEffect(() => {
         setIsMobile(window.innerWidth < 768)
     }, []);
