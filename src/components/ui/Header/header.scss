@@ -133,7 +133,7 @@ $delay: 0.2;
 
 
 .black-header {
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -159,7 +159,7 @@ $delay: 0.2;
     padding:  6.616vw 7.634vw 0;
     z-index: 99;
     justify-content: space-between;
-    transition: 0s;
+    transition: .5s;
 
     nav {
       display: none;
@@ -180,15 +180,8 @@ $delay: 0.2;
     }
 
     &--hide {
-      transform: translateY(0);
+      transform: translateY(-400%) !important;
 
-      .logo {
-        transform: translateY(-400%) !important;
-      }
-
-      .burger-menu-icon {
-        transform: translateY(-400%) !important;
-      }
     }
 
     &--show {
@@ -287,6 +280,7 @@ $delay: 0.2;
 
       .links {
         opacity: 1;
+        pointer-events: initial;
         visibility: initial;
         position: absolute;
         z-index: 9;
@@ -369,8 +363,8 @@ $delay: 0.2;
     }
 
     .burger-menu-icon {
-      display: flex;
-
+      display: block;
+      transform: translate(0, 0);
 
       position: absolute;
       top: 7.634vw;

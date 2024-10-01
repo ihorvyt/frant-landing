@@ -80,11 +80,12 @@ const Index = ({hide, setShowLang, setIsLoading, isLoading}: { hide: boolean, se
         });
     };
 
+    const headerStyles = `${hide && (isVisible && !showBurger && !isLoading) ? 'header--hide' : ''} ${showBurger && !isLoading ? 'header--show' : ''} ${isLoading ? 'header--loading' : ''}`
 
     return (
         <>
             <header
-                className={`header ${hide || isVisible && !showBurger && !isLoading ? 'header--hide' : ''} ${showBurger && !isLoading ? 'header--show' : ''} ${isLoading ? 'header--loading' : ''}`}
+                className={`header ${headerStyles}`}
             >
                 <Link
                     to={'banner'} smooth={true}

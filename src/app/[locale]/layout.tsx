@@ -1,38 +1,52 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import GoogleAnalytic from "@/components/Custom/GoogleAnalytic";
-import {NextIntlClientProvider} from "next-intl";
-import {getMessages} from "next-intl/server";
+import {NextIntlClientProvider, useTranslations} from "next-intl";
+import {getMessages, getTranslations} from "next-intl/server";
+
 
 const inter = Inter({ subsets: ['latin'] });
 
-const title = "Site development, Web Design, Custom Web Solutions"
 
-export const metadata: Metadata = {
-    title: title,
-    description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
-    applicationName: "Frant",
-    generator: "Next js",
-    keywords: ["site development"],
-    creator: "Frant team",
-    publisher: "Frant",
-    alternates: { canonical: "https://frant.digital" },
-    openGraph: {
-        type: "website",
-        url: "https://frant.digital",
-        title: title,
-        description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
-        siteName: "Frant website",
-        images: [{     url: "https://frant.digital/og_image.png", secureUrl: "https://frant.digital/og_image.png", alt: "Site development, Web Design, Custom Web Solutions, Order site development", type: "website", width: "1200px", height: "768px"  }],
-    },
-    twitter: {
-        card: "summary_large_image",
-        site: "@site",
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations('metadata')
+
+    return {
+        title: t('main_title'),
+        description: t('description'),
+        applicationName: "Frant",
+        generator: "Next js",
+        keywords: [t('keywords')],
         creator: "Frant team",
-        title: "Site development, Web Design, Custom Web Solutions, Order site development",
-        description: "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
-        images: "https://frant.digital/og_image.png"}
-};
+        publisher: "Frant",
+        alternates: { canonical: "https://frant.digital" },
+        openGraph: {
+            type: "website",
+            url: "https://frant.digital",
+            title: t("main_title"),
+            description: t('openGraph.description'),
+            siteName: "Frant website",
+            images: [
+                {
+                    url: "https://frant.digital/og_image.png",
+                    secureUrl: "https://frant.digital/og_image.png",
+                    alt: "Site development, Web Design, Custom Web Solutions, Order site development",
+                    type: "website",
+                    width: "1200px",
+                    height: "768px"
+                }
+            ]
+        },
+        twitter: {
+            card: "summary_large_image",
+            site: "@site",
+            creator: "Frant team",
+            title: t('main_title'),
+            description: t('twitter.description'),
+            images: "https://frant.digital/og_image.png"
+        }
+    }
+}
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -40,11 +54,11 @@ interface RootLayoutProps {
     locale: string;
   };
 }
+
 export default async function RootLayout({
                                      children,
                                      params: { locale },
                                    }: Readonly<RootLayoutProps>) {
-
     const messages = await getMessages();
 
   return (

@@ -142,5 +142,20 @@
     "Phone number": "Phone number",
     "Enter phone number": "Enter phone number",
     "Description": "Description"
+  },
+
+  "metadata": {
+    "main_title": "Site development, Web Design, Custom Web Solutions",
+    "title": "Professional Site Development, Web Design, and Custom Web Solutions",
+    "description": "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website.",
+    "keywords": "site development, web design, custom web solutions",
+    "openGraph": {
+      "title": "Professional Site Development, Web Design, and Custom Web Solutions",
+      "description": "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."
+    },
+    "twitter": {
+      "title": "Professional Site Development, Web Design, and Custom Web Solutions",
+      "description": "We offer professional site development, web design, and custom web solutions tailored to your business needs. From corporate websites to e-commerce platforms, our team provides complete development services, including SEO optimization and responsive design. Order your site development today and grow your online presence with a unique and functional website."
+    }
   }
 }
