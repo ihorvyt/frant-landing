@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, { useRef, useEffect } from 'react';
 // @ts-ignore
 import * as THREE from 'three';
 // @ts-ignore
@@ -10,7 +10,18 @@ import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
 
 import './glob3d.scss'
 
-const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: string, rotate: boolean, size: number, color: string, windowSize?: number }) => {
+interface STLModelProps {
+    modelName: string;
+    rotate: boolean;
+    size: number;
+    color: string;
+    windowSize?: number;
+    initialRotationX?: number;
+    initialRotationY?: number;
+    initialRotationZ?: number;
+}
+
+const STLModel: React.FC<STLModelProps> = ({ modelName, rotate, size, color, windowSize, initialRotationX = 0, initialRotationY = 0, initialRotationZ = 0 }) => {
     const mountRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         let animationFrameId: number;
@@ -40,11 +51,12 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
         // Material
         const material = new THREE.MeshStandardMaterial({ flatShading: true, side: THREE.DoubleSide });
 
-        const sizess = window.innerWidth < 768 ?  window.innerWidth / 1.3 : window.innerWidth / (windowSize === undefined ? 3 : windowSize)
+        const sizess = window.innerWidth < 768 ? window.innerWidth / 1.3 : window.innerWidth / (windowSize === undefined ? 3 : windowSize);
+
         // Sizes
         const sizes = {
             width: sizess,
-            height: sizess
+            height: sizess,
         };
 
         // Camera
@@ -57,7 +69,7 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
         // Initialize ASCII effect
         const effect = new AsciiEffect(renderer, ' !"#$%&\'()*+,-./0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_abcdefghijklmnopqrstuvwxyz{|}~\n', {
             invert: true,
-             resolution: 0.15
+            resolution: 0.15,
         });
         effect.setSize(sizes.width, sizes.height);
         effect.domElement.style.color = 'white';
@@ -83,9 +95,12 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
                 camera.position.set(bbox.max.x * 4, bbox.max.y, bbox.max.z * 3);
             }
 
+            // Set the initial rotation from props
             myMesh.rotation.x = -Math.PI / 2;
+            myMesh.rotation.y = initialRotationY
+            myMesh.rotation.z = 0
 
-            myMesh.scale.set(size, size ,size)
+            myMesh.scale.set(size, size, size);
             scene.add(myMesh);
         });
 
@@ -109,18 +124,8 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
 
         animate();
 
-        const handleResize = () => {
-            // camera.aspect = window.innerWidth  / window.innerHeight;
-            // camera.updateProjectionMatrix();
-            // renderer.setSize(window.innerWidth / 1.3, window.innerHeight / 1.3);
-            // effect.setSize(window.innerWidth / 1.3, window.innerHeight / 1.3);
-        };
-
-        window.addEventListener('resize', handleResize);
-
         // Clean up
         return () => {
-            window.removeEventListener('resize', handleResize);
             cancelAnimationFrame(animationFrameId);
 
             if (myMesh) {
@@ -143,7 +148,7 @@ const STLModel = ({ modelName, rotate, size, color, windowSize }: { modelName: s
                 mountRef.current.removeChild(effect.domElement);
             }
         };
-    }, [modelName, rotate]);
+    }, [modelName, rotate, size, windowSize, initialRotationX, initialRotationY, initialRotationZ]);
 
     return <div ref={mountRef} className={`main-model ${color}`} />;
 };

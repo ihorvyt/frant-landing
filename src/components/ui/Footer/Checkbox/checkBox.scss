@@ -2,11 +2,11 @@
 
 .checkboxes {
   display: flex;
-  gap: 2.135vw;
+  gap: 1.135vw;
 
   .column {
     display: flex;
-    gap: 2.135vw;
+    gap: 1.135vw;
   }
 
   label {
@@ -41,8 +41,7 @@
       color: $black;
       font-family: "FixelText", sans-serif;
       font-size: 1.25vw;
-      font-style: normal;
-      font-weight: 600;
+      font-weight: 400;
       line-height: 107.93%; /* 25.903px */
     }
 

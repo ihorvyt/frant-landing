@@ -19,6 +19,7 @@ footer {
    left: 50%;
 
    transform: translate(-50%, -50%);
+   z-index: 9;
 
   .footer-form-title {
     h5 {
@@ -28,8 +29,6 @@ footer {
       font-style: normal;
       font-weight: 600;
       line-height: 107.93%; /* 69.075px */
-
-      margin-bottom: 1vw;
     }
 
     p {
@@ -176,7 +175,7 @@ footer {
   .credential {
     position: absolute;
     bottom: 0;
-    padding: 2.083vw;
+    padding: 0 2.083vw 2.083vw 2.083vw;
 
     display: flex;
     justify-content: space-between;

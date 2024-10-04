@@ -37,10 +37,6 @@ const DateTime: React.FC = () => {
     );
 };
 
-interface IndexProps {
-    isBrandingVisible: boolean;
-}
-
 const Index = () => {
     const t = useTranslations('Glob');
     const lang = useLocale();

@@ -32,6 +32,7 @@ const Index = forwardRef<HTMLDivElement, IServiceProps>((props, ref) => {
                         size={1.0}
                         color={'blue'}
                         windowSize={3}
+                        initialRotationY={2}
                     />
                    }
             </div>

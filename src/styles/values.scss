@@ -6,14 +6,21 @@ $mob-side-padding: 5.852vw;
 
 @font-face {
   font-family: 'FixelText';
-  src: url('../fonts/FixelText-Regular.woff2') format('truetype');
-  font-weight: normal;
+  src: url('../fonts/FixelText-Regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'FixelText';
-  src: url('../fonts/FixelText-SemiBold.woff2') format('truetype');
+  src: url('../fonts/FixelText-SemiBold.woff2') format('woff2');
   font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FixelText';
+  src: url('../fonts/FixelText-SemiBold.woff2') format('woff2');
+  font-weight: 500;
   font-style: normal;
 }

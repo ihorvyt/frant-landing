@@ -50,7 +50,7 @@ export default function Home() {
     return (
         <>
             <ReactLenis root>
-                <SplashScreen/>
+                {/*<SplashScreen/>*/}
                 <Header
                     hide={isFrantSectionVisible}
                     setShowLang={setShowLang}
