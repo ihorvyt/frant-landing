@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import GoogleAnalytic from "@/components/Custom/GoogleAnalytic";
 import {NextIntlClientProvider, useTranslations} from "next-intl";
 import {getMessages, getTranslations} from "next-intl/server";
 
 
-const inter = Inter({ subsets: ['latin'] });
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -80,7 +78,7 @@ export default async function RootLayout({
           <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet"/>
           <meta name='freelancehunt' content='667f8b68ad9a7f7'/>
       </head>
-      <body className={inter.className}>
+      <body>
       <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MND73G6L" height="0" width="0"
                       style={{display: 'none', visibility: 'hidden'}}></iframe>

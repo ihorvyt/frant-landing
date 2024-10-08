@@ -12,9 +12,11 @@ import Services from "@/components/ui/Services";
 import InfinitySlider from "@/components/ui/InfinitySlider";
 import CheckSection from "@/components/ui/CheckSection";
 import TimeInfoSection from "@/components/ui/TimeInfoSection";
+// @ts-ignore
 import React, {useEffect, useState} from "react";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Header from "@/components/ui/Header";
+// @ts-ignore
 import ReactLenis from "lenis/react";
 import Footer from "@/components/ui/Footer";
 import LetsTalk from "@/components/ui/LetsTalk";
@@ -50,7 +52,7 @@ export default function Home() {
     return (
         <>
             <ReactLenis root>
-                {/*<SplashScreen/>*/}
+                <SplashScreen/>
                 <Header
                     hide={isFrantSectionVisible}
                     setShowLang={setShowLang}
