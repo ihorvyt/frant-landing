@@ -112,7 +112,7 @@ const Index = () => {
         };
 
         try {
-            const response = await fetch('https://formspree.io/f/mldrvgzn', {
+            const response = await fetch('https://formspree.io/f/mzzbbzzz', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -126,6 +126,19 @@ const Index = () => {
                     title: 'Success!',
                     description: 'Your message has been sent'
                 })
+                setFormData({
+                    firstName: "",
+                    companyName: "",
+                    email: "",
+                    mobileNumber: "",
+                    description: "",
+                });
+                setServices({
+                    webDesign: false,
+                    webDevelopment: false,
+                    branding: false,
+                    smthElse: false,
+                });
                 close()
             } else {
                 setMessageStatus({

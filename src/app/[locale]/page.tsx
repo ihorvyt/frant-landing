@@ -30,19 +30,10 @@ export default function Home() {
         rootMargin: '0px',
         threshold: 0.1
     });
-    const [refSpacer, isSpacerVisible] = useIntersectionObserver({
-        root: null, // використовувати viewport
-        rootMargin: '100px',
-        threshold: 0.001
-    });
 
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
     const [showLang, setShowLang] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
-    useEffect(() => {
-        setLetsTalkHide(!isLetsTalkHide)
-    }, [isSpacerVisible]);
 
     useEffect(() => {
         setLetsTalkHide(!isLetsTalkHide)
@@ -55,7 +46,6 @@ export default function Home() {
                 <SplashScreen/>
                 <Header
                     hide={isFrantSectionVisible}
-                    setShowLang={setShowLang}
                     setIsLoading={setIsLoading}
                     isLoading={isLoading}
                 />

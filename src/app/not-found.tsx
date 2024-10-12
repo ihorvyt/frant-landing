@@ -1,11 +1,23 @@
 'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import './[locale]/page.scss'
 
 export default function NotFound() {
-  return (
-    <html>
-      <body className='text-center'>
-        <h1 className=''>Something went wrong!</h1>
-      </body>
-    </html>
-  );
+    const router = useRouter();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            router.push('/');
+        }, 0)
+
+        return () => clearTimeout(timer);
+    }, [router]);
+
+    return (
+        <html>
+        <body className='not-found'>
+        </body>
+        </html>
+    );
 }

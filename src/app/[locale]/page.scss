@@ -80,3 +80,14 @@ body {
 .s800 {
   font-weight: 800;
 }
+
+
+
+
+// not found page
+
+.not-found {
+  &.body {
+    background-color: $black;
+  }
+}
