@@ -75,7 +75,7 @@
     "E-commerce": "Інтернет-магазин",
     "Corporate Site": "Корпоративний сайт",
     "Custom Solution": "Індивідуальне рішення",
-    "Brand Book": "Брендбук",
+    "Branding": "Брендбук",
     "date": "Дата",
     "Website Design": "Дизайн сайту",
     "Frontend Development": "Розробка фронтенду",
@@ -98,7 +98,20 @@
     "Typography Guidelines": "Рекомендації щодо типографіки",
     "Brand Voice & Messaging": "Голос бренду",
     "Imagery Style": "Стиль зображень",
-    "price": "Ціна"
+    "price": "Ціна",
+    "Website Business Card": "Веб-сайт візитівка",
+    "Web Design": "Веб-дизайн",
+    "Web Development": "Веб-розробка",
+    "3D Design": "3D-дизайн",
+
+    "UI/UX Design": "UI/UX дизайн",
+    "Prototype Development": "Розробка прототипу",
+    "Responsive Design": "Адаптивний дизайн",
+    "Graphic Elements": "Графічні елементи",
+    "3D Modelling": "3D моделювання",
+    "Rendering": "Рендеринг",
+    "Animation": "Анімація",
+    "Texturing": "Текстурування"
   },
   "TimeInfoSection": {
     "Advice at the start for free!": "Безкоштовна консультація на старті!",
@@ -111,6 +124,13 @@
     "hours": "години"
   },
   "Footer": {
+    "Fill out your order": "Заповніть ваше замовлення",
+    "Company or First name": "Компанія або Ім'я",
+    "E-mail": "Електронна пошта",
+    "What is the best way to contact you?": "Який найкращий спосіб зв'язатися з вами?",
+    "$750 or Your budget": "750$ або Ваш бюджет",
+
+
     "Thinking about NEW?": "Спало щось на думку?",
     "Let's get talking": "Давайте поговоримо",
     "Oops": "Упс",
