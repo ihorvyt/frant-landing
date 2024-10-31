@@ -2,7 +2,17 @@ import React from 'react';
 import './check.scss'
 import {useLocale, useTranslations} from "next-intl";
 
-const Index = ({checkInfo}: any) => {
+const formatPrice = (price: number | string, defaultValue: number | string) => {
+    const numericPrice = typeof price === 'string' ? parseFloat(price) : price; // конвертуємо у число
+    if (!isNaN(numericPrice)) {
+        return `~${numericPrice.toFixed(2)} $`;
+    } else {
+        return defaultValue;
+    }
+};
+
+
+const Index = ({checkInfo, budget, email}: any) => {
     const t = useTranslations("Check")
     const lang = useLocale()
 
@@ -50,16 +60,16 @@ const Index = ({checkInfo}: any) => {
 
             <div className="total-price">
                 <div className="total">{t("Total")}</div>
-                <div className="price">{checkInfo.price}</div>
+                <div className="price">{formatPrice(budget, checkInfo.price)}</div>
             </div>
 
             <div className="check-info">
                 <div className="info">
                     <div className="name">{t("e-cash:")}</div>
-                    <div className="value">{checkInfo.price}</div>
+                    <div className="value">{formatPrice(budget, checkInfo.price)}</div>
                 </div>
                 <div className="info">
-                    <div className="name">{t("CHANGE:")}</div>
+                <div className="name">{t("CHANGE:")}</div>
                     <div className="value">{t("our kindness :)")}</div>
                 </div>
             </div>
@@ -68,7 +78,7 @@ const Index = ({checkInfo}: any) => {
 
             <div className="check-info-secondary">
                 <p>{t("THANK FOR YOUR PURCHASE!")}</p>
-                <p>email: frantdigital@GMAIL.COM</p>
+                <p>email: {email || "frantdigital@GMAIL.COM"}</p>
 
                 <p className="full-width"><span>1996-∞</span> <span>23:31</span> <span>24.08.24</span></p>
             </div>

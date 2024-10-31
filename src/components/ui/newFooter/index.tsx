@@ -41,10 +41,23 @@ export const InputField = ({ stateName,  value, setValue, placeholder,  handleBl
     )
 }
 
+const options = [
+    'Landing',
+    'E-commerce',
+    'Corporate Site',
+    'Custom Solution',
+    'Branding',
+    'Website business card',
+    'Web Design',
+    'Web Development',
+    '3D Design',
+    'Custom solution',
+];
+
 const Index = () => {
 
 
-    const [selectedOption, setSelectedOption] = React.useState('');
+    const [selectedOption, setSelectedOption] = React.useState(options[0]);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -54,18 +67,7 @@ const Index = () => {
 
     const isReadyToSend = formData.name && formData.email && formData.wayToContact && formData.budget;
 
-    const options = [
-        'Landing',
-        'E-commerce',
-        'Corporate Site',
-        'Custom Solution',
-        'Branding',
-        'Website business card',
-        'Web Design',
-        'Web Development',
-        '3D Design',
-        'Custom solution',
-    ];
+
 
     const check = [
         {
@@ -363,6 +365,10 @@ const Index = () => {
     const sentMail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { // validate email
+            return;
+        }
+
 
         const data = {
             email: formData.email,
@@ -398,8 +404,13 @@ const Index = () => {
     };
 
     const handleInputChange = (value: string, name: string) => {
+        if (name === 'budget' && !/^\d*$/.test(value)) { // Валідація інпуту для бюджету
+            return;
+        }
+
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
+
 
     return (
         <footer>
@@ -470,7 +481,7 @@ const Index = () => {
                         const service = item[key]; // Get the service object
 
                         // @ts-ignore
-                        return item[key].title.toLowerCase() === selectedOption.toLowerCase() ? <Check checkInfo={service}/> : null;
+                        return item[key].title.toLowerCase() === selectedOption.toLowerCase() ? <Check budget={formData.budget} email={formData.email} checkInfo={service}/> : null;
                     })}
                 </div>
             </div>
