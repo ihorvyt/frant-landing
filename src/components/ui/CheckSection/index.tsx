@@ -153,7 +153,7 @@ const Index: React.FC = () => {
         },
         {
             "check": {
-                "title": "Brand Book",
+                "title": "Branding",
                 "check_info_1": [
                     {
                         "name": "date-num",
@@ -323,7 +323,7 @@ const Index: React.FC = () => {
         },
         {
             "check": {
-                "title": "Brand Book",
+                "title": "Branding",
                 "check_info_1": [
                     {
                         "name": "date-num",
@@ -382,7 +382,7 @@ const Index: React.FC = () => {
                 {
                     checkInfo.map((obj, index) =>
                         <SwiperSlide key={index}>
-                            <Check  checkInfo={obj.check} />
+                            <Check checkInfo={obj.check} />
                         </SwiperSlide>
                     )
                 }

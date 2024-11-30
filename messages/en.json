@@ -76,7 +76,7 @@
     "E-commerce": "E-commerce",
     "Corporate Site": "Corporate Site",
     "Custom Solution": "Custom Solution",
-    "Brand Book": "Brand Book",
+    "Branding": "Brand Book",
     "date": "Date",
     "Website Design": "Website Design",
     "Frontend Development": "Frontend Development",
@@ -99,7 +99,20 @@
     "Typography Guidelines": "Typography Guidelines",
     "Brand Voice & Messaging": "Brand Voice & Messaging",
     "Imagery Style": "Imagery Style",
-    "price": "Price"
+    "price": "Price",
+    "Website Business Card": "Website Business Card",
+    "Web Design": "Web Design",
+    "Web Development": "Web Development",
+    "3D Design": "3D Design",
+
+    "UI/UX Design": "UI/UX Design",
+    "Prototype Development": "Prototype Development",
+    "Responsive Design": "Responsive Design",
+    "Graphic Elements": "Graphic Elements",
+    "3D Modelling": "3D Modelling",
+    "Rendering": "Rendering",
+    "Animation": "Animation",
+    "Texturing": "Texturing"
   },
   "TimeInfoSection": {
     "Advice at the start for free!": "Advice at the start for free!",
@@ -112,6 +125,12 @@
     "hours": "hours"
   },
   "Footer": {
+    "Fill out your order": "Fill out your order",
+    "Company or First name": "Company or First name",
+    "E-mail": "E-mail",
+    "What is the best way to contact you?": "What is the best way to contact you?",
+    "$750 or Your budget": "$750 or Your budget",
+
     "Thinking about NEW?": "Thinking about NEW?",
     "Let's get talking": "Let's get talking",
     "Oops": "Oops",

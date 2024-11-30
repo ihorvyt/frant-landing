@@ -3,6 +3,7 @@
 import "@/styles/global.scss";
 import "@/styles/default.scss";
 import "@/styles/values.scss";
+import { gsap } from "gsap";
 import BannerSection from "@/components/ui/BannerSection";
 import Glob from "@/components/ui/Glob";
 import FrantSection from "@/components/ui/FrantSection";
@@ -13,7 +14,7 @@ import InfinitySlider from "@/components/ui/InfinitySlider";
 import CheckSection from "@/components/ui/CheckSection";
 import TimeInfoSection from "@/components/ui/TimeInfoSection";
 // @ts-ignore
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useIntersectionObserver} from "@/hooks/useIntersectionObserver";
 import Header from "@/components/ui/Header";
 // @ts-ignore
@@ -22,6 +23,7 @@ import Footer from "@/components/ui/Footer";
 import LetsTalk from "@/components/ui/LetsTalk";
 import SplashScreen from "@/components/ui/SplashScreen";
 import './page.scss'
+import NewFooter from "@/components/ui/newFooter";
 
 
 export default function Home() {
@@ -32,7 +34,6 @@ export default function Home() {
     });
 
     const [isLetsTalkHide, setLetsTalkHide] = useState<boolean>(true);
-    const [showLang, setShowLang] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -40,10 +41,37 @@ export default function Home() {
     }, [isFrantSectionVisible]);
 
 
+
+    const cursorRef = useRef(null);
+
+    useEffect(() => {
+        // @ts-ignore
+        const onMouseMove = (e) => {
+            if (cursorRef.current) {
+                gsap.to(cursorRef.current, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: 0.2,
+                    ease: 'power3.out',
+                });
+            }
+        };
+
+        window.addEventListener('mousemove', onMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+        };
+    }, []);
+
     return (
         <>
             <ReactLenis root>
-                <SplashScreen/>
+                <div
+                    ref={cursorRef}
+                    className="custom-cursor"
+                />
+                {/*<SplashScreen/>*/}
                 <Header
                     hide={isFrantSectionVisible}
                     setIsLoading={setIsLoading}
@@ -61,8 +89,8 @@ export default function Home() {
                     <TimeInfoSection setIsLoading={setIsLoading}/>
                 </main>
                 <div id="spacer"></div>
-                <Footer/>
-
+                {/*<Footer/>*/}
+                <NewFooter/>
                 <LetsTalk hide={isLetsTalkHide} setIsLoading={setIsLoading}/>
             </ReactLenis>
         </>

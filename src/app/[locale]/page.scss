@@ -7,13 +7,16 @@ main {
 }
 
 #spacer {
-  margin-bottom: 50vh;
-  padding-bottom: 50vh
 }
 
 body {
   scrollbar-width: none;
+  //cursor: none !important;
   //animation: 3s scrollUnBlock forwards;
+}
+
+div, li, a {
+  //cursor: none !important;
 }
 
 @keyframes scrollUnBlock {
@@ -91,3 +94,16 @@ body {
     background-color: $black;
   }
 }
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
