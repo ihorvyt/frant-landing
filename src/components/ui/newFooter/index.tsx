@@ -1,75 +1,107 @@
-import React, {useEffect, useState} from 'react';
-import './footer.scss'
+import React, { useState } from 'react';
+import './footer.scss';
 import Check from "@/components/ui/CheckSection/Check";
 
-
-interface InputFieldProps {
-    name?: string;
-    stateName: string;
-    mandatory?: boolean;
-    value: string;
-    setValue: (value: string, name: string) => void;
-    placeholder?: string;
-    handleBlur?: () => void;
-    error?: boolean;
+// Types
+interface FormData {
+    name: string;
+    email: string;
+    wayToContact: string;
+    budget: string;
 }
 
-export const InputField = ({ stateName,  value, setValue, placeholder,  handleBlur }: InputFieldProps) => {
-    const [isActive, setIsActive] = useState<boolean>(false);
+interface InputFieldProps {
+    stateName: string;
+    value: string;
+    setValue: (value: string, stateName: string) => void;
+    placeholder?: string;
+}
 
-    useEffect(() => {
-        setIsActive(value !== '' || document.activeElement === inputRef.current);
-    }, [value]);
+interface ServiceOption {
+    [key: string]: {
+        title: string;
+        check_info_1: { name: string; value: string }[];
+        check_info_2: { name: string; value: string }[];
+        price: string;
+    };
+}
 
-    const inputRef = React.useRef<HTMLInputElement>(null);
+// Constants
+const SERVICE_OPTIONS = [
+    'Landing', 'E-commerce', 'Corporate Site', 'Custom Solution',
+    'Branding', 'Website Business Card', 'Web Design',
+    'Web Development', '3D Design', 'Custom solution'
+];
 
+// Utility Functions
+const validateEmail = (email: string): boolean =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    return (<input
-            ref={inputRef}
+const extractPrice = (priceString: string): number | null => {
+    const match = priceString.match(/\d+(\.\d+)?/);
+    return match ? parseFloat(match[0]) : null;
+};
+
+// Input Component
+const InputField: React.FC<InputFieldProps> = ({
+                                                   stateName,
+                                                   value,
+                                                   setValue,
+                                                   placeholder
+                                               }) => {
+    return (
+        <input
             type="text"
             value={value}
             placeholder={placeholder}
-            onChange={(e) => setValue(e.target.value, stateName)}
-            onFocus={() => setIsActive(true)}
-            onBlur={() => {
-                if (handleBlur) {
-                    handleBlur()
-                }
-                setIsActive(value !== '')
+            maxLength={stateName === 'budget' ? 6 : undefined}
+            onChange={(e) => {
+                if (stateName === 'budget' && !/^\d*$/.test(e.target.value)) return;
+                setValue(e.target.value, stateName);
             }}
         />
-    )
-}
+    );
+};
 
-const options = [
-    'Landing',
-    'E-commerce',
-    'Corporate Site',
-    'Custom Solution',
-    'Branding',
-    'Website business card',
-    'Web Design',
-    'Web Development',
-    '3D Design',
-    'Custom solution',
-];
+// Service Options Component
+const ServiceOptionsList: React.FC<{
+    options: string[];
+    selectedOption: string;
+    onChangeOption: (option: string) => void;
+}> = ({ options, selectedOption, onChangeOption }) => (
+    <ul>
+        {options.map((option, index) => (
+            <label
+                key={index}
+                className={selectedOption === option ? 'active' : ''}
+            >
+                <input
+                    type="radio"
+                    value={option}
+                    checked={selectedOption === option}
+                    onChange={(e) => onChangeOption(e.target.value)}
+                />
+                {option}
+            </label>
+        ))}
+    </ul>
+);
 
-const Index = () => {
-
-
-    const [selectedOption, setSelectedOption] = React.useState(options[0]);
-    const [formData, setFormData] = useState({
+// Main Index Component
+const Index: React.FC = () => {
+    const [messageStatus, setMessageStatus] = useState({
+        title: 'close',
+        description: ''
+    });
+    const [selectedOption, setSelectedOption] = useState(SERVICE_OPTIONS[0]);
+    const [formData, setFormData] = useState<FormData>({
         name: "",
         email: "",
         wayToContact: "",
         budget: "",
     });
 
-    const isReadyToSend = formData.name && formData.email && formData.wayToContact && formData.budget;
-
-
-
-    const check = [
+    const check: ServiceOption[] = [
         {
             "Landing": {
                 "title": "Landing",
@@ -362,20 +394,44 @@ const Index = () => {
         }
     ];
 
+
+    const isReadyToSend = Object.values(formData).every(value => value !== '');
+
+    const showMessage = (title: string, description: string) => {
+        setMessageStatus({ title, description });
+        setTimeout(() => {
+            setMessageStatus({ title: 'close', description: '' });
+        }, 5000);
+    };
+
+    const handleInputChange = (value: string, name: string) => {
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
     const sentMail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) { // validate email
+        // Validation
+        if (!formData.name) {
+            showMessage('Oops!', 'Please enter first name or company');
             return;
         }
 
+        if (!validateEmail(formData.email)) {
+            showMessage('Oops!', 'Email is wrong');
+            return;
+        }
 
-        const data = {
-            email: formData.email,
-            name: formData.name,
-            wayToContact: formData.wayToContact,
-            budget: formData.budget
-        };
+        const selectedCheck = check.find(item => Object.keys(item)[0] === selectedOption);
+
+        if (selectedCheck) {
+            const selectedService = selectedCheck[selectedOption];
+            const price = extractPrice(selectedService.price);
+            if (price && parseFloat(formData.budget) < price) {
+                showMessage('Oops!', `Budget is too low. Minimum required is ${selectedService.price}`);
+                return;
+            }
+        }
 
         try {
             const response = await fetch('https://formspree.io/f/mzzbbzzz', {
@@ -384,7 +440,7 @@ const Index = () => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(formData),
             });
 
             if (response.ok) {
@@ -394,117 +450,124 @@ const Index = () => {
                     wayToContact: "",
                     budget: "",
                 });
+                showMessage('Success', 'Your message has been sent!');
             }
         } catch (error) {
+            showMessage('Error', 'Something went wrong. Please try again.');
         }
     };
-
-    const handleChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
-        setSelectedOption(e.target.value);
-    };
-
-    const handleInputChange = (value: string, name: string) => {
-        if (name === 'budget' && !/^\d*$/.test(value)) { // Валідація інпуту для бюджету
-            return;
-        }
-
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
 
     return (
-        <footer>
-            <div className="form-check">
-                <div className="form">
-                    <h5>Fill out your order</h5>
-
-                    <form onSubmit={sentMail}>
-                        <div className="input-fields">
-                            <InputField
-                                stateName={'name'}
-                                placeholder="Company or First name"
-                                value={formData.name}
-                                setValue={handleInputChange}
-                            />
-                            <InputField
-                                stateName={'email'}
-                                placeholder="E-mail"
-                                value={formData.email}
-                                setValue={handleInputChange}
-                            />
-                            <InputField
-                                stateName={'wayToContact'}
-                                placeholder="What is the best way to contact you?"
-                                value={formData.wayToContact}
-                                setValue={handleInputChange}
-                            />
-                            <InputField
-                                stateName={'budget'}
-                                placeholder="$750 or Your budget"
-                                value={formData.budget}
-                                setValue={handleInputChange}
-                            />
-                        </div>
-
-                        <ul>
-                            {options.map((option, index) => (
-                                <label key={index} className={`${selectedOption === option ? 'active' : ''}`}>
-                                    <input
-                                        type="radio"
-                                        value={option}
-                                        checked={selectedOption === option}
-                                        onChange={handleChange}
-                                    />
-                                    {option}
-                                </label>
-                            ))}
-                        </ul>
-
-                        <button className={`${isReadyToSend ? 'active' : ''}`} type="submit">
-                            Send a take
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                 fill="none">
-                                <path
-                                    d="M1.0458 13.1864C0.557649 13.6746 0.557649 14.466 1.0458 14.9542C1.53396 15.4424 2.32542 15.4424 2.81357 14.9542L1.0458 13.1864ZM15.1797 2.07031C15.1797 1.37996 14.62 0.820312 13.9297 0.820312H2.67969C1.98933 0.820312 1.42969 1.37996 1.42969 2.07031C1.42969 2.76067 1.98933 3.32031 2.67969 3.32031H12.6797V13.3203C12.6797 14.0107 13.2393 14.5703 13.9297 14.5703C14.62 14.5703 15.1797 14.0107 15.1797 13.3203V2.07031ZM2.81357 14.9542L14.8136 2.9542L13.0458 1.18643L1.0458 13.1864L2.81357 14.9542Z"
-                                    fill="#0A0A0A"/>
-                            </svg>
-                        </button>
-                    </form>
+        <>
+            <article className={`message-log ${messageStatus.title === 'close' ? '' : 'active'}`}>
+                <div className="message-loading">
+                    <span>{messageStatus.title}</span>
+                    <p>{messageStatus.description}</p>
                 </div>
+                <div className="line"></div>
 
-
-                <div className="check-container">
-                    {check.map((item, index) => {
-                        const key = Object.keys(item)[0]; // Get the key (e.g., "Landing")
-                        // @ts-ignore
-                        const service = item[key]; // Get the service object
-
-                        // @ts-ignore
-                        return item[key].title.toLowerCase() === selectedOption.toLowerCase() ? <Check budget={formData.budget} email={formData.email} checkInfo={service}/> : null;
+                <div
+                    className="close"
+                    onClick={() => setMessageStatus({
+                        title: 'close',
+                        description: '',
                     })}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                        <line x1="2.06066" y1="1.93934" x2="17.0607" y2="16.9393" stroke="#EEEAE4" strokeWidth="3"/>
+                        <line y1="-1.5" x2="21.2132" y2="-1.5"
+                              transform="matrix(-0.707107 0.707107 0.707107 0.707107 18 3)" stroke="#EEEAE4"
+                              strokeWidth="3"/>
+                    </svg>
                 </div>
-            </div>
+            </article>
 
+            <footer>
+                <div className="form-check">
+                    <div className="form">
+                        <h5>Fill out your order</h5>
 
-            <div className="credential">
-                <div className="links">
-                    <div className="soc">
-                        <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank"
-                           className="linked-in">Linked In</a>
-                        <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank"
-                           className="behance">Behance</a>
+                        <form onSubmit={sentMail}>
+                            <div className="input-fields">
+                                <InputField
+                                    stateName={'name'}
+                                    placeholder="Company or First name"
+                                    value={formData.name}
+                                    setValue={handleInputChange}
+                                />
+                                <InputField
+                                    stateName={'email'}
+                                    placeholder="E-mail"
+                                    value={formData.email}
+                                    setValue={handleInputChange}
+                                />
+                                <InputField
+                                    stateName={'wayToContact'}
+                                    placeholder="What is the best way to contact you?"
+                                    value={formData.wayToContact}
+                                    setValue={handleInputChange}
+                                />
+                                <InputField
+                                    stateName={'budget'}
+                                    placeholder="Your budget"
+                                    value={formData.budget}
+                                    setValue={handleInputChange}
+                                />
+                            </div>
+
+                            <ServiceOptionsList
+                                options={SERVICE_OPTIONS}
+                                selectedOption={selectedOption}
+                                onChangeOption={setSelectedOption}
+                            />
+
+                            <button
+                                className={`${isReadyToSend ? 'active' : ''}`}
+                                type="submit"
+                            >
+                                Send a take
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path
+                                        d="M1.0458 13.1864C0.557649 13.6746 0.557649 14.466 1.0458 14.9542C1.53396 15.4424 2.32542 15.4424 2.81357 14.9542L1.0458 13.1864ZM15.1797 2.07031C15.1797 1.37996 14.62 0.820312 13.9297 0.820312H2.67969C1.98933 0.820312 1.42969 1.37996 1.42969 2.07031C1.42969 2.76067 1.98933 3.32031 2.67969 3.32031H12.6797V13.3203C12.6797 14.0107 13.2393 14.5703 13.9297 14.5703C14.62 14.5703 15.1797 14.0107 15.1797 13.3203V2.07031ZM2.81357 14.9542L14.8136 2.9542L13.0458 1.18643L1.0458 13.1864L2.81357 14.9542Z"
+                                        fill="#0A0A0A"/>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
-                    <div className="soc">
-                        <a href="https://t.me/frantdigital" target="_blank" className="telegram">Telegram</a>
-                        <a href="mailto:frantdigital@gmail.com" className="email">frantdigital@gmail.com</a>
+
+                    <div className="check-container">
+                        {check.map((item, index) => {
+                            const key = Object.keys(item)[0];
+                            const service = item[key];
+
+                            return service.title.toLowerCase() === selectedOption.toLowerCase() ?
+                                <Check
+                                    key={index}
+                                    budget={formData.budget}
+                                    email={formData.email}
+                                    checkInfo={service}
+                                /> : null;
+                        })}
                     </div>
                 </div>
-                <div className="all-rights">
-                    <span>© 2024, frant, All Rights Reserved.</span>
+
+                <div className="credential">
+                    <div className="links">
+                        <div className="soc">
+                            <a href="https://www.linkedin.com/company/frant-digital/" rel="noopener" target="_blank" className="linked-in">Linked In</a>
+                            <a href="https://www.behance.net/frantdigital" rel="noopener" target="_blank" className="behance">Behance</a>
+                        </div>
+                        <div className="soc">
+                            <a href="https://t.me/frantdigital" target="_blank" className="telegram">Telegram</a>
+                            <a href="mailto:frantdigital@gmail.com" className="email">frantdigital@gmail.com</a>
+                        </div>
+                    </div>
+                    <div className="all-rights">
+                        <span>© 2024, frant, All Rights Reserved.</span>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </>
     );
 };
 

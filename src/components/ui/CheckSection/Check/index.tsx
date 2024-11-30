@@ -5,7 +5,7 @@ import {useLocale, useTranslations} from "next-intl";
 const formatPrice = (price: number | string, defaultValue: number | string) => {
     const numericPrice = typeof price === 'string' ? parseFloat(price) : price; // конвертуємо у число
     if (!isNaN(numericPrice)) {
-        return `~${numericPrice.toFixed(2)} $`;
+        return `~${numericPrice.toFixed(2)}$`;
     } else {
         return defaultValue;
     }
