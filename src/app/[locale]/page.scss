@@ -11,8 +11,8 @@ main {
 
 body {
   scrollbar-width: none;
-  //cursor: none !important;
-  //animation: 3s scrollUnBlock forwards;
+  cursor: none !important;
+  animation: 3s scrollUnBlock forwards;
 }
 
 div, li, a {
@@ -107,3 +107,9 @@ body {
   transform: translate(-50%, -50%);
 }
 
+
+@media (max-width: 768px) {
+  .custom-cursor {
+   display: none;
+  }
+}

@@ -41,22 +41,22 @@ const Index = ({setIsLoading}: {setIsLoading: (b: boolean) => void}) => {
         isDesigbVisible && setShowModel({
             modelName: 'head',
             size: 1.10,
-            color: 'green'
+            color: 'white'
         });
         isDevelopmentVisible && !isDesigbVisible && setShowModel({
             modelName: 'cursor',
             size: 0.8,
-            color: 'blue'
+            color: 'white'
         });
         isBrandingVisible && !isDevelopmentVisible && setShowModel({
             modelName: 'eye',
             size: 1.2,
-            color: 'red'
+            color: 'white'
         });
         !isDesigbVisible && !isBrandingVisible && !isDevelopmentVisible && setShowModel({
             modelName: '',
             size: 1.2,
-            color: 'red'
+            color: 'white'
         })
     }, [isDevelopmentVisible, isBrandingVisible, isDesigbVisible]);
 

@@ -72,7 +72,7 @@ const Index = ({hide, setIsLoading}: {hide: boolean, setIsLoading: (b: boolean) 
             to={`${isMobile ? 'footer' : 'spacer'}`}
             delay={500}
             duration={0}
-            offset={isMobile ? 0 : 2000}
+            offset={isMobile ? 0 : 0}
             onClick={() => {
                 setIsLoading(true)
                 setTimeout(() => {

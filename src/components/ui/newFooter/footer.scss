@@ -77,6 +77,9 @@ footer {
   flex-direction: column;
   gap: 5vw;
 
+  border-top: 3px solid $primary;
+  background: $black;
+
   padding: 5.208vw;
 
   .form-check {
@@ -255,7 +258,9 @@ footer {
 
 @media (max-width: 768px) {
   footer {
+    padding: 15.208vw 5.208vw 5.208vw 5.208vw;
     flex-direction: column;
+
     .form-check {
       display: flex;
       flex-direction: column;
