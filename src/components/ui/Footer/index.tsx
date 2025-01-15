@@ -387,7 +387,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div className="all-rights">
-                        <span>© 2024, frant, All Rights Reserved.</span>
+                        <span>© {new Date().getFullYear()}, frant, All Rights Reserved.</span>
                     </div>
                 </div>
             </footer>
